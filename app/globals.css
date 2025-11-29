@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Softer, warmer base colors */
+        --background: 42 25% 97%;
+        /* Soft sand instead of pure white */
+        --foreground: 222 47% 11%;
+
+        --card: 42 20% 95%;
+        /* Warm card background */
+        --card-foreground: 222 47% 11%;
+
+        --popover: 42 25% 97%;
+        --popover-foreground: 222 47% 11%;
+
+        --primary: 222 47% 11%;
+        --primary-foreground: 210 40% 98%;
+
+        --secondary: 42 15% 92%;
+        /* Warmer secondary */
+        --secondary-foreground: 222 47% 11%;
+
+        --muted: 42 20% 90%;
+        /* Warmer muted */
+        --muted-foreground: 215 16% 47%;
+
+        --accent: 42 25% 88%;
+        /* Warm accent */
+        --accent-foreground: 222 47% 11%;
+
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 42 15% 85%;
+        /* Softer borders */
+        --input: 42 15% 85%;
+        --ring: 222 47% 11%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 222 47% 8%;
+        /* Darker, richer navy */
+        --foreground: 42 30% 92%;
+
+        --card: 222 40% 10%;
+        /* Slightly lighter than background */
+        --card-foreground: 42 30% 92%;
+
+        --popover: 222 47% 8%;
+        --popover-foreground: 42 30% 92%;
+
+        --primary: 42 30% 92%;
+        --primary-foreground: 222 47% 11%;
+
+        --secondary: 222 35% 15%;
+        --secondary-foreground: 42 30% 92%;
+
+        --muted: 222 35% 18%;
+        --muted-foreground: 42 20% 70%;
+
+        --accent: 222 35% 20%;
+        --accent-foreground: 42 30% 92%;
+
+        --destructive: 0 62% 50%;
+        --destructive-foreground: 42 30% 92%;
+
+        --border: 222 30% 20%;
+        --input: 222 30% 20%;
+        --ring: 42 30% 70%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        background: hsl(var(--background));
+        color: hsl(var(--foreground));
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-serif tracking-tight;
+    }
+}
+
+/* Custom Scrollbar for Webkit */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-luxury-sand-50 dark:bg-luxury-navy-950;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-luxury-navy-200 dark:bg-luxury-navy-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-luxury-navy-300 dark:bg-luxury-navy-600;
+}
+
+/* Utility for section padding */
+.section-padding {
+    @apply py-16 md:py-24;
+}
+
+/* Utility for container */
+.container-custom {
+    @apply container mx-auto px-4 md:px-6 max-w-7xl;
+}

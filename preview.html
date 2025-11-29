@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferienwohnung Eggers - Vorschau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #0f172a;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            overflow: hidden;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        
+        .hero p {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: slideUp 0.7s ease-out;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 0.7s ease-out;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 2rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: #0f172a;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:hover {
+            background: #1e293b;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: #d4af69;
+            color: #0f172a;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary:hover {
+            background: #c29d54;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Warning Notice */
+        .warning-notice {
+            background: #fffbeb;
+            border-top: 1px solid #fde68a;
+            border-bottom: 1px solid #fde68a;
+            padding: 1.5rem 0;
+        }
+        
+        .warning-content {
+            display: flex;
+            gap: 1rem;
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+        
+        .warning-icon {
+            flex-shrink: 0;
+            color: #d97706;
+            margin-top: 0.25rem;
+        }
+        
+        .warning-text h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #78350f;
+            margin-bottom: 0.25rem;
+        }
+        
+        .warning-text p {
+            color: #92400e;
+        }
+        
+        /* Section */
+        section {
+            padding: 6rem 0;
+        }
+        
+        .section-alt {
+            background: #f8fafc;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: #64748b;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+        
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        /* Card */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+        
+        .card:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: #0f172a;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 500px;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">Ferienwohnung Eggers</a>
+                <ul class="nav-links">
+                    <li><a href="#">Start</a></li>
+                    <li><a href="#">Ausstattung</a></li>
+                    <li><a href="#">Galerie</a></li>
+                    <li><a href="#">Lage</a></li>
+                    <li><a href="#">Preise</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="#">Buchen</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Willkommen in der Ferienwohnung Eggers</h1>
+            <p>Ihr Zuhause an der Nordsee – ruhig gelegen, modern ausgestattet, nur 1000 Meter vom Wattenmeer entfernt</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Verfügbarkeit prüfen</a>
+                <a href="#" class="btn btn-secondary">Buchungsanfrage starten</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Notice -->
+    <div class="warning-notice">
+        <div class="container">
+            <div class="warning-content">
+                <div class="warning-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <div class="warning-text">
+                    <h3>Wichtiger Hinweis</h3>
+                    <p>In der Ferienwohnung gibt es <strong>keine Waschmaschine</strong>. Bitte planen Sie entsprechend für Ihren Aufenthalt.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Highlights Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Ihre Auszeit in Sahlenburg</h2>
+                <p>Genießen Sie 62 Quadratmeter moderne Wohnkultur in ruhiger Lage, nur wenige Gehminuten vom Strand entfernt. Ideal für Familien und Erholungssuchende.</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card">
+                    <svg class="card-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <h3>Bis zu 6 Gäste</h3>
+                    <p>62 qm Wohnfläche für Ihre Familie</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="4" r="2"></circle>
+                        <path d="M11 22c-3-3-7-3-7-6 0-3 4-3 4-6 0-3 3-3 3-3s3 0 3 3c0 3 4 3 4 6 0 3-4 3-7 6z"></path>
+                    </svg>
+                    <h3>Hundefreundlich</h3>
+                    <p>Ihr Vierbeiner ist willkommen</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <h3>Kostenloser Parkplatz</h3>
+                    <p>Direkt am Haus verfügbar</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
+                    <h3>WLAN inklusive</h3>
+                    <p>Schnelles Internet kostenfrei</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    <h3>Moderne Küche</h3>
+                    <p>Voll ausgestattet für Selbstversorger</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <h3>1000m zum Strand</h3>
+                    <p>Direkter Zugang zum Wattenmeer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul>
+                        <li>Nordheimstraße 150</li>
+                        <li>27476 Cuxhaven Sahlenburg</li>
+                        <li><a href="mailto:info@ferienwohnung-eggers.de">info@ferienwohnung-eggers.de</a></li>
+                        <li><a href="tel:+4947211234567">+49 (0) 4721 123 456</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="#">Ausstattung</a></li>
+                        <li><a href="#">Galerie</a></li>
+                        <li><a href="#">Lage</a></li>
+                        <li><a href="#">Preise</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Buchen</h3>
+                    <ul>
+                        <li><a href="#">Buchungsanfrage</a></li>
+                        <li><a href="#">Kontaktformular</a></li>
+                        <li><a href="#">Preise & Konditionen</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Rechtliches</h3>
+                    <ul>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Ferienwohnung Eggers. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
