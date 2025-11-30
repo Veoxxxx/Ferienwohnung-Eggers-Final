@@ -43,7 +43,6 @@ export class BookingStore {
         bookingRequests.push(bookingRequest);
 
         // In production, send email notification here
-        console.log("New booking request created:", bookingRequest);
 
         return bookingRequest;
     }

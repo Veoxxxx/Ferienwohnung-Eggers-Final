@@ -59,22 +59,22 @@ export default async function LagePage({
                                 <p className="mb-4">{t("discover.text2")}</p>
                             </div>
 
-                            <div className="mt-8 grid grid-cols-2 gap-4">
-                                <div className="flex items-center gap-3 p-3 bg-luxury-sand-50 dark:bg-luxury-navy-900 rounded-lg">
-                                    <Waves className="h-5 w-5 text-luxury-navy-500" />
-                                    <span className="text-sm font-medium">{t("distances.beach")}</span>
+                            <div className="mt-8 grid grid-cols-2 gap-6">
+                                <div className="flex items-center gap-4 p-5 bg-luxury-sand-50 dark:bg-luxury-navy-900 rounded-xl">
+                                    <Waves className="h-7 w-7 text-luxury-navy-500" />
+                                    <span className="text-base font-medium">{t("distances.beach")}</span>
                                 </div>
-                                <div className="flex items-center gap-3 p-3 bg-luxury-sand-50 dark:bg-luxury-navy-900 rounded-lg">
-                                    <TreePine className="h-5 w-5 text-luxury-navy-500" />
-                                    <span className="text-sm font-medium">{t("distances.forest")}</span>
+                                <div className="flex items-center gap-4 p-5 bg-luxury-sand-50 dark:bg-luxury-navy-900 rounded-xl">
+                                    <TreePine className="h-7 w-7 text-luxury-navy-500" />
+                                    <span className="text-base font-medium">{t("distances.forest")}</span>
                                 </div>
-                                <div className="flex items-center gap-3 p-3 bg-luxury-sand-50 dark:bg-luxury-navy-900 rounded-lg">
-                                    <Utensils className="h-5 w-5 text-luxury-navy-500" />
-                                    <span className="text-sm font-medium">{t("distances.restaurants")}</span>
+                                <div className="flex items-center gap-4 p-5 bg-luxury-sand-50 dark:bg-luxury-navy-900 rounded-xl">
+                                    <Utensils className="h-7 w-7 text-luxury-navy-500" />
+                                    <span className="text-base font-medium">{t("distances.restaurants")}</span>
                                 </div>
-                                <div className="flex items-center gap-3 p-3 bg-luxury-sand-50 dark:bg-luxury-navy-900 rounded-lg">
-                                    <Map className="h-5 w-5 text-luxury-navy-500" />
-                                    <span className="text-sm font-medium">{t("distances.center")}</span>
+                                <div className="flex items-center gap-4 p-5 bg-luxury-sand-50 dark:bg-luxury-navy-900 rounded-xl">
+                                    <Map className="h-7 w-7 text-luxury-navy-500" />
+                                    <span className="text-base font-medium">{t("distances.center")}</span>
                                 </div>
                             </div>
                         </AnimatedSection>

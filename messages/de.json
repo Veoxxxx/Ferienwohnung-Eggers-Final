@@ -234,10 +234,10 @@
       "text2": "Unsere Ferienwohnung liegt in der Nordheimstraße 150, einer ruhigen Wohngegend. Von hier aus erreichen Sie den Strand und das Wattenmeer in wenigen Minuten – perfekt für lange Spaziergänge oder einen entspannten Strandtag."
     },
     "distances": {
-      "beach": "1000m zum Strand",
-      "forest": "Wernerwald nah",
-      "restaurants": "800m zu Restaurants",
-      "center": "5km zum Zentrum"
+      "beach": "12 Min. zum Strand (1 km)",
+      "forest": "Wernerwald direkt nebenan",
+      "restaurants": "10 Min. zu Restaurants (800 m)",
+      "center": "10 Min. zum Zentrum (mit dem Auto)"
     },
     "map": {
       "address": "Nordheimstraße 150",

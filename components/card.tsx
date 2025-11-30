@@ -10,19 +10,27 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
     ({ className, hover = false, ...props }, ref) => {
-        const CardComponent = hover ? motion.div : "div";
+        const baseClassName = cn(
+            "rounded-lg border border-luxury-navy-200 dark:border-luxury-navy-800 bg-white dark:bg-luxury-navy-900 shadow-sm transition-colors",
+            className
+        );
+
+        if (hover) {
+            return (
+                <motion.div
+                    ref={ref}
+                    whileHover={{ y: -4, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                    transition={{ duration: 0.2 }}
+                    className={baseClassName}
+                    {...(props as React.ComponentPropsWithoutRef<typeof motion.div>)}
+                />
+            );
+        }
 
         return (
-            <CardComponent
+            <div
                 ref={ref}
-                {...(hover && {
-                    whileHover: { y: -4, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" },
-                    transition: { duration: 0.2 },
-                })}
-                className={cn(
-                    "rounded-lg border border-luxury-navy-200 dark:border-luxury-navy-800 bg-white dark:bg-luxury-navy-900 shadow-sm transition-colors",
-                    className
-                )}
+                className={baseClassName}
                 {...props}
             />
         );

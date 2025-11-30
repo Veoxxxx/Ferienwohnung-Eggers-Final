@@ -234,10 +234,10 @@
       "text2": "Our holiday apartment is located at Nordheimstraße 150, a quiet residential area. From here you can reach the beach and the Wadden Sea in just a few minutes – perfect for long walks or a relaxing beach day."
     },
     "distances": {
-      "beach": "1000m to beach",
-      "forest": "Near Wernerwald",
-      "restaurants": "800m to restaurants",
-      "center": "5km to center"
+      "beach": "12 min to beach (1 km)",
+      "forest": "Wernerwald right next door",
+      "restaurants": "10 min to restaurants (800 m)",
+      "center": "10 min to center (by car)"
     },
     "map": {
       "address": "Nordheimstraße 150",

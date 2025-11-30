@@ -41,7 +41,7 @@ export function generateMetadata({
             type: "website",
             images: [
                 {
-                    url: `${siteConfig.url}/images/hero-living-room.jpg`,
+                    url: `${siteConfig.url}/images/hero-living-room.png`,
                     width: 1200,
                     height: 630,
                     alt: "Ferienwohnung Eggers - Wohnzimmer",
