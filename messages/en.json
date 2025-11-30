@@ -727,25 +727,33 @@
     "steps": {
       "periodAndGuests": "Period & Guests",
       "contactInfo": "Contact Details",
-      "summary": "Summary"
+      "summary": "Summary",
+      "dates": "Select Dates",
+      "guestData": "Guest Data",
+      "confirmation": "Confirmation"
     },
     "buttons": {
       "cancel": "Cancel",
       "back": "Back",
       "next": "Next",
-      "sendRequest": "Send Request"
+      "sendRequest": "Send Request",
+      "done": "Done"
     },
     "step1": {
       "title": "Choose Your Period",
-      "description": "Calendar and guest selection"
+      "description": "Select your check-in and check-out dates and the number of guests."
     },
     "step2": {
       "title": "Your Contact Details",
-      "description": "Contact form"
+      "description": "Please enter your contact information so we can process your request."
     },
     "step3": {
       "title": "Summary of Your Request",
-      "description": "Summary"
+      "description": "Review your information and submit your booking request."
+    },
+    "step4": {
+      "title": "Request Sent Successfully!",
+      "description": "Thank you for your booking request. We will get back to you within 24 hours."
     }
   },
   "General": {

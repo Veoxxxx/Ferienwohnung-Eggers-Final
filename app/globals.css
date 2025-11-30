@@ -107,7 +107,7 @@
     h4,
     h5,
     h6 {
-        @apply font-serif tracking-tight;
+        @apply font-serif tracking-wide;
     }
 }
 
@@ -130,6 +130,40 @@
     
     .text-lead {
         @apply text-xl md:text-2xl font-light leading-relaxed;
+    }
+
+    /* Quiet Luxury: Subtle Noise Texture */
+    .texture-noise {
+        position: relative;
+    }
+    
+    .texture-noise::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 1;
+        mix-blend-mode: overlay;
+    }
+
+    /* Glass Panel - Frosted Glass Effect */
+    .glass-panel {
+        @apply bg-luxury-sand-50/80 dark:bg-luxury-navy-900/80 
+               backdrop-blur-md 
+               border border-white/20 dark:border-white/10
+               shadow-xl
+               rounded-xl;
+    }
+
+    /* Textured Backgrounds */
+    .bg-textured-sand {
+        @apply bg-luxury-sand-50 texture-noise;
+    }
+
+    .bg-textured-navy {
+        @apply bg-luxury-navy-900 texture-noise;
     }
 }
 

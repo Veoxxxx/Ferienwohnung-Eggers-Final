@@ -727,25 +727,33 @@
     "steps": {
       "periodAndGuests": "Zeitraum & Gäste",
       "contactInfo": "Kontaktdaten",
-      "summary": "Zusammenfassung"
+      "summary": "Zusammenfassung",
+      "dates": "Daten wählen",
+      "guestData": "Gastdaten",
+      "confirmation": "Bestätigung"
     },
     "buttons": {
       "cancel": "Abbrechen",
       "back": "Zurück",
       "next": "Weiter",
-      "sendRequest": "Anfrage senden"
+      "sendRequest": "Anfrage senden",
+      "done": "Fertig"
     },
     "step1": {
       "title": "Wählen Sie Ihren Zeitraum",
-      "description": "Kalender und Gästeauswahl"
+      "description": "Wählen Sie Ihre An- und Abreisedaten sowie die Anzahl der Gäste."
     },
     "step2": {
       "title": "Ihre Kontaktdaten",
-      "description": "Kontaktformular"
+      "description": "Bitte geben Sie Ihre Kontaktdaten ein, damit wir Ihre Anfrage bearbeiten können."
     },
     "step3": {
       "title": "Zusammenfassung Ihrer Anfrage",
-      "description": "Zusammenfassung"
+      "description": "Überprüfen Sie Ihre Angaben und senden Sie Ihre Buchungsanfrage ab."
+    },
+    "step4": {
+      "title": "Anfrage erfolgreich gesendet!",
+      "description": "Vielen Dank für Ihre Buchungsanfrage. Wir werden uns innerhalb von 24 Stunden bei Ihnen melden."
     }
   },
   "General": {

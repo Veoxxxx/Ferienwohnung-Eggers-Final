@@ -2,6 +2,7 @@ import { Button } from "@/components/button";
 import { Card, CardContent } from "@/components/card";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { HeroParallax } from "@/components/sections/HeroParallax";
 import { Icons } from "@/components/icons";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
@@ -40,55 +41,17 @@ export default function Home({
 
     return (
         <div className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-                {/* Background Image with Overlay */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={siteContent.pages.home.hero.backgroundImage}
-                        alt={t("Hero.altText")}
-                        fill
-                        priority
-                        className="object-cover"
-                        sizes="100vw"
-                        quality={90}
-                    />
-                    <div className="absolute inset-0 bg-luxury-navy-950/40 z-10" />
-                </div>
-
-                {/* Hero Content */}
-                <div className="container-custom relative z-20 text-center text-white">
-                    <AnimatedSection>
-                        <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 tracking-tight">
-                            {t("Hero.headline")}
-                        </h1>
-                        <p className="text-xl md:text-2xl text-luxury-sand-100 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                            {t("Hero.subheadline")}
-                        </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <Link href="/buchen">
-                                <Button size="lg" className="min-w-[200px] text-lg">
-                                    {t("Hero.primaryCta")}
-                                </Button>
-                            </Link>
-                            <Link href="/galerie">
-                                <Button
-                                    variant="outline"
-                                    size="lg"
-                                    className="min-w-[200px] text-lg bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-luxury-navy-900"
-                                >
-                                    {t("Hero.secondaryCta")}
-                                </Button>
-                            </Link>
-                        </div>
-                    </AnimatedSection>
-                </div>
-
-                {/* Scroll Indicator */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce text-white/80">
-                    <Icons.arrowRight className="h-6 w-6 rotate-90" />
-                </div>
-            </section>
+            {/* Hero Section mit Parallax-Effekt */}
+            <HeroParallax
+                backgroundImage={siteContent.pages.home.hero.backgroundImage}
+                altText={t("Hero.altText")}
+                headline={t("Hero.headline")}
+                subheadline={t("Hero.subheadline")}
+                primaryCta={t("Hero.primaryCta")}
+                primaryCtaHref="/buchen"
+                secondaryCta={t("Hero.secondaryCta")}
+                secondaryCtaHref="/galerie"
+            />
 
             {/* Intro Section */}
             <section className="section-padding">

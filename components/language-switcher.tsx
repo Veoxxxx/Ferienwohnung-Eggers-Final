@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
@@ -8,38 +8,39 @@ export function LanguageSwitcher() {
     const locale = useLocale();
     const router = useRouter();
     const pathname = usePathname();
-    const t = useTranslations("LanguageSwitcher");
 
     const switchLocale = (newLocale: "de" | "en") => {
         router.replace(pathname, { locale: newLocale });
     };
 
     return (
-        <div className="flex items-center gap-1 text-sm font-medium">
+        <div className="flex items-center gap-1 text-sm">
             <button
                 onClick={() => switchLocale("de")}
                 className={cn(
-                    "px-2 py-1 rounded transition-colors",
+                    "px-1.5 py-0.5 rounded-sm transition-colors duration-200",
                     locale === "de"
-                        ? "text-luxury-navy-900 dark:text-slate-100 bg-luxury-navy-100 dark:bg-luxury-navy-800"
-                        : "text-luxury-navy-500 dark:text-slate-400 hover:text-luxury-navy-700 dark:hover:text-slate-300"
+                        ? "font-bold text-luxury-navy-900 dark:text-luxury-sand-50"
+                        : "text-gray-400 hover:text-luxury-gold-500 dark:hover:text-luxury-gold-400"
                 )}
                 aria-label="Deutsch"
+                aria-current={locale === "de" ? "true" : undefined}
             >
-                {t("de")}
+                DE
             </button>
-            <span className="text-luxury-navy-300 dark:text-luxury-navy-600">|</span>
+            <span className="text-gray-300 dark:text-luxury-navy-600 select-none">|</span>
             <button
                 onClick={() => switchLocale("en")}
                 className={cn(
-                    "px-2 py-1 rounded transition-colors",
+                    "px-1.5 py-0.5 rounded-sm transition-colors duration-200",
                     locale === "en"
-                        ? "text-luxury-navy-900 dark:text-slate-100 bg-luxury-navy-100 dark:bg-luxury-navy-800"
-                        : "text-luxury-navy-500 dark:text-slate-400 hover:text-luxury-navy-700 dark:hover:text-slate-300"
+                        ? "font-bold text-luxury-navy-900 dark:text-luxury-sand-50"
+                        : "text-gray-400 hover:text-luxury-gold-500 dark:hover:text-luxury-gold-400"
                 )}
                 aria-label="English"
+                aria-current={locale === "en" ? "true" : undefined}
             >
-                {t("en")}
+                EN
             </button>
         </div>
     );
