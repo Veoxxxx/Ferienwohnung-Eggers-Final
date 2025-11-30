@@ -760,6 +760,13 @@
       "phoneRaw": "+4947211234567",
       "email": "info@ferienwohnung-eggers.de"
     }
+  },
+  "CookieBanner": {
+    "title": "Cookie Notice",
+    "text": "This website only uses technically necessary cookies to ensure functionality (e.g., theme settings). No tracking or advertising cookies are used.",
+    "privacyLink": "Learn more",
+    "accept": "Got it",
+    "close": "Close"
   }
 }
 

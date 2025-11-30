@@ -8,6 +8,7 @@ import "../globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { DarkModeProvider } from "@/components/dark-mode-provider";
+import { CookieBanner } from "@/components/cookie-banner";
 import { ThemeRegistry } from "@/components/theme-registry";
 import { generateVacationRentalSchema } from "@/lib/metadata";
 import { siteContent } from "@/lib/content";
@@ -36,8 +37,8 @@ export async function generateMetadata({
     const { locale } = await params;
 
     const titles: Record<string, string> = {
-        de: "Ferienwohnung Eggers",
-        en: "Holiday Apartment Eggers",
+        de: "Ferienwohnung Eggers | Urlaub in Cuxhaven Sahlenburg",
+        en: "Holiday Apartment Eggers | Vacation in Cuxhaven Sahlenburg",
     };
 
     const descriptions: Record<string, string> = {
@@ -95,6 +96,7 @@ export default async function LocaleLayout({
                             <main className="flex-grow">{children}</main>
                             <Footer />
                         </div>
+                        <CookieBanner />
                     </DarkModeProvider>
                 </NextIntlClientProvider>
             </body>
