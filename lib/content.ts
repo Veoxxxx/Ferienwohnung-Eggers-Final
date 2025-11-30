@@ -58,6 +58,30 @@ export const siteContent = {
                     { iconName: "MapPin", title: "Privater Parkplatz", desc: "Kostenfreier Stellplatz direkt am Haus für Ihre bequeme Anreise." },
                     { iconName: "Star", title: "Barrierefrei", desc: "Ebenerdiger Zugang und behindertengerechtes Badezimmer." },
                 ]
+            },
+            testimonials: {
+                headline: "Das sagen unsere Gäste",
+                subheadline: "Echte Bewertungen von Google",
+                reviews: [
+                    {
+                        name: "Sabine M.",
+                        date: "August 2024",
+                        text: "Eine wunderschöne Wohnung! Die Ruhe in Sahlenburg ist traumhaft und der Weg zum Strand ist ein schöner Spaziergang. Besonders toll fanden wir, dass unser Hund so willkommen war.",
+                        rating: 5,
+                    },
+                    {
+                        name: "Michael K.",
+                        date: "Juli 2024",
+                        text: "Top Ausstattung, es hat an nichts gefehlt. Die Terrasse ist super zum Frühstücken. Auch die Barrierefreiheit ist sehr gut gelöst. Wir kommen definitiv wieder!",
+                        rating: 5,
+                    },
+                    {
+                        name: "Familie Weber",
+                        date: "Mai 2024",
+                        text: "Sehr sauber und gemütlich eingerichtet. Der Kontakt zur Familie Eggers war total unkompliziert und herzlich. Preis-Leistung für Cuxhaven absolut fair.",
+                        rating: 5,
+                    }
+                ]
             }
         },
         gallery: {
