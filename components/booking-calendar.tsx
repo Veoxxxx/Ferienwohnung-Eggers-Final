@@ -171,10 +171,10 @@ export function BookingCalendar({
                             className={cn(
                                 "aspect-square flex items-center justify-center text-sm rounded-md transition-all",
                                 "focus:outline-none focus:ring-2 focus:ring-luxury-navy-500",
-                                selected && "bg-luxury-navy-900 text-white dark:bg-luxury-navy-600",
-                                inRange && !selected && "bg-luxury-navy-200 dark:bg-luxury-navy-700",
-                                !isPast && isAvailable && !selected && !inRange && "hover:bg-luxury-navy-100 dark:hover:bg-luxury-navy-800",
-                                (isPast || !isAvailable) && "opacity-30 cursor-not-allowed line-through"
+                                selected && "bg-luxury-navy-900 text-white shadow-md dark:bg-white dark:text-luxury-navy-900",
+                                inRange && !selected && "bg-luxury-navy-100 text-luxury-navy-900 dark:bg-luxury-navy-800 dark:text-luxury-sand-200",
+                                !isPast && isAvailable && !selected && !inRange && "hover:bg-luxury-sand-100 dark:hover:bg-luxury-navy-800",
+                                (isPast || !isAvailable) && "text-gray-300 dark:text-gray-700 cursor-not-allowed"
                             )}
                         >
                             {day}
@@ -184,18 +184,22 @@ export function BookingCalendar({
             </div>
 
             {/* Legend */}
-            <div className="mt-4 flex flex-wrap gap-4 text-xs text-luxury-navy-600 dark:text-slate-400">
+            <div className="mt-6 pt-4 border-t border-luxury-sand-100 dark:border-luxury-navy-800 flex flex-wrap gap-4 text-xs font-medium text-luxury-navy-600 dark:text-slate-400">
                 <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-luxury-navy-900 dark:bg-luxury-navy-600 rounded"></div>
+                    <div className="w-3 h-3 bg-luxury-navy-900 dark:bg-white rounded-full"></div>
                     <span>Ausgewählt</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-luxury-navy-200 dark:bg-luxury-navy-700 rounded"></div>
+                    <div className="w-3 h-3 bg-luxury-navy-100 dark:bg-luxury-navy-800 rounded-full"></div>
                     <span>Zeitraum</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-white dark:bg-luxury-navy-900 border border-luxury-navy-300 dark:border-luxury-navy-700 rounded line-through"></div>
-                    <span>Belegt</span>
+                    <div className="w-3 h-3 bg-white border border-gray-200 dark:border-gray-700 dark:bg-transparent rounded-full relative">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-2 h-[1px] bg-gray-300 dark:bg-gray-600 transform -rotate-45"></div>
+                        </div>
+                    </div>
+                    <span className="text-gray-400 dark:text-gray-500">Belegt / Vergangen</span>
                 </div>
             </div>
         </div>

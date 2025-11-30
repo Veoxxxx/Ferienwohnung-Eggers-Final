@@ -8,15 +8,7 @@ import { useTheme } from "./dark-mode-provider";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navItems = [
-    { href: "/", label: "Start" },
-    { href: "/ausstattung", label: "Ausstattung" },
-    { href: "/galerie", label: "Galerie" },
-    { href: "/lage", label: "Lage" },
-    { href: "/preise", label: "Preise" },
-    { href: "/kontakt", label: "Kontakt" },
-    { href: "/buchen", label: "Buchen" },
-];
+import { siteContent } from "@/lib/content";
 
 export function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,9 +29,9 @@ export function Navigation() {
         <nav
             className={cn(
                 "sticky top-0 z-50 transition-all duration-300 border-b",
-                scrolled
-                    ? "bg-white/95 dark:bg-luxury-navy-950/95 backdrop-blur-md border-luxury-navy-100 dark:border-luxury-navy-800 shadow-sm py-2"
-                    : "bg-white dark:bg-luxury-navy-950 border-transparent py-4"
+                scrolled || mobileMenuOpen
+                    ? "bg-white/95 dark:bg-luxury-navy-950/95 backdrop-blur-md border-luxury-navy-100 dark:border-luxury-navy-800 shadow-sm py-4"
+                    : "bg-transparent border-transparent py-6"
             )}
         >
             <div className="container-custom">
@@ -49,12 +41,12 @@ export function Navigation() {
                         href="/"
                         className="text-2xl font-serif font-bold text-luxury-navy-900 dark:text-slate-100 hover:text-luxury-navy-700 dark:hover:text-slate-300 transition-colors"
                     >
-                        Ferienwohnung Eggers
+                        {siteContent.general.brandName}
                     </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-8">
-                        {navItems.map((item) => (
+                        {siteContent.navigation.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
@@ -126,7 +118,7 @@ export function Navigation() {
                             className="lg:hidden overflow-hidden"
                         >
                             <div className="border-t border-luxury-navy-100 dark:border-luxury-navy-800 py-4 mt-4 flex flex-col space-y-2">
-                                {navItems.map((item) => (
+                                {siteContent.navigation.map((item) => (
                                     <Link
                                         key={item.href}
                                         href={item.href}

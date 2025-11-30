@@ -1,6 +1,7 @@
 import { generateMetadata as genMeta } from "@/lib/metadata";
 import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { siteContent } from "@/lib/content";
 
 export const metadata = genMeta({
     title: "Bildergalerie",
@@ -8,73 +9,6 @@ export const metadata = genMeta({
         "Entdecken Sie die Ferienwohnung Eggers in Bildern. Wohnzimmer, Schlafzimmer, Küche und die Umgebung von Cuxhaven-Sahlenburg.",
     path: "/galerie",
 });
-
-// Gallery data structure with real images
-const galleryCategories = [
-    {
-        title: "Wohnen & Leben",
-        description: "Lichtdurchflutete Räume zum Entspannen",
-        images: [
-            {
-                src: "/images/interior/living-room-main.png",
-                alt: "Helles Wohnzimmer der Ferienwohnung Eggers mit Sofa und großen Fenstern",
-                span: "md:col-span-2 md:row-span-2"
-            },
-            {
-                src: "/images/interior/living-room-main.png",
-                alt: "Gemütlicher Wohnbereich mit Essbereich",
-                span: "md:col-span-1 md:row-span-1"
-            },
-            {
-                src: "/images/interior/living-room-main.png",
-                alt: "Detailansicht des Wohnbereichs",
-                span: "md:col-span-1 md:row-span-1"
-            },
-        ]
-    },
-    {
-        title: "Schlafen & Erholen",
-        description: "Ruhige Rückzugsorte für erholsamen Schlaf",
-        images: [
-            {
-                src: "/images/interior/living-room-main.png",
-                alt: "Hauptschlafzimmer mit Doppelbett",
-                span: "md:col-span-2 md:row-span-1"
-            },
-            {
-                src: "/images/interior/living-room-main.png",
-                alt: "Zweites Schlafzimmer",
-                span: "md:col-span-1 md:row-span-1"
-            },
-            {
-                src: "/images/interior/living-room-main.png",
-                alt: "Gemütliche Betten mit hochwertiger Bettwäsche",
-                span: "md:col-span-1 md:row-span-1"
-            },
-        ]
-    },
-    {
-        title: "Umgebung & Natur",
-        description: "Sahlenburg, Wernerwald und das Wattenmeer",
-        images: [
-            {
-                src: "/images/surroundings/beach-sunset.png",
-                alt: "Strand bei Sonnenuntergang in Cuxhaven-Sahlenburg",
-                span: "md:col-span-2 md:row-span-1"
-            },
-            {
-                src: "/images/surroundings/forest-path.png",
-                alt: "Waldweg im nahegelegenen Wernerwald",
-                span: "md:col-span-1 md:row-span-1"
-            },
-            {
-                src: "/images/surroundings/beach-sunset.png",
-                alt: "Wattenmeer bei Ebbe",
-                span: "md:col-span-1 md:row-span-1"
-            },
-        ]
-    }
-];
 
 export default function GaleriePage() {
     return (
@@ -94,9 +28,9 @@ export default function GaleriePage() {
             </section>
 
             {/* Gallery Sections */}
-            <div className="bg-white dark:bg-luxury-navy-950 pb-24">
-                {galleryCategories.map((category, categoryIndex) => (
-                    <section key={categoryIndex} className="section-padding border-b border-luxury-navy-100 dark:border-luxury-navy-800 last:border-none">
+            <div className="pb-24">
+                {siteContent.pages.gallery.categories.map((category, categoryIndex) => (
+                    <section key={category.id} className="section-padding border-b border-luxury-navy-100 dark:border-luxury-navy-800 last:border-none">
                         <div className="container-custom">
                             <AnimatedSection className="mb-12">
                                 <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3 text-luxury-navy-900 dark:text-luxury-sand-100">

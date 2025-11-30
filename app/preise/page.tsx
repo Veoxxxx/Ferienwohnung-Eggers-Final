@@ -30,7 +30,7 @@ export default function PreisePage() {
             </section>
 
             {/* Pricing Components */}
-            <section className="section-padding bg-white dark:bg-luxury-navy-950">
+            <section className="section-padding">
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-2 gap-16">
                         <AnimatedSection>
@@ -139,7 +139,7 @@ export default function PreisePage() {
             </section>
 
             {/* Conditions Grid */}
-            <section className="section-padding bg-luxury-sand-50 dark:bg-luxury-navy-800">
+            <section className="section-padding">
                 <div className="container-custom">
                     <AnimatedSection className="text-center mb-12">
                         <h2 className="text-3xl font-serif font-bold mb-4">Wichtige Konditionen</h2>

@@ -1,0 +1,36 @@
+import {
+    ArrowRight,
+    Check,
+    Coffee,
+    Dog,
+    Loader2,
+    Mail,
+    MapPin,
+    Menu,
+    Moon,
+    Phone,
+    Star,
+    Sun,
+    Waves,
+    Wifi,
+    X,
+} from "lucide-react";
+
+export const Icons = {
+    arrowRight: ArrowRight,
+    check: Check,
+    coffee: Coffee,
+    dog: Dog,
+    loader: Loader2,
+    mail: Mail,
+    mapPin: MapPin,
+    menu: Menu,
+    moon: Moon,
+    phone: Phone,
+    star: Star,
+    sun: Sun,
+    waves: Waves,
+    wifi: Wifi,
+    close: X,
+};
+

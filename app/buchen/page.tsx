@@ -5,9 +5,10 @@ import { BookingCalendar } from "@/components/booking-calendar";
 import { BookingForm } from "@/components/booking-form";
 import { PriceSummary } from "@/components/booking/price-summary";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/card";
-import { AlertCircle, Check, Info, Calendar as CalendarIcon } from "lucide-react";
+import { AlertCircle, Check, Info, Calendar as CalendarIcon, Clock, Dog, CigaretteOff, Car, ShieldCheck, Sparkles } from "lucide-react";
 import { validateMinimumStay } from "@/lib/utils";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { siteContent } from "@/lib/content";
 
 export default function BuchenPage() {
     const [selectedStartDate, setSelectedStartDate] = useState<Date>();
@@ -42,23 +43,27 @@ export default function BuchenPage() {
             </section>
 
             {/* Content */}
-            <section className="section-padding bg-white dark:bg-luxury-navy-950">
+            <section className="section-padding">
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-2 gap-12">
                         {/* Left Column: Calendar and Info */}
                         <div className="space-y-8">
                             <AnimatedSection>
-                                <Card className="border-none shadow-lg bg-white dark:bg-luxury-navy-900">
-                                    <CardHeader>
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <CalendarIcon className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                            <CardTitle className="font-serif text-2xl">Verfügbarkeit prüfen</CardTitle>
+                                <Card className="border border-luxury-sand-100 dark:border-luxury-navy-800 shadow-sm bg-white dark:bg-luxury-navy-900">
+                                    <CardHeader className="pb-6 border-b border-luxury-sand-50 dark:border-luxury-navy-800 mb-6">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2.5 rounded-xl bg-luxury-sand-50 dark:bg-luxury-navy-800 text-luxury-navy-900 dark:text-luxury-sand-400">
+                                                <CalendarIcon className="h-6 w-6" />
+                                            </div>
+                                            <div>
+                                                <CardTitle className="font-serif text-2xl">Verfügbarkeit prüfen</CardTitle>
+                                                <CardDescription className="mt-1 text-base">
+                                                    Wählen Sie Ihren gewünschten Reisezeitraum
+                                                </CardDescription>
+                                            </div>
                                         </div>
-                                        <CardDescription>
-                                            Wählen Sie An- und Abreise im Kalender
-                                        </CardDescription>
                                     </CardHeader>
-                                    <CardContent>
+                                    <CardContent className="p-2 sm:p-6">
                                         <BookingCalendar
                                             onSelectRange={handleSelectRange}
                                             selectedStartDate={selectedStartDate}
@@ -82,71 +87,122 @@ export default function BuchenPage() {
                                 </AnimatedSection>
                             )}
 
-                            {/* Booking Conditions */}
+                            {/* Booking Conditions & House Rules */}
                             <AnimatedSection delay={0.1}>
-                                <Card className="border-none shadow-md bg-luxury-sand-50 dark:bg-luxury-navy-900">
-                                    <CardHeader>
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <Info className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                            <CardTitle className="font-serif text-xl">Konditionen im Überblick</CardTitle>
+                                <div className="bg-luxury-sand-50 dark:bg-luxury-navy-900/50 rounded-2xl p-6 md:p-8 border border-luxury-sand-100 dark:border-luxury-navy-800">
+                                    <div className="flex items-center gap-3 mb-8">
+                                        <div className="p-2.5 rounded-xl bg-white dark:bg-luxury-navy-800 text-luxury-navy-900 dark:text-luxury-sand-400 shadow-sm">
+                                            <Info className="h-5 w-5" />
                                         </div>
-                                    </CardHeader>
-                                    <CardContent className="space-y-3 text-luxury-navy-600 dark:text-slate-400">
-                                        <div className="flex justify-between items-center pb-3 border-b border-luxury-navy-200 dark:border-luxury-navy-800">
-                                            <span className="font-medium">Mindestaufenthalt</span>
-                                            <span className="text-luxury-navy-900 dark:text-slate-100">3 Nächte</span>
-                                        </div>
-                                        <div className="flex justify-between items-center pb-3 border-b border-luxury-navy-200 dark:border-luxury-navy-800">
-                                            <span className="font-medium">Kurtaxe</span>
-                                            <span className="text-luxury-navy-900 dark:text-slate-100">€4,10 / Erwachsener / Tag</span>
-                                        </div>
-                                        <div className="flex justify-between items-center pb-3 border-b border-luxury-navy-200 dark:border-luxury-navy-800">
-                                            <span className="font-medium">Kaution</span>
-                                            <span className="text-luxury-navy-900 dark:text-slate-100">Keine</span>
-                                        </div>
-                                        <div className="flex justify-between items-center">
-                                            <span className="font-medium">Endreinigung</span>
-                                            <span className="text-luxury-navy-900 dark:text-slate-100">Inklusive</span>
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            </AnimatedSection>
+                                        <h3 className="font-serif text-2xl font-bold text-luxury-navy-900 dark:text-luxury-sand-100">
+                                            Wichtige Informationen
+                                        </h3>
+                                    </div>
 
-                            {/* House Rules */}
-                            <AnimatedSection delay={0.2}>
-                                <Card className="border-none shadow-md bg-luxury-sand-50 dark:bg-luxury-navy-900">
-                                    <CardHeader>
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <Check className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                            <CardTitle className="font-serif text-xl">Gut zu wissen</CardTitle>
+                                    <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+                                        {/* Konditionen */}
+                                        <div className="space-y-6">
+                                            <h4 className="font-medium text-luxury-navy-900 dark:text-luxury-sand-200 uppercase tracking-wider text-xs border-b border-luxury-sand-200 dark:border-luxury-navy-700 pb-2">
+                                                Konditionen
+                                            </h4>
+                                            <ul className="space-y-4">
+                                                <li className="flex justify-between items-center group">
+                                                    <span className="text-luxury-navy-600 dark:text-slate-400 text-sm flex items-center gap-2">
+                                                        <CalendarIcon className="h-4 w-4 text-luxury-sand-400" />
+                                                        Mindestaufenthalt
+                                                    </span>
+                                                    <span className="font-medium text-luxury-navy-900 dark:text-slate-200">
+                                                        {siteContent.booking.prices.minimumStay} Nächte
+                                                    </span>
+                                                </li>
+                                                <li className="flex justify-between items-center group">
+                                                    <span className="text-luxury-navy-600 dark:text-slate-400 text-sm flex items-center gap-2">
+                                                        <Info className="h-4 w-4 text-luxury-sand-400" />
+                                                        Kurtaxe
+                                                    </span>
+                                                    <div className="text-right">
+                                                        <span className="font-medium text-luxury-navy-900 dark:text-slate-200 block">
+                                                            €{siteContent.booking.prices.cityTaxPerAdultPerNight.toFixed(2).replace('.', ',')}
+                                                        </span>
+                                                        <span className="text-[10px] text-luxury-navy-400 uppercase tracking-wide">p.P. / Tag</span>
+                                                    </div>
+                                                </li>
+                                                <li className="flex justify-between items-center group">
+                                                    <span className="text-luxury-navy-600 dark:text-slate-400 text-sm flex items-center gap-2">
+                                                        <ShieldCheck className="h-4 w-4 text-luxury-sand-400" />
+                                                        Kaution
+                                                    </span>
+                                                    <span className="font-medium text-luxury-navy-900 dark:text-slate-200">
+                                                        Keine
+                                                    </span>
+                                                </li>
+                                                <li className="flex justify-between items-center group pt-2 border-t border-luxury-sand-200/50 dark:border-luxury-navy-700/50">
+                                                    <span className="text-luxury-navy-600 dark:text-slate-400 text-sm flex items-center gap-2">
+                                                        <Sparkles className="h-4 w-4 text-luxury-sand-400" />
+                                                        Endreinigung
+                                                    </span>
+                                                    <div className="text-right">
+                                                        <span className="font-medium text-luxury-navy-900 dark:text-slate-200 block">
+                                                            €{siteContent.booking.prices.cleaningFee.toFixed(2).replace('.', ',')}
+                                                        </span>
+                                                        <span className="text-[10px] text-luxury-navy-400 font-medium uppercase tracking-wide">Einmalig</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <ul className="space-y-2 text-luxury-navy-600 dark:text-slate-400">
-                                            <li className="flex items-start gap-2">
-                                                <span className="text-luxury-navy-900 dark:text-slate-100 font-bold">•</span>
-                                                Hunde sind herzlich willkommen
-                                            </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="text-luxury-navy-900 dark:text-slate-100 font-bold">•</span>
-                                                Nichtraucher im Innenbereich
-                                            </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="text-luxury-navy-900 dark:text-slate-100 font-bold">•</span>
-                                                Check-in ab 15:00 Uhr, Check-out bis 10:00 Uhr
-                                            </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="text-luxury-navy-900 dark:text-slate-100 font-bold">•</span>
-                                                Kostenloser Parkplatz direkt am Haus
-                                            </li>
-                                        </ul>
-                                    </CardContent>
-                                </Card>
+
+                                        {/* Gut zu wissen */}
+                                        <div className="space-y-6">
+                                            <h4 className="font-medium text-luxury-navy-900 dark:text-luxury-sand-200 uppercase tracking-wider text-xs border-b border-luxury-sand-200 dark:border-luxury-navy-700 pb-2">
+                                                Gut zu wissen
+                                            </h4>
+                                            <ul className="space-y-4">
+                                                <li className="flex items-start gap-3">
+                                                    <div className="p-1.5 bg-luxury-sand-100 dark:bg-luxury-navy-800 rounded-md text-luxury-navy-700 dark:text-luxury-sand-400 mt-0.5">
+                                                        <Dog className="h-3.5 w-3.5" />
+                                                    </div>
+                                                    <span className="text-luxury-navy-700 dark:text-slate-300 text-sm leading-relaxed">
+                                                        Hunde sind herzlich willkommen
+                                                        <span className="block text-xs text-luxury-navy-400 mt-0.5">
+                                                            (€{siteContent.booking.prices.dogFee.toFixed(2).replace('.', ',')} pauschal)
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3">
+                                                    <div className="p-1.5 bg-luxury-sand-100 dark:bg-luxury-navy-800 rounded-md text-luxury-navy-700 dark:text-luxury-sand-400 mt-0.5">
+                                                        <CigaretteOff className="h-3.5 w-3.5" />
+                                                    </div>
+                                                    <span className="text-luxury-navy-700 dark:text-slate-300 text-sm leading-relaxed">
+                                                        Nichtraucher im Innenbereich
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3">
+                                                    <div className="p-1.5 bg-luxury-sand-100 dark:bg-luxury-navy-800 rounded-md text-luxury-navy-700 dark:text-luxury-sand-400 mt-0.5">
+                                                        <Clock className="h-3.5 w-3.5" />
+                                                    </div>
+                                                    <span className="text-luxury-navy-700 dark:text-slate-300 text-sm leading-relaxed">
+                                                        Check-in ab 15:00 Uhr
+                                                        <br />
+                                                        Check-out bis 10:00 Uhr
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3">
+                                                    <div className="p-1.5 bg-luxury-sand-100 dark:bg-luxury-navy-800 rounded-md text-luxury-navy-700 dark:text-luxury-sand-400 mt-0.5">
+                                                        <Car className="h-3.5 w-3.5" />
+                                                    </div>
+                                                    <span className="text-luxury-navy-700 dark:text-slate-300 text-sm leading-relaxed">
+                                                        Kostenloser Parkplatz direkt am Haus
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </AnimatedSection>
                         </div>
 
                         {/* Right Column: Price Summary and Booking Form */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 lg:sticky lg:top-24 h-fit">
                             {/* Price Summary */}
                             <AnimatedSection delay={0.3}>
                                 <PriceSummary
@@ -160,16 +216,16 @@ export default function BuchenPage() {
 
                             {/* Booking Form */}
                             <AnimatedSection delay={0.4}>
-                                <Card className="border-none shadow-lg bg-white dark:bg-luxury-navy-900">
-                                    <CardHeader>
+                                <Card className="border border-luxury-sand-100 dark:border-luxury-navy-800 shadow-lg bg-white dark:bg-luxury-navy-900 overflow-hidden">
+                                    <CardHeader className={selectedStartDate && selectedEndDate && !minStayError ? "bg-luxury-sand-50/50 dark:bg-luxury-navy-800/50 border-b border-luxury-sand-100 dark:border-luxury-navy-800" : ""}>
                                         <CardTitle className="font-serif text-2xl">Anfrage senden</CardTitle>
                                         <CardDescription>
                                             {selectedStartDate && selectedEndDate && !minStayError
-                                                ? "Bitte ergänzen Sie Ihre Kontaktdaten"
-                                                : "Wählen Sie zunächst Ihren Reisezeitraum"}
+                                                ? "Bitte ergänzen Sie Ihre Kontaktdaten für ein unverbindliches Angebot."
+                                                : "Starten Sie Ihre Buchung, indem Sie ein Datum wählen."}
                                         </CardDescription>
                                     </CardHeader>
-                                    <CardContent>
+                                    <CardContent className="pt-6">
                                         {selectedStartDate && selectedEndDate && !minStayError ? (
                                             <BookingForm
                                                 checkIn={selectedStartDate}
@@ -177,10 +233,15 @@ export default function BuchenPage() {
                                                 initialGuestCount={guestCount}
                                             />
                                         ) : (
-                                            <div className="text-center py-12 px-4 bg-luxury-sand-50 dark:bg-luxury-navy-950 rounded-lg border border-dashed border-luxury-navy-200 dark:border-luxury-navy-800">
-                                                <CalendarIcon className="h-12 w-12 mx-auto mb-4 text-luxury-navy-300 dark:text-luxury-navy-700" />
-                                                <p className="text-luxury-navy-600 dark:text-slate-400 font-medium">
-                                                    Bitte wählen Sie zuerst An- und Abreise im Kalender aus.
+                                            <div className="text-center py-16 px-4 flex flex-col items-center justify-center min-h-[300px] border-2 border-dashed border-luxury-sand-200 dark:border-luxury-navy-700 rounded-xl bg-luxury-sand-50/30 dark:bg-luxury-navy-950/30">
+                                                <div className="h-16 w-16 rounded-full bg-luxury-sand-100 dark:bg-luxury-navy-800 flex items-center justify-center mb-4 text-luxury-navy-300 dark:text-luxury-navy-600">
+                                                    <CalendarIcon className="h-8 w-8" />
+                                                </div>
+                                                <h3 className="text-lg font-medium text-luxury-navy-900 dark:text-slate-200 mb-2">
+                                                    Noch kein Zeitraum gewählt
+                                                </h3>
+                                                <p className="text-luxury-navy-500 dark:text-slate-400 max-w-xs mx-auto text-sm leading-relaxed">
+                                                    Bitte wählen Sie im Kalender auf der linken Seite Ihr gewünschtes An- und Abreisedatum aus.
                                                 </p>
                                             </div>
                                         )}
@@ -191,16 +252,21 @@ export default function BuchenPage() {
                     </div>
 
                     {/* Additional Info */}
-                    <AnimatedSection delay={0.5} className="mt-16">
-                        <div className="bg-luxury-navy-50 dark:bg-luxury-navy-900 p-8 rounded-xl border border-luxury-navy-100 dark:border-luxury-navy-800 text-center">
-                            <h3 className="font-serif text-xl font-bold mb-4 text-luxury-navy-900 dark:text-luxury-sand-100">Noch Fragen?</h3>
-                            <p className="text-luxury-navy-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-                                Wenn Sie sich unsicher sind oder spezielle Wünsche haben, können Sie uns auch gerne direkt kontaktieren,
-                                bevor Sie eine Buchungsanfrage senden.
-                            </p>
-                            <a href="/kontakt" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-luxury-navy-900 hover:bg-luxury-navy-800 dark:bg-luxury-sand-100 dark:text-luxury-navy-900 dark:hover:bg-white transition-colors">
-                                Kontakt aufnehmen
-                            </a>
+                    <AnimatedSection delay={0.5} className="mt-20">
+                        <div className="relative overflow-hidden rounded-2xl bg-luxury-navy-900 dark:bg-luxury-navy-950 p-8 md:p-12 text-center text-white shadow-xl">
+                             <div className="absolute top-0 right-0 -mt-10 -mr-10 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
+                             <div className="absolute bottom-0 left-0 -mb-10 -ml-10 h-64 w-64 rounded-full bg-luxury-sand-500/10 blur-3xl" />
+                             
+                             <div className="relative z-10 max-w-2xl mx-auto">
+                                <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-luxury-sand-100">Noch Fragen?</h3>
+                                <p className="text-luxury-sand-200/80 mb-8 text-lg leading-relaxed">
+                                    Wenn Sie sich unsicher sind oder spezielle Wünsche haben, zögern Sie nicht, uns zu kontaktieren.
+                                    Wir helfen Ihnen gerne persönlich weiter.
+                                </p>
+                                <a href="/kontakt" className="inline-flex items-center justify-center px-8 py-3.5 border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-base font-medium rounded-lg text-white transition-all duration-300 shadow-sm hover:shadow-lg">
+                                    Kontakt aufnehmen
+                                </a>
+                             </div>
                         </div>
                     </AnimatedSection>
                 </div>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "./button";
 import { calculateNights, calculateTouristTax, formatCurrency } from "@/lib/utils";
-import { AlertCircle, Check } from "lucide-react";
+import { AlertCircle, Check, Calendar, Users, Info } from "lucide-react";
 
 interface BookingFormProps {
     checkIn?: Date;
@@ -101,26 +101,53 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
         <form onSubmit={handleSubmit} className="space-y-6">
             {/* Booking Summary */}
             {checkIn && checkOut && (
-                <div className="bg-luxury-sand-100 dark:bg-luxury-navy-800 p-6 rounded-lg">
-                    <h3 className="font-serif text-xl font-semibold mb-4">Ihre Buchungsanfrage</h3>
-                    <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                            <span className="text-luxury-navy-600 dark:text-slate-400">Zeitraum:</span>
-                            <span className="font-medium">
-                                {checkIn.toLocaleDateString("de-DE")} - {checkOut.toLocaleDateString("de-DE")}
+                <div className="bg-luxury-navy-900 dark:bg-luxury-navy-950 p-6 rounded-xl border border-luxury-navy-800 shadow-sm relative overflow-hidden group hover:shadow-md transition-all duration-300">
+                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                         <Calendar className="w-16 h-16 text-luxury-sand-300 transform -rotate-12" />
+                    </div>
+                    
+                    <h3 className="font-serif text-xl font-bold mb-6 text-luxury-sand-50 flex items-center gap-2">
+                        Ihre Buchungsanfrage
+                    </h3>
+                    
+                    <div className="space-y-4 relative z-10">
+                        <div className="flex justify-between items-center p-3 bg-luxury-sand-500/10 backdrop-blur-sm rounded-lg border border-luxury-sand-500/20">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-luxury-sand-500/10 rounded-md text-luxury-sand-300">
+                                    <Calendar className="h-4 w-4" />
+                                </div>
+                                <span className="text-sm text-luxury-sand-100">Zeitraum</span>
+                            </div>
+                            <div className="text-right">
+                                <span className="font-medium text-luxury-sand-50 block">
+                                    {checkIn.toLocaleDateString("de-DE", { day: '2-digit', month: '2-digit', year: 'numeric' })} - {checkOut.toLocaleDateString("de-DE", { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                                </span>
+                                <span className="text-xs text-luxury-sand-300">
+                                    {nights} {nights === 1 ? 'Nacht' : 'Nächte'}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="flex justify-between items-center p-3 bg-luxury-sand-500/10 backdrop-blur-sm rounded-lg border border-luxury-sand-500/20">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-luxury-sand-500/10 rounded-md text-luxury-sand-300">
+                                    <Users className="h-4 w-4" />
+                                </div>
+                                <span className="text-sm text-luxury-sand-100">Gäste</span>
+                            </div>
+                            <span className="font-medium text-luxury-sand-50">
+                                {guestCount} {guestCount === 1 ? 'Person' : 'Personen'}
                             </span>
                         </div>
-                        <div className="flex justify-between">
-                            <span className="text-luxury-navy-600 dark:text-slate-400">Nächte:</span>
-                            <span className="font-medium">{nights}</span>
-                        </div>
-                        <div className="flex justify-between">
-                            <span className="text-luxury-navy-600 dark:text-slate-400">Gäste:</span>
-                            <span className="font-medium">{guestCount}</span>
-                        </div>
-                        <div className="flex justify-between border-t border-luxury-navy-200 dark:border-luxury-navy-700 pt-2 mt-2">
-                            <span className="text-luxury-navy-600 dark:text-slate-400">Kurtaxe (ca.):</span>
-                            <span className="font-medium">{formatCurrency(touristTax)}</span>
+
+                        <div className="flex justify-between items-center pt-2 px-1">
+                             <div className="flex items-center gap-2 text-xs text-luxury-sand-300">
+                                <Info className="h-3 w-3" />
+                                <span>Kurtaxe (ca.)</span>
+                             </div>
+                             <span className="font-medium text-luxury-sand-50">
+                                {formatCurrency(touristTax)}
+                             </span>
                         </div>
                     </div>
                 </div>

@@ -31,34 +31,32 @@ public/images/
     └── window-view.jpg
 ```
 
-## Stilrichtlinien
+## Nano Banana Pro Prompts (Quiet Luxury)
 
-### Fotografie-Stil
+Nutzen Sie diese Prompts, um hochwertige Bilder im "Quiet Luxury" Stil zu generieren.
 
-- **Beleuchtung**: Natürliches Licht, helle, freundliche Atmosphäre
-- **Farben**: Warme, gedämpfte Töne (Sand, Weiß, Grau, Navy)
-- **Perspektive**: Professionelle Interior-Fotografie
-- **Keine**: Personen, Logos, Text im Bild
+### Stil-Vorgaben
+*Photorealistic, 8k, interior design photography, soft natural lighting, depth of field, color palette: navy blue, sand beige, warm gold accents, high quality textures, linen, velvet, oak wood.*
 
-### Bildgrößen (für Optimierung)
+### Interior
+1.  **Wohnzimmer (Main)**:
+    `Luxury living room interior, coastal quiet luxury style, beige linen sofa, navy blue velvet throw pillows, light oak wood coffee table, large floor-to-ceiling windows with soft daylight, sheer white curtains, gold vase with dried pampas grass, architectural digest style, 8k photorealistic`
 
-- Hero-Bilder: 1920x1080px
-- Galerie-Bilder: 1200x800px
-- Detail-Bilder: 800x600px
-- Thumbnails: 400x300px
+2.  **Küche & Essbereich**:
+    `Modern open concept kitchen and dining area, matte sand-colored cabinets, white marble countertops, gold faucet and hardware, solid oak dining table with navy blue upholstered chairs, minimalist table setting, warm ambient lighting, 8k photorealistic`
 
-## Alt-Text Richtlinien
+3.  **Schlafzimmer (Main)**:
+    `Serene master bedroom, hotel quality white bedding with navy blue wool throw blanket, tufted beige headboard, warm wood bedside tables, brass reading lamps, soft morning light, cozy atmosphere, high resolution 8k`
 
-### Format
+4.  **Badezimmer**:
+    `Spa-like modern bathroom, beige natural stone tiles, walk-in glass shower, fluffy white towels stacked, gold fixtures, teak wood bath mat, bright and airy, soft lighting, 8k`
 
-`[Raum/Objekt] der Ferienwohnung Eggers [mit Beschreibung]`
+### Exterior & Umgebung
+5.  **Hausansicht (Außen)**:
+    `Modern coastal vacation home exterior, red brick facade typical for Northern Germany, dune grass in foreground, wooden terrace, golden hour sunset lighting, welcoming atmosphere, wide angle shot, 8k`
 
-### Beispiele
-
-- Interior: "Wohnzimmer der Ferienwohnung Eggers mit Sofa und großem Fenster"
-- Exterior: "Terrasse der Ferienwohnung Eggers mit Gartenmöbeln"
-- Surroundings: "Strandabschnitt in Cuxhaven-Sahlenburg nahe der Ferienwohnung"
-- Details: "Detailaufnahme des Essbereichs in der Ferienwohnung Eggers"
+6.  **Strand & Umgebung**:
+    `North Sea coast beach at sunset, wooden path leading through sand dunes, beach grass waving in wind, soft golden light, calm sea in background, peaceful atmosphere, nature photography, 8k`
 
 ## Next.js Image Integration
 
@@ -77,57 +75,3 @@ import Image from 'next/image';
   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 />
 ```
-
-### Priority-Regel
-
-- `priority={true}`: Nur für Hero-Bilder above the fold
-- Alle anderen: Lazy Loading (Standard)
-
-## Bildverteilung pro Seite
-
-### Startseite (/)
-
-- Hero: surroundings/beach-sunset.jpg
-- Intro: interior/living-room-main.jpg
-- Teaser 1: surroundings/forest-path.jpg
-- Teaser 2: interior/kitchen-dining.jpg
-
-### Ausstattung (/ausstattung)
-
-- Hero Background: interior/living-room-main.jpg (opacity)
-- Wohnbereich: interior/living-room-main.jpg
-- Küche: interior/kitchen-dining.jpg
-- Schlafzimmer 1: interior/bedroom-1-main.jpg
-- Schlafzimmer 2: interior/bedroom-2-kids.jpg
-- Bad: interior/bathroom-shower.jpg
-- Terrasse: exterior/terrace-day.jpg
-
-### Galerie (/galerie)
-
-- Hero Background: interior/living-room-detail.jpg (opacity)
-- Kategorie "Wohnen": 3-4 Interior-Bilder
-- Kategorie "Kochen": 3 Kitchen-Bilder
-- Kategorie "Schlafen": 2 Bedroom-Bilder
-- Kategorie "Umgebung": 4 Surroundings-Bilder
-
-### Lage (/lage)
-
-- Hero Background: surroundings/beach-sunset.jpg (opacity)
-- Content: surroundings/wadden-sea-low-tide.jpg
-- Content: surroundings/forest-path.jpg
-
-### Preise (/preise)
-
-- Dezentes Detail: details/coffee-table.jpg
-
-### Kontakt (/kontakt)
-
-- Hero Background: exterior/building-front.jpg (opacity)
-
-### Buchen (/buchen)
-
-- Dezentes Detail: details/bed-pillows.jpg
-
-### Rechtliche Seiten (Impressum, Datenschutz, AGB)
-
-- Hero Background: surroundings/wadden-sea-low-tide.jpg (opacity, sehr dezent)

@@ -2,6 +2,8 @@
 // PRICING LOGIC - Ferienwohnung Eggers
 // ============================================
 
+import { siteContent } from "./content";
+
 export interface PricingConfig {
     basePricePerNight: number;
     cleaningFee: number;
@@ -42,27 +44,30 @@ export interface BookingPriceBreakdown {
     seasonType?: "high" | "low" | "normal";
 }
 
-// Default pricing configuration
-// These can be overridden via environment variables
-const DEFAULT_CONFIG: PricingConfig = {
-    basePricePerNight: parseFloat(process.env.NEXT_PUBLIC_BASE_PRICE_PER_NIGHT || "85"),
-    cleaningFee: parseFloat(process.env.NEXT_PUBLIC_CLEANING_FEE || "75"),
-    dogFee: parseFloat(process.env.NEXT_PUBLIC_DOG_FEE || "25"),
-    cityTaxPerAdultPerNight: 4.10, // Fixed by law
-    minimumStay: 3,
-    seasonalPricing: {
-        highSeason: {
-            start: "06-15", // June 15
-            end: "09-15",   // September 15
-            multiplier: 1.3,
-        },
-        lowSeason: {
-            start: "11-01", // November 1
-            end: "02-28",   // February 28
-            multiplier: 0.85,
-        },
-    },
-};
+/**
+ * Gets the current pricing configuration from central content
+ */
+export function getPricingConfig(): PricingConfig {
+    return {
+        basePricePerNight: siteContent.booking.prices.basePricePerNight,
+        cleaningFee: siteContent.booking.prices.cleaningFee,
+        dogFee: siteContent.booking.prices.dogFee,
+        cityTaxPerAdultPerNight: siteContent.booking.prices.cityTaxPerAdultPerNight,
+        minimumStay: siteContent.booking.prices.minimumStay,
+        seasonalPricing: {
+            highSeason: {
+                start: siteContent.booking.seasonal.high.start,
+                end: siteContent.booking.seasonal.high.end,
+                multiplier: siteContent.booking.seasonal.high.multiplier
+            },
+            lowSeason: {
+                start: siteContent.booking.seasonal.low.start,
+                end: siteContent.booking.seasonal.low.end,
+                multiplier: siteContent.booking.seasonal.low.multiplier
+            }
+        }
+    };
+}
 
 /**
  * Determines if a date falls within a season range
@@ -126,7 +131,8 @@ export function calculateBookingPrice(
     input: BookingPriceInput,
     customConfig?: Partial<PricingConfig>
 ): BookingPriceBreakdown {
-    const config: PricingConfig = { ...DEFAULT_CONFIG, ...customConfig };
+    const defaultConfig = getPricingConfig();
+    const config: PricingConfig = { ...defaultConfig, ...customConfig };
 
     // Calculate number of nights
     const nights = Math.ceil((input.checkOut.getTime() - input.checkIn.getTime()) / (1000 * 60 * 60 * 24));
@@ -185,11 +191,4 @@ export function formatPriceBreakdown(breakdown: BookingPriceBreakdown): string {
     );
 
     return lines.join("\n");
-}
-
-/**
- * Gets the current pricing configuration
- */
-export function getPricingConfig(): PricingConfig {
-    return DEFAULT_CONFIG;
 }

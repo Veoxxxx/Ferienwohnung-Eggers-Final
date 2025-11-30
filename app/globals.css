@@ -4,42 +4,48 @@
 
 @layer base {
     :root {
-        /* Softer, warmer base colors */
-        --background: 42 25% 97%;
+        /* Softer, warmer base colors - Increased saturation for more visible creme feel */
+        --background: 40 40% 96%;
         /* Soft sand instead of pure white */
         --foreground: 222 47% 11%;
 
-        --card: 42 20% 95%;
+        --card: 40 35% 94%;
         /* Warm card background */
         --card-foreground: 222 47% 11%;
 
-        --popover: 42 25% 97%;
+        --popover: 40 40% 96%;
         --popover-foreground: 222 47% 11%;
 
         --primary: 222 47% 11%;
-        --primary-foreground: 210 40% 98%;
+        --primary-foreground: 40 40% 96%;
 
-        --secondary: 42 15% 92%;
+        --secondary: 40 25% 90%;
         /* Warmer secondary */
         --secondary-foreground: 222 47% 11%;
 
-        --muted: 42 20% 90%;
+        --muted: 40 30% 88%;
         /* Warmer muted */
         --muted-foreground: 215 16% 47%;
 
-        --accent: 42 25% 88%;
+        --accent: 40 35% 86%;
         /* Warm accent */
         --accent-foreground: 222 47% 11%;
 
         --destructive: 0 84% 60%;
-        --destructive-foreground: 210 40% 98%;
+        --destructive-foreground: 40 40% 96%;
 
-        --border: 42 15% 85%;
+        --border: 40 25% 82%;
         /* Softer borders */
-        --input: 42 15% 85%;
+        --input: 40 25% 82%;
         --ring: 222 47% 11%;
 
         --radius: 0.5rem;
+
+        /* Semantic Design System Colors */
+        --surface-luxury: 40 40% 98%;
+        /* sand-50 */
+        --surface-strong: 209 61% 16%;
+        /* navy-900 */
     }
 
     .dark {
@@ -72,6 +78,12 @@
         --border: 222 30% 20%;
         --input: 222 30% 20%;
         --ring: 42 30% 70%;
+
+        /* Semantic Design System Colors (Dark) */
+        --surface-luxury: 209 61% 16%;
+        /* navy-900 */
+        --surface-strong: 211 61% 10%;
+        /* navy-950 */
     }
 }
 
@@ -82,9 +94,11 @@
 
     body {
         font-family: var(--font-sans);
-        background: hsl(var(--background));
+        background: linear-gradient(to bottom, hsl(var(--gradient-top)) var(--gradient-start), hsl(var(--gradient-bottom)) var(--gradient-end));
+        background-attachment: fixed;
         color: hsl(var(--foreground));
         transition: background-color 0.3s ease, color 0.3s ease;
+        @apply antialiased;
     }
 
     h1,
@@ -94,6 +108,28 @@
     h5,
     h6 {
         @apply font-serif tracking-tight;
+    }
+}
+
+@layer utilities {
+    .heading-1 {
+        @apply text-5xl md:text-7xl font-bold;
+    }
+    
+    .heading-2 {
+        @apply text-4xl md:text-5xl font-bold;
+    }
+    
+    .heading-3 {
+        @apply text-3xl md:text-4xl font-bold;
+    }
+    
+    .heading-4 {
+        @apply text-2xl font-bold;
+    }
+    
+    .text-lead {
+        @apply text-xl md:text-2xl font-light leading-relaxed;
     }
 }
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface AnimatedSectionProps {
     children: React.ReactNode;
@@ -19,8 +19,16 @@ export function AnimatedSection({
     duration = 0.6,
 }: AnimatedSectionProps) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-50px" });
     const shouldReduceMotion = useReducedMotion();
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    // Track when element comes into view
+    useEffect(() => {
+        if (isInView && !hasAnimated) {
+            setHasAnimated(true);
+        }
+    }, [isInView, hasAnimated]);
 
     const directionOffset = {
         up: { y: 40 },
@@ -34,9 +42,9 @@ export function AnimatedSection({
         ? { opacity: 0 }
         : { opacity: 0, ...directionOffset[direction] };
 
-    const animate = isInView
+    const animate = hasAnimated || isInView
         ? { opacity: 1, x: 0, y: 0 }
-        : {};
+        : initial;
 
     return (
         <motion.div

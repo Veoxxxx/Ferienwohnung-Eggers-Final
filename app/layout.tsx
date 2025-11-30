@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { DarkModeProvider } from "@/components/dark-mode-provider";
+import { ThemeRegistry } from "@/components/theme-registry";
 import { generateVacationRentalSchema } from "@/lib/metadata";
 
 const inter = Inter({
@@ -39,7 +40,8 @@ export default function RootLayout({
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
                 />
             </head>
-            <body className={`${inter.variable} ${playfair.variable}`}>
+            <body className={`${inter.variable} ${playfair.variable} antialiased bg-background text-foreground transition-colors duration-300`}>
+                <ThemeRegistry />
                 <DarkModeProvider>
                     <div className="flex flex-col min-h-screen">
                         <Navigation />

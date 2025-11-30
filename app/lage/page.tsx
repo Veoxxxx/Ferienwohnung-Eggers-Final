@@ -27,7 +27,7 @@ export default function LagePage() {
             </section>
 
             {/* Content */}
-            <section className="section-padding bg-white dark:bg-luxury-navy-950">
+            <section className="section-padding">
                 <div className="container-custom">
 
                     {/* Intro & Distances */}

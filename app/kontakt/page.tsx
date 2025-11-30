@@ -69,7 +69,7 @@ export default function KontaktPage() {
             </section>
 
             {/* Content */}
-            <section className="section-padding bg-white dark:bg-luxury-navy-950">
+            <section className="section-padding">
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-2 gap-16">
 

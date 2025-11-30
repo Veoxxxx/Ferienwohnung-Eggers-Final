@@ -25,7 +25,7 @@ export default function ImpressumPage() {
                 </div>
             </section>
 
-            <section className="section-padding bg-white dark:bg-luxury-navy-950">
+            <section className="section-padding">
                 <div className="container-custom max-w-4xl">
 
                     <AnimatedSection>
