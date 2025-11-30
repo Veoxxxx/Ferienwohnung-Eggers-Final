@@ -63,7 +63,7 @@ export function Navigation() {
                                 key={item.href}
                                 href={item.href as any}
                                 className={cn(
-                                    "text-sm font-medium transition-colors hover:text-luxury-navy-700 dark:hover:text-slate-300 relative py-2",
+                                    "text-sm font-medium transition-colors hover:text-luxury-gold-500 dark:hover:text-luxury-gold-400 relative py-2",
                                     pathname === item.href
                                         ? "text-luxury-navy-900 dark:text-slate-100"
                                         : "text-luxury-navy-600 dark:text-slate-400"
@@ -142,7 +142,7 @@ export function Navigation() {
                                         href={item.href as any}
                                         onClick={() => setMobileMenuOpen(false)}
                                         className={cn(
-                                            "text-base font-medium transition-colors hover:text-luxury-navy-900 dark:hover:text-slate-100 px-4 py-3 rounded-lg",
+                                            "text-base font-medium transition-colors hover:text-luxury-gold-500 dark:hover:text-luxury-gold-400 px-4 py-3 rounded-lg",
                                             pathname === item.href
                                                 ? "bg-luxury-navy-50 dark:bg-luxury-navy-900 text-luxury-navy-900 dark:text-slate-100"
                                                 : "text-luxury-navy-600 dark:text-slate-400"

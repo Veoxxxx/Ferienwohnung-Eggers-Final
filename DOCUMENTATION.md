@@ -95,7 +95,8 @@ Die Struktur folgt den Best Practices des Next.js App Routers mit i18n-Support.
 │   │   ├── booking-wizard.tsx  # Mehrstufiger Buchungsassistent
 │   │   └── price-summary.tsx   # Preisübersicht mit Saisonberechnung
 │   ├── sections/               # Seitenabschnitte
-│   │   └── Testimonials.tsx    # Gästebewertungen
+│   │   ├── Testimonials.tsx    # Gästebewertungen
+│   │   └── HeroParallax.tsx    # Hero-Sektion mit Parallax-Effekt
 │   ├── ui/                     # Wiederverwendbare UI-Elemente
 │   │   ├── animated-section.tsx
 │   │   └── hover-card.tsx
@@ -115,7 +116,8 @@ Die Struktur folgt den Best Practices des Next.js App Routers mit i18n-Support.
 │   └── request.ts              # Server-side Locale Detection
 │
 ├── lib/                        # Business Logic & Utilities
-│   ├── booking-store.ts        # Buchungs-Datenspeicher (In-Memory)
+│   ├── booking-store.ts        # Buchungs-Datenspeicher (Server, In-Memory)
+│   ├── booking-client-store.ts # Client-Store mit LocalStorage-Persistenz
 │   ├── channel-manager.ts      # Channel Manager Interface
 │   ├── content.ts              # Zentrale Inhalts-Konfiguration
 │   ├── metadata.ts             # SEO Metadata & JSON-LD Schema
@@ -403,7 +405,27 @@ const breakdown = calculateBookingPrice({
 
 ### 6.4 Booking Store (`lib/booking-store.ts`)
 
-Der In-Memory Store speichert Buchungsanfragen:
+Der In-Memory Store speichert Buchungsanfragen serverseitig:
+
+> **Neu:** Für Client-seitige Persistenz steht `lib/booking-client-store.ts` zur Verfügung.
+
+#### Client-Store mit LocalStorage (`lib/booking-client-store.ts`)
+
+```typescript
+// Hook für persistente Buchungsentwürfe
+const { draft, updateDraft, clearDraft, isHydrated } = useBookingDraft();
+
+// Hook für abgeschlossene Anfragen (lokal gespeichert)
+const { bookings, addSubmittedBooking } = useSubmittedBookings();
+```
+
+**Features:**
+- Überlebt Page Reload und Browser-Sessions
+- Automatische Hydration beim Laden
+- Maximal 10 gespeicherte Buchungsanfragen
+- TypeScript-strict Interfaces
+
+#### Server-Store (In-Memory)
 
 ```typescript
 interface BookingRequest {
@@ -562,9 +584,30 @@ Jede Seite definiert eigene Metadaten über Übersetzungsdateien:
 Das Design zielt auf eine hochwertige, beruhigende Ästhetik ab:
 
 - **Farbpalette**: Gedämpfte, natürliche Töne (Navy, Sand, Gold)
-- **Typografie**: Klassische Serif-Überschriften, moderne Sans-Serif für Fließtext
-- **Animationen**: Subtile, elegante Transitions
+- **Typografie**: Klassische Serif-Überschriften mit `tracking-wide`, moderne Sans-Serif für Fließtext
+- **Animationen**: Subtile, elegante Transitions mit Framer Motion
 - **Layout**: Großzügige Weißräume, klare Struktur
+- **Texturen**: Subtile "Noise"-Textur für Papier/Stoff-Effekt
+- **Glass-Effekte**: Frosted Glass Panels mit Backdrop-Blur
+
+### 8.1.1 Utility-Klassen für Luxury-Design
+
+```css
+/* Subtile Noise-Textur (Papier/Stoff-Effekt) */
+.texture-noise { ... }
+
+/* Glass-Panel mit Frosted-Glass-Effekt */
+.glass-panel {
+    @apply bg-luxury-sand-50/80 dark:bg-luxury-navy-900/80 
+           backdrop-blur-md 
+           border border-white/20 dark:border-white/10
+           shadow-xl rounded-xl;
+}
+
+/* Kombinierte Textured Backgrounds */
+.bg-textured-sand { @apply bg-luxury-sand-50 texture-noise; }
+.bg-textured-navy { @apply bg-luxury-navy-900 texture-noise; }
+```
 
 ### 8.2 Farbpalette (`tailwind.config.ts`)
 
@@ -825,10 +868,50 @@ Query Parameter:
 |------------|-------|--------------|
 | `BookingCalendar` | `components/booking-calendar.tsx` | Interaktiver Kalender |
 | `BookingForm` | `components/booking-form.tsx` | Buchungsformular |
-| `BookingWizard` | `components/booking/booking-wizard.tsx` | Mehrstufiger Assistent |
+| `BookingWizard` | `components/booking/booking-wizard.tsx` | 4-Schritte Buchungsassistent mit Gold-Akzenten |
 | `PriceSummary` | `components/booking/price-summary.tsx` | Preisübersicht |
 
-### 11.4 Helper-Funktionen (`lib/utils.ts`)
+#### BookingWizard Features
+
+Der Buchungsassistent bietet:
+
+- **4-Schritte Prozess**: Daten wählen → Gastdaten → Übersicht → Bestätigung
+- **Visueller Stepper**: Icons (Calendar, User, ClipboardCheck, PartyPopper)
+- **Gold-Akzente**: Aktiver Step in `luxury-gold-500`
+- **Animierte Fortschrittslinien**: Framer Motion Übergänge
+- **Glass-Panel Styling**: Frosted-Glass Container
+- **Custom Easing**: Luxuriöses Übergangsgefühl
+
+### 11.4 Section-Komponenten
+
+| Komponente | Datei | Beschreibung |
+|------------|-------|--------------|
+| `HeroParallax` | `components/sections/HeroParallax.tsx` | Hero mit Parallax-Scroll-Effekt |
+| `Testimonials` | `components/sections/Testimonials.tsx` | Gästebewertungen |
+
+#### HeroParallax Features
+
+```typescript
+// Verwendung
+<HeroParallax
+    backgroundImage="/images/hero.png"
+    altText="Beschreibung"
+    headline="Überschrift"
+    subheadline="Unterüberschrift"
+    primaryCta="Button Text"
+    primaryCtaHref="/buchen"
+    secondaryCta="Zweiter Button"
+    secondaryCtaHref="/galerie"
+/>
+```
+
+**Features:**
+- **Parallax-Effekt**: Bild wandert langsamer (30%) als Text (15%)
+- **Fade-out**: Content verschwindet beim Scrollen
+- **LCP-optimiert**: `priority={true}`, `quality={90}`
+- **Animierter Scroll-Indicator**: Bounce-Animation
+
+### 11.5 Helper-Funktionen (`lib/utils.ts`)
 
 ```typescript
 // Klassen-Merge für Tailwind
@@ -978,6 +1061,7 @@ npm run build
 
 | Datum | Version | Änderungen |
 |-------|---------|------------|
+| 30.11.2025 | 2.1 | Design-Verfeinerung: Glass-Panel, Noise-Textur, Gold-Hover, HeroParallax, 4-Step Wizard, LocalStorage Persistenz |
 | 30.11.2025 | 2.0 | Umfassende Dokumentationserweiterung: i18n, SEO, API, Komponenten |
 | 29.11.2025 | 1.0 | Initiale Dokumentation |
 

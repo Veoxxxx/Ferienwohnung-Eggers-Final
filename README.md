@@ -4,17 +4,33 @@ Moderner, produktionsreifer Multi-Page Webauftritt für die Ferienwohnung Eggers
 
 ## Features
 
+### Core
 - ✅ **Next.js 14** mit App Router und TypeScript
-- ✅ **10 Seiten** mit vollständigen deutschen Texten und SEO-Optimierung
-- ✅ **Buchungssystem** mit interaktivem Kalender und 3-Tage Mindestaufenthalt Validierung
-- ✅ **Channel Manager Integration** mit Mock-Daten (bereit für echte API-Anbindung)
+- ✅ **Vollständige Mehrsprachigkeit** (DE/EN) mit next-intl
+- ✅ **10+ Seiten** mit SEO-Optimierung und lokalisierten URLs
+- ✅ **JSON-LD Schema** für VacationRental
+
+### Buchungssystem
+- ✅ **Interaktiver Kalender** mit Verfügbarkeitsanzeige
+- ✅ **4-Schritte Buchungsassistent** mit visuellen Icons und Gold-Akzenten
+- ✅ **LocalStorage Persistenz** für Formulardaten (überlebt Page Reload)
+- ✅ **Saisonale Preisberechnung** mit Kurtaxe
+- ✅ **Channel Manager Integration** (vorbereitet für Booking.com, Airbnb)
+
+### Design & UX
 - ✅ **"Quiet Luxury" Design** mit Tailwind CSS
-- ✅ **Dark Mode** mit lokaler Speicherung
-- ✅ **Barrierefreiheit** (WCAG 2.1 AA konform)
-- ✅ **DSGVO-bewusste Architektur**
+- ✅ **Glass-Panel Effekte** mit Backdrop-Blur
+- ✅ **Subtile Noise-Texturen** für Papier/Stoff-Feeling
+- ✅ **Parallax Hero-Sektion** mit Framer Motion
+- ✅ **Gold-Akzente** für Hover-Effekte und aktive Elemente
+- ✅ **Dark Mode** mit Systempräferenz-Erkennung
 - ✅ **Responsive Design** für alle Geräte
 - ✅ **Framer Motion** Animationen
-- ✅ **JSON-LD Schema** für VacationRental
+
+### Technisch
+- ✅ **Barrierefreiheit** (WCAG 2.1 AA konform)
+- ✅ **DSGVO-bewusste Architektur**
+- ✅ **TypeScript-strict** im gesamten Projekt
 
 ## Installation
 
@@ -36,16 +52,19 @@ Die Anwendung läuft standardmäßig auf **<http://localhost:3000>**
 
 ## Seitenstruktur
 
-- **/** - Startseite mit Hero, Highlights und wichtigem Hinweis (keine Waschmaschine)
-- **/ausstattung** - Detaillierte Ausstattung nach Räumen
-- **/galerie** - Bildergalerie (aktuell mit 2 generierten Bildern)
-- **/lage** - Lageninformationen, Entfernungen und Anreise
-- **/preise** - Preisübersicht und Konditionen
-- **/kontakt** - Kontaktinformationen und Kontaktformular
-- **/buchen** - Buchungsseite mit Kalender und Buchungsformular
-- **/impressum** - Impressum (Mustertext)
-- **/datenschutz** - Datenschutzerklärung (Mustertext)
-- **/agb** - AGB (Mustertext)
+| Deutsch | Englisch | Beschreibung |
+|---------|----------|--------------|
+| `/` | `/en` | Startseite mit Parallax-Hero |
+| `/ausstattung` | `/en/amenities` | Detaillierte Ausstattung |
+| `/galerie` | `/en/gallery` | Bildergalerie |
+| `/lage` | `/en/location` | Lage & Anreise |
+| `/preise` | `/en/prices` | Preisübersicht |
+| `/ueber-uns` | `/en/about` | Über die Gastgeber |
+| `/kontakt` | `/en/contact` | Kontaktformular |
+| `/buchen` | `/en/booking` | Buchungsassistent |
+| `/impressum` | `/en/imprint` | Impressum (Mustertext) |
+| `/datenschutz` | `/en/privacy` | Datenschutz (Mustertext) |
+| `/agb` | `/en/terms` | AGB (Mustertext) |
 
 ## Umgebungsvariablen
 
@@ -125,14 +144,23 @@ Vor dem Produktivbetrieb MÜSSEN diese durch einen Rechtsanwalt oder Datenschutz
 
 ### Farben
 
-- **Navy**: Hauptfarbe für Text und wichtige Elemente  
-- **Sand/Gold**: Akzentfarbe für Buttons und Highlights
-- **Slate**: Neutrale Grautöne für Secondary Content
+- **Navy** (`luxury-navy-*`): Hauptfarbe für Text und Hintergründe
+- **Sand** (`luxury-sand-*`): Warme Akzente und Light-Mode Hintergrund
+- **Gold** (`luxury-gold-*`): Highlights, CTAs und Hover-Effekte
 
 ### Schriften
 
-- **Playfair Display**: Überschriften (serif)
+- **Playfair Display**: Überschriften (serif, `tracking-wide`)
 - **Inter**: Fließtext (sans-serif)
+
+### Utility-Klassen
+
+```css
+.glass-panel    /* Frosted-Glass-Effekt mit Blur */
+.texture-noise  /* Subtile Papier/Stoff-Textur */
+.bg-textured-sand  /* Sand-Hintergrund mit Textur */
+.bg-textured-navy  /* Navy-Hintergrund mit Textur */
+```
 
 ### Dark Mode
 
@@ -167,30 +195,42 @@ Jede Seite hat:
 ## Projektstruktur
 
 ```
-├── app/                    # Next.js App Router Pages
-│   ├── api/               # API Routes (Bookings, Channel Manager)
-│   ├── [page]/            # Einzelne Seiten
-│   ├── layout.tsx         # Root Layout
-│   ├── page.tsx           # Homepage
-│   └── globals.css        # Global Styles
-├── components/            # React Components
-│   ├── navigation.tsx     # Header Navigation 
-│   ├── footer.tsx         # Footer
-│   ├── booking-calendar.tsx
-│   ├── booking-form.tsx
-│   ├── button.tsx
-│   ├── card.tsx
-│   └── dark-mode-provider.tsx
-├── lib/                   # Utilities & Logic
-│   ├── channel-manager.ts # Channel Manager Integration
-│   ├── booking-store.ts   # Booking Data Store
-│   ├── metadata.ts        # SEO Metadata Helpers
-│   └── utils.ts           # Helper Functions
-├── public/               # Static Assets
-│   └── images/           # Images
-├── tailwind.config.ts    # Tailwind Configuration
-├── next.config.js        # Next.js Configuration
-└── package.json          # Dependencies
+├── app/                        # Next.js App Router
+│   ├── [locale]/              # Dynamisches Locale-Segment (DE/EN)
+│   │   ├── layout.tsx         # Root Layout mit Providers
+│   │   ├── page.tsx           # Homepage mit HeroParallax
+│   │   ├── ausstattung/       # Ausstattungsseite
+│   │   ├── buchen/            # Buchungsseite
+│   │   └── ...                # Weitere Seiten
+│   ├── api/                   # API Routes
+│   │   ├── bookings/          # Buchungs-API
+│   │   └── channel-manager/   # Channel Manager API
+│   └── globals.css            # Globale Styles + Utility-Klassen
+├── components/
+│   ├── booking/               # Buchungs-Komponenten
+│   │   ├── booking-wizard.tsx # 4-Schritte Assistent
+│   │   └── price-summary.tsx  # Preisübersicht
+│   ├── sections/              # Seitenabschnitte
+│   │   ├── HeroParallax.tsx   # Hero mit Parallax-Effekt
+│   │   └── Testimonials.tsx   # Gästebewertungen
+│   ├── ui/                    # UI-Komponenten
+│   ├── navigation.tsx         # Header mit Gold-Hover
+│   ├── language-switcher.tsx  # DE|EN Umschalter
+│   └── ...                    # Weitere Komponenten
+├── i18n/                      # Internationalisierung
+│   ├── routing.ts             # Lokalisierte Pfade
+│   └── request.ts             # Locale Detection
+├── lib/
+│   ├── booking-store.ts       # Server-Store (In-Memory)
+│   ├── booking-client-store.ts # Client-Store (LocalStorage)
+│   ├── pricing.ts             # Preisberechnung
+│   └── ...                    # Weitere Utilities
+├── messages/                  # Übersetzungen
+│   ├── de.json                # Deutsche Texte
+│   └── en.json                # Englische Texte
+├── public/images/             # Statische Bilder
+├── tailwind.config.ts         # Design System
+└── middleware.ts              # i18n Routing
 
 ```
 
@@ -207,4 +247,8 @@ Privates Projekt - Alle Rechte vorbehalten.
 
 ---
 
-**Erstellt mit Next.js 14, React 18, TypeScript und Tailwind CSS**
+**Erstellt mit Next.js 14, React 18, TypeScript, Tailwind CSS, next-intl und Framer Motion**
+
+---
+
+*Letzte Aktualisierung: 30.11.2025 - v2.1*
