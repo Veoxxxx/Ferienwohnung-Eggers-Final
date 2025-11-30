@@ -10,6 +10,7 @@ import { Footer } from "@/components/footer";
 import { DarkModeProvider } from "@/components/dark-mode-provider";
 import { ThemeRegistry } from "@/components/theme-registry";
 import { generateVacationRentalSchema } from "@/lib/metadata";
+import { siteContent } from "@/lib/content";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -47,6 +48,9 @@ export async function generateMetadata({
     return {
         title: titles[locale] || titles.de,
         description: descriptions[locale] || descriptions.de,
+        icons: {
+            icon: siteContent.general.metadata.icon,
+        },
     };
 }
 

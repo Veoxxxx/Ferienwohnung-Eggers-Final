@@ -15,6 +15,9 @@ export const siteContent = {
         socials: {
             instagram: "#",
             facebook: "#"
+        },
+        metadata: {
+            icon: "/icon.svg",
         }
     },
     navigation: [
