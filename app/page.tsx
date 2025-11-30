@@ -1,6 +1,7 @@
 import { Button } from "@/components/button";
 import { Card, CardContent } from "@/components/card";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { generateMetadata as genMeta } from "@/lib/metadata";
 import { siteContent } from "@/lib/content";
 import { Icons } from "@/components/icons";
@@ -201,6 +202,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* Testimonials Section */}
+            <Testimonials />
 
             {/* CTA Section */}
             <section className="py-24 bg-luxury-navy-900 dark:bg-luxury-navy-950 text-white text-center relative overflow-hidden">
