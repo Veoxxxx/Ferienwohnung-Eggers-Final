@@ -1,20 +1,32 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "./dark-mode-provider";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
+import { LanguageSwitcher } from "./language-switcher";
 
-import { siteContent } from "@/lib/content";
+const navigationKeys = [
+    { href: "/", labelKey: "home" },
+    { href: "/ausstattung", labelKey: "amenities" },
+    { href: "/galerie", labelKey: "gallery" },
+    { href: "/lage", labelKey: "location" },
+    { href: "/preise", labelKey: "prices" },
+    { href: "/ueber-uns", labelKey: "about" },
+    { href: "/kontakt", labelKey: "contact" },
+    { href: "/buchen", labelKey: "booking" },
+] as const;
 
 export function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
     const { theme, toggleTheme } = useTheme();
+    const t = useTranslations("Navigation");
+    const tCommon = useTranslations("Common");
 
     // Handle scroll effect
     useEffect(() => {
@@ -41,15 +53,15 @@ export function Navigation() {
                         href="/"
                         className="text-2xl font-serif font-bold text-luxury-navy-900 dark:text-slate-100 hover:text-luxury-navy-700 dark:hover:text-slate-300 transition-colors"
                     >
-                        {siteContent.general.brandName}
+                        {tCommon("brandName")}
                     </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-8">
-                        {siteContent.navigation.map((item) => (
+                        {navigationKeys.map((item) => (
                             <Link
                                 key={item.href}
-                                href={item.href}
+                                href={item.href as any}
                                 className={cn(
                                     "text-sm font-medium transition-colors hover:text-luxury-navy-700 dark:hover:text-slate-300 relative py-2",
                                     pathname === item.href
@@ -57,7 +69,7 @@ export function Navigation() {
                                         : "text-luxury-navy-600 dark:text-slate-400"
                                 )}
                             >
-                                {item.label}
+                                {t(item.labelKey)}
                                 {pathname === item.href && (
                                     <motion.span
                                         layoutId="underline"
@@ -67,11 +79,14 @@ export function Navigation() {
                             </Link>
                         ))}
 
+                        {/* Language Switcher */}
+                        <LanguageSwitcher />
+
                         {/* Dark Mode Toggle */}
                         <button
                             onClick={toggleTheme}
                             className="p-2 rounded-full hover:bg-luxury-navy-100 dark:hover:bg-luxury-navy-800 transition-colors"
-                            aria-label="Theme umschalten"
+                            aria-label={t("toggleTheme")}
                         >
                             {theme === "light" ? (
                                 <Moon className="h-5 w-5 text-luxury-navy-900" />
@@ -83,10 +98,13 @@ export function Navigation() {
 
                     {/* Mobile Menu Button */}
                     <div className="flex lg:hidden items-center gap-4">
+                        {/* Language Switcher for Mobile */}
+                        <LanguageSwitcher />
+                        
                         <button
                             onClick={toggleTheme}
                             className="p-2 rounded-full hover:bg-luxury-navy-100 dark:hover:bg-luxury-navy-800 transition-colors"
-                            aria-label="Theme umschalten"
+                            aria-label={t("toggleTheme")}
                         >
                             {theme === "light" ? (
                                 <Moon className="h-5 w-5 text-luxury-navy-900" />
@@ -97,7 +115,7 @@ export function Navigation() {
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             className="p-2 rounded-md hover:bg-luxury-navy-100 dark:hover:bg-luxury-navy-800 transition-colors"
-                            aria-label="Menü öffnen"
+                            aria-label={t("openMenu")}
                         >
                             {mobileMenuOpen ? (
                                 <X className="h-6 w-6 text-luxury-navy-900 dark:text-slate-100" />
@@ -118,10 +136,10 @@ export function Navigation() {
                             className="lg:hidden overflow-hidden"
                         >
                             <div className="border-t border-luxury-navy-100 dark:border-luxury-navy-800 py-4 mt-4 flex flex-col space-y-2">
-                                {siteContent.navigation.map((item) => (
+                                {navigationKeys.map((item) => (
                                     <Link
                                         key={item.href}
-                                        href={item.href}
+                                        href={item.href as any}
                                         onClick={() => setMobileMenuOpen(false)}
                                         className={cn(
                                             "text-base font-medium transition-colors hover:text-luxury-navy-900 dark:hover:text-slate-100 px-4 py-3 rounded-lg",
@@ -130,7 +148,7 @@ export function Navigation() {
                                                 : "text-luxury-navy-600 dark:text-slate-400"
                                         )}
                                     >
-                                        {item.label}
+                                        {t(item.labelKey)}
                                     </Link>
                                 ))}
                             </div>

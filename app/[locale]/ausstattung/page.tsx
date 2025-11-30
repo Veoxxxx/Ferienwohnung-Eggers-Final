@@ -1,16 +1,33 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/card";
-import { generateMetadata as genMeta } from "@/lib/metadata";
-import { Sofa, Bed, ChefHat, Bath, Trees, Home, Accessibility, AlertCircle, Wifi, Tv, Car, Coffee, Check } from "lucide-react";
+import { Sofa, Bed, ChefHat, Bath, Trees, Accessibility, AlertCircle, Wifi, Tv, Car, Coffee, Check } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 
-export const metadata = genMeta({
-    title: "Ausstattung",
-    description:
-        "Komplette Ausstattung der Ferienwohnung Eggers: Wohnbereich, zwei Schlafzimmer, moderne Küche, Bad und Terrasse. Weitgehend barrierefrei.",
-    path: "/ausstattung",
-});
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "Amenities.meta" });
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
-export default function AusstattungPage() {
+export default async function AusstattungPage({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
+    setRequestLocale(locale);
+    const t = await getTranslations("Amenities");
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -18,10 +35,11 @@ export default function AusstattungPage() {
                 <div className="absolute inset-0 opacity-10 bg-[url('/images/hero-living-room.png')] bg-cover bg-center" />
                 <div className="container-custom relative z-10">
                     <AnimatedSection>
-                        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">Ausstattung</h1>
+                        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+                            {t("hero.headline")}
+                        </h1>
                         <p className="text-xl text-luxury-sand-100 max-w-2xl font-light leading-relaxed">
-                            Fühlen Sie sich wie zu Hause. Unsere 62 m² große Ferienwohnung bietet Ihnen allen Komfort,
-                            den Sie für einen entspannten Urlaub an der Nordsee benötigen.
+                            {t("hero.text")}
                         </p>
                     </AnimatedSection>
                 </div>
@@ -35,34 +53,42 @@ export default function AusstattungPage() {
                             <div className="p-3 rounded-xl bg-luxury-sand-50 dark:bg-luxury-navy-900 group-hover:bg-luxury-sand-100 dark:group-hover:bg-luxury-navy-800 transition-colors duration-300">
                                 <Wifi className="h-6 w-6 text-luxury-navy-800 dark:text-luxury-sand-400" />
                             </div>
-                            <span className="font-serif text-lg text-luxury-navy-900 dark:text-slate-200 tracking-wide">Highspeed WLAN</span>
+                            <span className="font-serif text-lg text-luxury-navy-900 dark:text-slate-200 tracking-wide">
+                                {t("highlights.wifi")}
+                            </span>
                         </AnimatedSection>
 
                         <div className="hidden md:block h-8 w-px bg-luxury-sand-200 dark:bg-luxury-navy-700" />
-                        
+
                         <AnimatedSection delay={0.2} className="flex flex-col md:flex-row items-center gap-3 md:gap-4 group cursor-default">
                             <div className="p-3 rounded-xl bg-luxury-sand-50 dark:bg-luxury-navy-900 group-hover:bg-luxury-sand-100 dark:group-hover:bg-luxury-navy-800 transition-colors duration-300">
                                 <Car className="h-6 w-6 text-luxury-navy-800 dark:text-luxury-sand-400" />
                             </div>
-                            <span className="font-serif text-lg text-luxury-navy-900 dark:text-slate-200 tracking-wide">Privater Parkplatz</span>
+                            <span className="font-serif text-lg text-luxury-navy-900 dark:text-slate-200 tracking-wide">
+                                {t("highlights.parking")}
+                            </span>
                         </AnimatedSection>
-                        
+
                         <div className="hidden md:block h-8 w-px bg-luxury-sand-200 dark:bg-luxury-navy-700" />
 
                         <AnimatedSection delay={0.3} className="flex flex-col md:flex-row items-center gap-3 md:gap-4 group cursor-default">
                             <div className="p-3 rounded-xl bg-luxury-sand-50 dark:bg-luxury-navy-900 group-hover:bg-luxury-sand-100 dark:group-hover:bg-luxury-navy-800 transition-colors duration-300">
                                 <Coffee className="h-6 w-6 text-luxury-navy-800 dark:text-luxury-sand-400" />
                             </div>
-                            <span className="font-serif text-lg text-luxury-navy-900 dark:text-slate-200 tracking-wide">Voll ausgestattete Küche</span>
+                            <span className="font-serif text-lg text-luxury-navy-900 dark:text-slate-200 tracking-wide">
+                                {t("highlights.kitchen")}
+                            </span>
                         </AnimatedSection>
-                        
+
                         <div className="hidden md:block h-8 w-px bg-luxury-sand-200 dark:bg-luxury-navy-700" />
 
                         <AnimatedSection delay={0.4} className="flex flex-col md:flex-row items-center gap-3 md:gap-4 group cursor-default">
                             <div className="p-3 rounded-xl bg-luxury-sand-50 dark:bg-luxury-navy-900 group-hover:bg-luxury-sand-100 dark:group-hover:bg-luxury-navy-800 transition-colors duration-300">
                                 <Tv className="h-6 w-6 text-luxury-navy-800 dark:text-luxury-sand-400" />
                             </div>
-                            <span className="font-serif text-lg text-luxury-navy-900 dark:text-slate-200 tracking-wide">Smart TV</span>
+                            <span className="font-serif text-lg text-luxury-navy-900 dark:text-slate-200 tracking-wide">
+                                {t("highlights.tv")}
+                            </span>
                         </AnimatedSection>
                     </div>
                 </div>
@@ -81,8 +107,8 @@ export default function AusstattungPage() {
                                             <Sofa className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
                                         </div>
                                         <div>
-                                            <CardTitle className="text-2xl font-serif">Wohnbereich</CardTitle>
-                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">Gemütlich & Modern</CardDescription>
+                                            <CardTitle className="text-2xl font-serif">{t("living.title")}</CardTitle>
+                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">{t("living.subtitle")}</CardDescription>
                                         </div>
                                     </div>
                                 </CardHeader>
@@ -90,19 +116,19 @@ export default function AusstattungPage() {
                                     <ul className="space-y-4 text-luxury-navy-700 dark:text-slate-300">
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Helle, freundliche Atmosphäre mit großen Fenstern</span>
+                                            <span className="leading-relaxed">{t("living.items.windows")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Komfortable Sitzgruppe mit Sofa und Sesseln</span>
+                                            <span className="leading-relaxed">{t("living.items.seating")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Flachbild-TV mit Kabelanschluss</span>
+                                            <span className="leading-relaxed">{t("living.items.tv")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Großer Esstisch mit Platz für 6 Personen</span>
+                                            <span className="leading-relaxed">{t("living.items.dining")}</span>
                                         </li>
                                     </ul>
                                 </CardContent>
@@ -118,8 +144,8 @@ export default function AusstattungPage() {
                                             <ChefHat className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
                                         </div>
                                         <div>
-                                            <CardTitle className="text-2xl font-serif">Küche</CardTitle>
-                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">Für Selbstversorger</CardDescription>
+                                            <CardTitle className="text-2xl font-serif">{t("kitchen.title")}</CardTitle>
+                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">{t("kitchen.subtitle")}</CardDescription>
                                         </div>
                                     </div>
                                 </CardHeader>
@@ -127,19 +153,19 @@ export default function AusstattungPage() {
                                     <ul className="space-y-4 text-luxury-navy-700 dark:text-slate-300">
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Moderne Einbauküche mit Ceranfeld (4 Platten)</span>
+                                            <span className="leading-relaxed">{t("kitchen.items.stove")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Backofen, Geschirrspüler, Kühlschrank mit Gefrierfach</span>
+                                            <span className="leading-relaxed">{t("kitchen.items.appliances")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Kaffeemaschine, Wasserkocher, Toaster</span>
+                                            <span className="leading-relaxed">{t("kitchen.items.small")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Vollständiges Geschirr- und Kochset</span>
+                                            <span className="leading-relaxed">{t("kitchen.items.dishes")}</span>
                                         </li>
                                     </ul>
                                 </CardContent>
@@ -155,8 +181,8 @@ export default function AusstattungPage() {
                                             <Bed className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
                                         </div>
                                         <div>
-                                            <CardTitle className="text-2xl font-serif">Hauptschlafzimmer</CardTitle>
-                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">Barrierefrei & Ruhig</CardDescription>
+                                            <CardTitle className="text-2xl font-serif">{t("bedroom1.title")}</CardTitle>
+                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">{t("bedroom1.subtitle")}</CardDescription>
                                         </div>
                                     </div>
                                 </CardHeader>
@@ -164,19 +190,19 @@ export default function AusstattungPage() {
                                     <ul className="space-y-4 text-luxury-navy-700 dark:text-slate-300">
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Doppelbett (1,80 m x 2,00 m)</span>
+                                            <span className="leading-relaxed">{t("bedroom1.items.bed")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Großer Kleiderschrank und Nachttische</span>
+                                            <span className="leading-relaxed">{t("bedroom1.items.storage")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Verdunklungsvorhänge für erholsamen Schlaf</span>
+                                            <span className="leading-relaxed">{t("bedroom1.items.curtains")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Barrierefreier Zugang</span>
+                                            <span className="leading-relaxed">{t("bedroom1.items.accessible")}</span>
                                         </li>
                                     </ul>
                                 </CardContent>
@@ -192,8 +218,8 @@ export default function AusstattungPage() {
                                             <Bed className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
                                         </div>
                                         <div>
-                                            <CardTitle className="text-2xl font-serif">Zweites Schlafzimmer</CardTitle>
-                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">Flexibel nutzbar</CardDescription>
+                                            <CardTitle className="text-2xl font-serif">{t("bedroom2.title")}</CardTitle>
+                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">{t("bedroom2.subtitle")}</CardDescription>
                                         </div>
                                     </div>
                                 </CardHeader>
@@ -201,15 +227,15 @@ export default function AusstattungPage() {
                                     <ul className="space-y-4 text-luxury-navy-700 dark:text-slate-300">
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">2 Einzelbetten oder Etagenbett (ideal für Kinder)</span>
+                                            <span className="leading-relaxed">{t("bedroom2.items.beds")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Eigener Kleiderschrank</span>
+                                            <span className="leading-relaxed">{t("bedroom2.items.storage")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <AlertCircle className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed text-amber-700 dark:text-amber-400 font-medium">Hinweis: Nicht barrierefrei zugänglich</span>
+                                            <span className="leading-relaxed text-amber-700 dark:text-amber-400 font-medium">{t("bedroom2.notice")}</span>
                                         </li>
                                     </ul>
                                 </CardContent>
@@ -225,8 +251,8 @@ export default function AusstattungPage() {
                                             <Bath className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
                                         </div>
                                         <div>
-                                            <CardTitle className="text-2xl font-serif">Badezimmer</CardTitle>
-                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">Hygienisch & Funktional</CardDescription>
+                                            <CardTitle className="text-2xl font-serif">{t("bathroom.title")}</CardTitle>
+                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">{t("bathroom.subtitle")}</CardDescription>
                                         </div>
                                     </div>
                                 </CardHeader>
@@ -234,15 +260,15 @@ export default function AusstattungPage() {
                                     <ul className="space-y-4 text-luxury-navy-700 dark:text-slate-300">
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Ebenerdige Dusche, WC, Waschbecken</span>
+                                            <span className="leading-relaxed">{t("bathroom.items.shower")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Handtücher inklusive</span>
+                                            <span className="leading-relaxed">{t("bathroom.items.towels")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <AlertCircle className="h-5 w-5 text-luxury-navy-400 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed font-medium">Keine Waschmaschine vorhanden</span>
+                                            <span className="leading-relaxed font-medium">{t("bathroom.notice")}</span>
                                         </li>
                                     </ul>
                                 </CardContent>
@@ -258,8 +284,8 @@ export default function AusstattungPage() {
                                             <Trees className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
                                         </div>
                                         <div>
-                                            <CardTitle className="text-2xl font-serif">Außenbereich</CardTitle>
-                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">Privatsphäre genießen</CardDescription>
+                                            <CardTitle className="text-2xl font-serif">{t("outdoor.title")}</CardTitle>
+                                            <CardDescription className="text-luxury-navy-500 dark:text-slate-400">{t("outdoor.subtitle")}</CardDescription>
                                         </div>
                                     </div>
                                 </CardHeader>
@@ -267,15 +293,15 @@ export default function AusstattungPage() {
                                     <ul className="space-y-4 text-luxury-navy-700 dark:text-slate-300">
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Private Terrasse mit Gartenmöbeln</span>
+                                            <span className="leading-relaxed">{t("outdoor.items.terrace")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Sonnenschirm vorhanden</span>
+                                            <span className="leading-relaxed">{t("outdoor.items.umbrella")}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Check className="h-5 w-5 text-luxury-navy-400 dark:text-luxury-sand-500 flex-shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">Kostenloser Parkplatz direkt am Haus</span>
+                                            <span className="leading-relaxed">{t("outdoor.items.parking")}</span>
                                         </li>
                                     </ul>
                                 </CardContent>
@@ -290,20 +316,19 @@ export default function AusstattungPage() {
                                 <CardHeader>
                                     <div className="flex items-center gap-4">
                                         <Accessibility className="h-8 w-8 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                        <CardTitle className="text-2xl font-serif">Informationen zur Barrierefreiheit</CardTitle>
+                                        <CardTitle className="text-2xl font-serif">{t("accessibility.title")}</CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <p className="text-luxury-navy-700 dark:text-slate-300 leading-relaxed">
-                                        Die Ferienwohnung Eggers ist weitgehend barrierefrei gestaltet. Der Zugang zur Wohnung ist ebenerdig
-                                        und ohne Stufen möglich. Die Türen sind breit genug für Rollatoren und Rollstühle. Das Badezimmer
-                                        verfügt über eine ebenerdige Dusche.
+                                        {t("accessibility.text")}
                                     </p>
                                     <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800 inline-block">
                                         <p className="text-sm text-amber-900 dark:text-amber-100 flex gap-2">
                                             <AlertCircle className="h-5 w-5 flex-shrink-0 text-amber-600 dark:text-amber-400" />
                                             <span>
-                                                <strong>Hinweis:</strong> Das zweite Schlafzimmer ist aufgrund der Raumaufteilung nicht barrierefrei zugänglich.
+                                                <strong>{t("accessibility.notice").split(":")[0]}:</strong>
+                                                {t("accessibility.notice").split(":").slice(1).join(":")}
                                             </span>
                                         </p>
                                     </div>
@@ -316,3 +341,4 @@ export default function AusstattungPage() {
         </div>
     );
 }
+

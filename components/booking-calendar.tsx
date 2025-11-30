@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AvailabilityData } from "@/lib/channel-manager";
+import { useTranslations } from "next-intl";
 
 interface BookingCalendarProps {
     onSelectRange: (startDate: Date, endDate: Date) => void;
@@ -16,6 +17,7 @@ export function BookingCalendar({
     selectedStartDate,
     selectedEndDate,
 }: BookingCalendarProps) {
+    const t = useTranslations("Calendar");
     const [currentMonth, setCurrentMonth] = useState(new Date());
     const [availability, setAvailability] = useState<Map<string, AvailabilityData>>(new Map());
     const [selectingRange, setSelectingRange] = useState<"start" | "end">("start");
@@ -103,11 +105,11 @@ export function BookingCalendar({
         setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1));
     };
 
-    const weekDays = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
-    const monthNames = [
-        "Januar", "Februar", "März", "April", "Mai", "Juni",
-        "Juli", "August", "September", "Oktober", "November", "Dezember"
-    ];
+    const weekDayKeys = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"] as const;
+    const monthKeys = [
+        "january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december"
+    ] as const;
 
     return (
         <div className="w-full max-w-md mx-auto">
@@ -116,17 +118,17 @@ export function BookingCalendar({
                 <button
                     onClick={previousMonth}
                     className="p-2 hover:bg-luxury-navy-100 dark:hover:bg-luxury-navy-800 rounded-md transition-colors"
-                    aria-label="Vorheriger Monat"
+                    aria-label={t("previousMonth")}
                 >
                     <ChevronLeft className="h-5 w-5" />
                 </button>
                 <h3 className="text-lg font-serif font-semibold">
-                    {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
+                    {t(`months.${monthKeys[currentMonth.getMonth()]}`)} {currentMonth.getFullYear()}
                 </h3>
                 <button
                     onClick={nextMonth}
                     className="p-2 hover:bg-luxury-navy-100 dark:hover:bg-luxury-navy-800 rounded-md transition-colors"
-                    aria-label="Nächster Monat"
+                    aria-label={t("nextMonth")}
                 >
                     <ChevronRight className="h-5 w-5" />
                 </button>
@@ -134,12 +136,12 @@ export function BookingCalendar({
 
             {/* Weekday Headers */}
             <div className="grid grid-cols-7 gap-1 mb-2">
-                {weekDays.map((day) => (
+                {weekDayKeys.map((day) => (
                     <div
                         key={day}
                         className="text-center text-sm font-medium text-luxury-navy-600 dark:text-slate-400 py-2"
                     >
-                        {day}
+                        {t(`weekDays.${day}`)}
                     </div>
                 ))}
             </div>
@@ -187,11 +189,11 @@ export function BookingCalendar({
             <div className="mt-6 pt-4 border-t border-luxury-sand-100 dark:border-luxury-navy-800 flex flex-wrap gap-4 text-xs font-medium text-luxury-navy-600 dark:text-slate-400">
                 <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-luxury-navy-900 dark:bg-white rounded-full"></div>
-                    <span>Ausgewählt</span>
+                    <span>{t("legend.selected")}</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-luxury-navy-100 dark:bg-luxury-navy-800 rounded-full"></div>
-                    <span>Zeitraum</span>
+                    <span>{t("legend.range")}</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-white border border-gray-200 dark:border-gray-700 dark:bg-transparent rounded-full relative">
@@ -199,7 +201,7 @@ export function BookingCalendar({
                             <div className="w-2 h-[1px] bg-gray-300 dark:bg-gray-600 transform -rotate-45"></div>
                         </div>
                     </div>
-                    <span className="text-gray-400 dark:text-gray-500">Belegt / Vergangen</span>
+                    <span className="text-gray-400 dark:text-gray-500">{t("legend.unavailable")}</span>
                 </div>
             </div>
         </div>

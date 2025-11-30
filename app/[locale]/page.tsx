@@ -2,29 +2,42 @@ import { Button } from "@/components/button";
 import { Card, CardContent } from "@/components/card";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { generateMetadata as genMeta } from "@/lib/metadata";
-import { siteContent } from "@/lib/content";
 import { Icons } from "@/components/icons";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { siteContent } from "@/lib/content";
 
 // Helper for dynamic icons
 const featureIcons = {
-    Waves: Icons.waves,
-    Wifi: Icons.wifi,
-    Dog: Icons.dog,
-    Coffee: Icons.coffee,
-    MapPin: Icons.mapPin,
-    Star: Icons.star
+    beach: Icons.waves,
+    wifi: Icons.wifi,
+    dogs: Icons.dog,
+    kitchen: Icons.coffee,
+    parking: Icons.mapPin,
+    accessible: Icons.star,
 };
 
-export const metadata = genMeta({
-    title: "Startseite",
-    description: siteContent.pages.home.hero.subheadline,
-    path: "/",
-});
+type FeatureKey = keyof typeof featureIcons;
 
-export default function Home() {
+export default function Home({
+    params,
+}: {
+    params: { locale: string };
+}) {
+    setRequestLocale(params.locale);
+    const t = useTranslations();
+
+    const featureKeys: FeatureKey[] = [
+        "beach",
+        "wifi",
+        "dogs",
+        "kitchen",
+        "parking",
+        "accessible",
+    ];
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -33,7 +46,7 @@ export default function Home() {
                 <div className="absolute inset-0 z-0">
                     <Image
                         src={siteContent.pages.home.hero.backgroundImage}
-                        alt="Strand bei Sonnenuntergang in Cuxhaven-Sahlenburg"
+                        alt={t("Hero.altText")}
                         fill
                         priority
                         className="object-cover"
@@ -47,20 +60,24 @@ export default function Home() {
                 <div className="container-custom relative z-20 text-center text-white">
                     <AnimatedSection>
                         <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 tracking-tight">
-                            {siteContent.pages.home.hero.headline}
+                            {t("Hero.headline")}
                         </h1>
                         <p className="text-xl md:text-2xl text-luxury-sand-100 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                            {siteContent.pages.home.hero.subheadline}
+                            {t("Hero.subheadline")}
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link href="/buchen">
                                 <Button size="lg" className="min-w-[200px] text-lg">
-                                    {siteContent.pages.home.hero.primaryCta}
+                                    {t("Hero.primaryCta")}
                                 </Button>
                             </Link>
                             <Link href="/galerie">
-                                <Button variant="outline" size="lg" className="min-w-[200px] text-lg bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-luxury-navy-900">
-                                    {siteContent.pages.home.hero.secondaryCta}
+                                <Button
+                                    variant="outline"
+                                    size="lg"
+                                    className="min-w-[200px] text-lg bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-luxury-navy-900"
+                                >
+                                    {t("Hero.secondaryCta")}
                                 </Button>
                             </Link>
                         </div>
@@ -81,7 +98,7 @@ export default function Home() {
                             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
                                 <Image
                                     src={siteContent.pages.home.intro.image}
-                                    alt="Helles Wohnzimmer der Ferienwohnung Eggers mit Sofa und großen Fenstern"
+                                    alt={t("Intro.altText")}
                                     fill
                                     className="object-cover hover:scale-105 transition-transform duration-700"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -89,28 +106,38 @@ export default function Home() {
                             </div>
                             <div className="absolute -bottom-6 -right-6 bg-luxury-sand-50 dark:bg-luxury-navy-800 p-6 rounded-lg shadow-lg max-w-xs hidden md:block">
                                 <p className="font-serif text-lg text-luxury-navy-900 dark:text-luxury-sand-100 italic">
-                                    "{siteContent.pages.home.intro.quote}"
+                                    "{t("Intro.quote")}"
                                 </p>
                             </div>
                         </AnimatedSection>
 
                         <AnimatedSection delay={0.2}>
                             <h2 className="text-4xl font-serif font-bold mb-6 text-luxury-navy-900 dark:text-luxury-sand-100">
-                                {siteContent.pages.home.intro.headline}
+                                {t("Intro.headline")}
                             </h2>
                             <p className="text-lg text-luxury-navy-600 dark:text-slate-400 mb-6 leading-relaxed">
-                                {siteContent.pages.home.intro.text}
+                                {t("Intro.text")}
                             </p>
                             <ul className="space-y-4 mb-8">
-                                {siteContent.pages.home.intro.features.map((feature, idx) => (
-                                    <li key={idx} className="flex items-center gap-3 text-luxury-navy-700 dark:text-slate-300">
-                                        <Icons.check className="h-5 w-5 text-luxury-navy-500" />
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
+                                <li className="flex items-center gap-3 text-luxury-navy-700 dark:text-slate-300">
+                                    <Icons.check className="h-5 w-5 text-luxury-navy-500" />
+                                    <span>{t("Intro.features.size")}</span>
+                                </li>
+                                <li className="flex items-center gap-3 text-luxury-navy-700 dark:text-slate-300">
+                                    <Icons.check className="h-5 w-5 text-luxury-navy-500" />
+                                    <span>{t("Intro.features.accessible")}</span>
+                                </li>
+                                <li className="flex items-center gap-3 text-luxury-navy-700 dark:text-slate-300">
+                                    <Icons.check className="h-5 w-5 text-luxury-navy-500" />
+                                    <span>{t("Intro.features.dogs")}</span>
+                                </li>
                             </ul>
-                            <Link href="/ausstattung" className="text-luxury-navy-900 dark:text-luxury-sand-400 font-medium hover:underline inline-flex items-center gap-2">
-                                Mehr zur Ausstattung <Icons.arrowRight className="h-4 w-4" />
+                            <Link
+                                href="/ausstattung"
+                                className="text-luxury-navy-900 dark:text-luxury-sand-400 font-medium hover:underline inline-flex items-center gap-2"
+                            >
+                                {t("Intro.moreAmenities")}{" "}
+                                <Icons.arrowRight className="h-4 w-4" />
                             </Link>
                         </AnimatedSection>
                     </div>
@@ -122,26 +149,26 @@ export default function Home() {
                 <div className="container-custom">
                     <AnimatedSection className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-luxury-navy-900 dark:text-luxury-sand-100">
-                            {siteContent.pages.home.features.headline}
+                            {t("Features.headline")}
                         </h2>
                         <p className="text-luxury-navy-600 dark:text-slate-400 max-w-2xl mx-auto">
-                            {siteContent.pages.home.features.subheadline}
+                            {t("Features.subheadline")}
                         </p>
                     </AnimatedSection>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {siteContent.pages.home.features.items.map((feature, index) => {
-                            const Icon = featureIcons[feature.iconName as keyof typeof featureIcons] || Icons.star;
+                        {featureKeys.map((key, index) => {
+                            const Icon = featureIcons[key];
                             return (
-                                <AnimatedSection key={index} delay={index * 0.1}>
+                                <AnimatedSection key={key} delay={index * 0.1}>
                                     <Card className="h-full border-none shadow-sm hover:shadow-md transition-shadow bg-white dark:bg-luxury-navy-950">
                                         <CardContent className="p-6">
                                             <Icon className="h-10 w-10 text-luxury-navy-900 dark:text-luxury-sand-400 mb-4" />
                                             <h3 className="font-serif font-bold text-xl mb-2 text-luxury-navy-900 dark:text-luxury-sand-100">
-                                                {feature.title}
+                                                {t(`Features.items.${key}.title`)}
                                             </h3>
                                             <p className="text-luxury-navy-600 dark:text-slate-400">
-                                                {feature.desc}
+                                                {t(`Features.items.${key}.desc`)}
                                             </p>
                                         </CardContent>
                                     </Card>
@@ -167,11 +194,18 @@ export default function Home() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                                 <div className="absolute bottom-0 left-0 p-8 text-white">
-                                    <h3 className="text-2xl font-serif font-bold mb-2">Lage & Umgebung</h3>
-                                    <p className="text-slate-200 mb-4">Entdecken Sie den Wernerwald und das Wattenmeer.</p>
+                                    <h3 className="text-2xl font-serif font-bold mb-2">
+                                        {t("Teaser.location.title")}
+                                    </h3>
+                                    <p className="text-slate-200 mb-4">
+                                        {t("Teaser.location.text")}
+                                    </p>
                                     <Link href="/lage">
-                                        <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">
-                                            Mehr erfahren
+                                        <Button
+                                            variant="outline"
+                                            className="text-white border-white hover:bg-white hover:text-black"
+                                        >
+                                            {t("Teaser.location.cta")}
                                         </Button>
                                     </Link>
                                 </div>
@@ -189,11 +223,18 @@ export default function Home() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                                 <div className="absolute bottom-0 left-0 p-8 text-white">
-                                    <h3 className="text-2xl font-serif font-bold mb-2">Preise & Konditionen</h3>
-                                    <p className="text-slate-200 mb-4">Transparent und fair. Keine versteckten Kosten.</p>
+                                    <h3 className="text-2xl font-serif font-bold mb-2">
+                                        {t("Teaser.prices.title")}
+                                    </h3>
+                                    <p className="text-slate-200 mb-4">
+                                        {t("Teaser.prices.text")}
+                                    </p>
                                     <Link href="/preise">
-                                        <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">
-                                            Zur Übersicht
+                                        <Button
+                                            variant="outline"
+                                            className="text-white border-white hover:bg-white hover:text-black"
+                                        >
+                                            {t("Teaser.prices.cta")}
                                         </Button>
                                     </Link>
                                 </div>
@@ -218,14 +259,18 @@ export default function Home() {
                 <div className="container-custom relative z-10">
                     <AnimatedSection>
                         <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-                            Bereit für Ihre Auszeit?
+                            {t("CTA.headline")}
                         </h2>
                         <p className="text-xl text-luxury-sand-100 mb-8 max-w-2xl mx-auto">
-                            Sichern Sie sich jetzt Ihren Wunschtermin in der Ferienwohnung Eggers.
+                            {t("CTA.text")}
                         </p>
                         <Link href="/buchen">
-                            <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-luxury-navy-900 text-lg px-8">
-                                Jetzt anfragen
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-luxury-navy-900 text-lg px-8"
+                            >
+                                {t("CTA.button")}
                             </Button>
                         </Link>
                     </AnimatedSection>
@@ -234,3 +279,4 @@ export default function Home() {
         </div>
     );
 }
+

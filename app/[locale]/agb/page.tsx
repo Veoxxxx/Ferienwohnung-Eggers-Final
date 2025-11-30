@@ -1,15 +1,33 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
-import { generateMetadata as genMeta } from "@/lib/metadata";
-import { AlertCircle, FileText, CheckCircle2, CreditCard, Clock, Home, ShieldAlert, Scale, Mail } from "lucide-react";
+import { AlertCircle, FileText, CheckCircle2, CreditCard, Clock, Home, ShieldAlert, Scale } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import { siteContent } from "@/lib/content";
+import type { Metadata } from "next";
 
-export const metadata = genMeta({
-    title: "AGB",
-    description: "Allgemeine Geschäftsbedingungen der Ferienwohnung Eggers.",
-    path: "/agb",
-});
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "Terms.meta" });
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
-export default function AGBPage() {
+export default async function AGBPage({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
+    setRequestLocale(locale);
+    const t = await getTranslations("Terms");
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -17,9 +35,11 @@ export default function AGBPage() {
                 <div className="absolute inset-0 opacity-5 bg-[url('/images/hero-living-room.png')] bg-cover bg-center" />
                 <div className="container-custom relative z-10">
                     <AnimatedSection>
-                        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">AGB</h1>
+                        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+                            {t("hero.headline")}
+                        </h1>
                         <p className="text-xl text-luxury-sand-100 max-w-2xl font-light leading-relaxed">
-                            Allgemeine Geschäftsbedingungen für die Anmietung der Ferienwohnung Eggers.
+                            {t("hero.text")}
                         </p>
                     </AnimatedSection>
                 </div>
@@ -27,15 +47,15 @@ export default function AGBPage() {
 
             <section className="section-padding">
                 <div className="container-custom max-w-4xl">
-
                     <AnimatedSection>
                         <div className="flex items-start gap-4 p-6 bg-luxury-sand-50 dark:bg-luxury-navy-900 border border-luxury-navy-100 dark:border-luxury-navy-800 rounded-lg mb-12">
                             <AlertCircle className="h-6 w-6 text-luxury-navy-600 dark:text-luxury-sand-400 flex-shrink-0 mt-0.5" />
                             <div>
-                                <p className="font-serif font-bold text-lg text-luxury-navy-900 dark:text-luxury-sand-100 mb-2">Rechtlicher Hinweis</p>
+                                <p className="font-serif font-bold text-lg text-luxury-navy-900 dark:text-luxury-sand-100 mb-2">
+                                    {t("legalNotice.title")}
+                                </p>
                                 <p className="text-luxury-navy-600 dark:text-slate-400 leading-relaxed">
-                                    Diese AGB sind ein Muster und müssen vor Produktivbetrieb durch rechtlich geprüfte und individuell
-                                    angepasste Geschäftsbedingungen ersetzt werden.
+                                    {t("legalNotice.text")}
                                 </p>
                             </div>
                         </div>
@@ -47,14 +67,13 @@ export default function AGBPage() {
                                 <CardHeader>
                                     <div className="flex items-center gap-3 mb-2">
                                         <FileText className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                        <CardTitle className="font-serif text-xl">§ 1 Geltungsbereich</CardTitle>
+                                        <CardTitle className="font-serif text-xl">
+                                            {t("scope.title")}
+                                        </CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="text-luxury-navy-600 dark:text-slate-400 leading-relaxed">
-                                    <p>
-                                        Diese Allgemeinen Geschäftsbedingungen gelten für die Vermietung der Ferienwohnung Eggers,
-                                        Nordheimstraße 150, 27476 Cuxhaven Sahlenburg. Mit der Buchung erkennt der Gast diese Bedingungen an.
-                                    </p>
+                                    <p>{t("scope.text")}</p>
                                 </CardContent>
                             </Card>
                         </AnimatedSection>
@@ -64,16 +83,17 @@ export default function AGBPage() {
                                 <CardHeader>
                                     <div className="flex items-center gap-3 mb-2">
                                         <CheckCircle2 className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                        <CardTitle className="font-serif text-xl">§ 2 Buchung und Vertragsabschluss</CardTitle>
+                                        <CardTitle className="font-serif text-xl">
+                                            {t("contract.title")}
+                                        </CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="text-luxury-navy-600 dark:text-slate-400 leading-relaxed space-y-3">
-                                    <p>
-                                        Die Buchungsanfrage des Gastes stellt ein Angebot zum Abschluss eines Mietvertrags dar.
-                                        Der Vertrag kommt erst durch unsere schriftliche Buchungsbestätigung (per E-Mail) zustande.
-                                    </p>
+                                    <p>{t("contract.text")}</p>
                                     <div className="inline-block px-3 py-1 bg-luxury-sand-50 dark:bg-luxury-navy-950 rounded border border-luxury-navy-100 dark:border-luxury-navy-800 text-sm font-medium">
-                                        Mindestaufenthalt: 3 Nächte
+                                        {t("contract.minStay", {
+                                            nights: siteContent.booking.prices.minimumStay,
+                                        })}
                                     </div>
                                 </CardContent>
                             </Card>
@@ -84,22 +104,44 @@ export default function AGBPage() {
                                 <CardHeader>
                                     <div className="flex items-center gap-3 mb-2">
                                         <CreditCard className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                        <CardTitle className="font-serif text-xl">§ 3 Preise und Zahlung</CardTitle>
+                                        <CardTitle className="font-serif text-xl">
+                                            {t("prices.title")}
+                                        </CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="text-luxury-navy-600 dark:text-slate-400 leading-relaxed space-y-4">
                                     <div>
-                                        <p className="font-medium text-luxury-navy-900 dark:text-slate-100 mb-2">Im Preis enthalten:</p>
+                                        <p className="font-medium text-luxury-navy-900 dark:text-slate-100 mb-2">
+                                            {t("prices.includedTitle")}
+                                        </p>
                                         <ul className="grid sm:grid-cols-2 gap-2">
-                                            <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-luxury-navy-400" />Bettwäsche & Handtücher</li>
-                                            <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-luxury-navy-400" />Endreinigung</li>
-                                            <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-luxury-navy-400" />Nebenkosten (Strom, Wasser)</li>
-                                            <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-luxury-navy-400" />WLAN & Parkplatz</li>
+                                            <li className="flex items-center gap-2">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-luxury-navy-400" />
+                                                {t("prices.included.linen")}
+                                            </li>
+                                            <li className="flex items-center gap-2">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-luxury-navy-400" />
+                                                {t("prices.included.cleaning")}
+                                            </li>
+                                            <li className="flex items-center gap-2">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-luxury-navy-400" />
+                                                {t("prices.included.utilities")}
+                                            </li>
+                                            <li className="flex items-center gap-2">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-luxury-navy-400" />
+                                                {t("prices.included.extras")}
+                                            </li>
                                         </ul>
                                     </div>
                                     <div className="p-4 bg-luxury-sand-50 dark:bg-luxury-navy-950 rounded-lg">
-                                        <p className="font-medium text-luxury-navy-900 dark:text-slate-100 mb-1">Zusätzlich vor Ort:</p>
-                                        <p>Kurtaxe: € 4,10 pro Erwachsenen pro Tag (in bar)</p>
+                                        <p className="font-medium text-luxury-navy-900 dark:text-slate-100 mb-1">
+                                            {t("prices.additionalTitle")}
+                                        </p>
+                                        <p>
+                                            {t("prices.cityTax", {
+                                                amount: siteContent.booking.prices.cityTaxPerAdultPerNight.toFixed(2),
+                                            })}
+                                        </p>
                                     </div>
                                 </CardContent>
                             </Card>
@@ -110,23 +152,31 @@ export default function AGBPage() {
                                 <CardHeader>
                                     <div className="flex items-center gap-3 mb-2">
                                         <ShieldAlert className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                        <CardTitle className="font-serif text-xl">§ 4 Stornierung</CardTitle>
+                                        <CardTitle className="font-serif text-xl">
+                                            {t("cancellation.title")}
+                                        </CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="text-luxury-navy-600 dark:text-slate-400 leading-relaxed">
-                                    <p className="mb-3">Stornierungen müssen schriftlich (per E-Mail) erfolgen.</p>
+                                    <p className="mb-3">{t("cancellation.text")}</p>
                                     <ul className="space-y-2">
                                         <li className="flex justify-between border-b border-luxury-navy-100 dark:border-luxury-navy-800 pb-2">
-                                            <span>Bis 60 Tage vor Anreise</span>
-                                            <span className="font-medium text-luxury-navy-900 dark:text-slate-100">Kostenfrei</span>
+                                            <span>{t("cancellation.policy.free")}</span>
+                                            <span className="font-medium text-luxury-navy-900 dark:text-slate-100">
+                                                {t("cancellation.policy.freeAmount")}
+                                            </span>
                                         </li>
                                         <li className="flex justify-between border-b border-luxury-navy-100 dark:border-luxury-navy-800 pb-2">
-                                            <span>59-30 Tage vor Anreise</span>
-                                            <span className="font-medium text-luxury-navy-900 dark:text-slate-100">50% des Preises</span>
+                                            <span>{t("cancellation.policy.partial")}</span>
+                                            <span className="font-medium text-luxury-navy-900 dark:text-slate-100">
+                                                {t("cancellation.policy.partialAmount")}
+                                            </span>
                                         </li>
                                         <li className="flex justify-between">
-                                            <span>Ab 29 Tage vor Anreise</span>
-                                            <span className="font-medium text-luxury-navy-900 dark:text-slate-100">100% des Preises</span>
+                                            <span>{t("cancellation.policy.full")}</span>
+                                            <span className="font-medium text-luxury-navy-900 dark:text-slate-100">
+                                                {t("cancellation.policy.fullAmount")}
+                                            </span>
                                         </li>
                                     </ul>
                                 </CardContent>
@@ -138,18 +188,28 @@ export default function AGBPage() {
                                 <CardHeader>
                                     <div className="flex items-center gap-3 mb-2">
                                         <Clock className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                        <CardTitle className="font-serif text-xl">§ 5 An- und Abreise</CardTitle>
+                                        <CardTitle className="font-serif text-xl">
+                                            {t("checkInOut.title")}
+                                        </CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="text-luxury-navy-600 dark:text-slate-400 leading-relaxed">
                                     <div className="grid sm:grid-cols-2 gap-4">
                                         <div className="p-4 bg-luxury-sand-50 dark:bg-luxury-navy-950 rounded-lg text-center">
-                                            <span className="block text-sm uppercase tracking-wider text-luxury-navy-500 mb-1">Check-in</span>
-                                            <span className="block text-2xl font-serif font-bold text-luxury-navy-900 dark:text-slate-100">ab 15:00 Uhr</span>
+                                            <span className="block text-sm uppercase tracking-wider text-luxury-navy-500 mb-1">
+                                                {t("checkInOut.checkIn")}
+                                            </span>
+                                            <span className="block text-2xl font-serif font-bold text-luxury-navy-900 dark:text-slate-100">
+                                                {t("checkInOut.checkInTime")}
+                                            </span>
                                         </div>
                                         <div className="p-4 bg-luxury-sand-50 dark:bg-luxury-navy-950 rounded-lg text-center">
-                                            <span className="block text-sm uppercase tracking-wider text-luxury-navy-500 mb-1">Check-out</span>
-                                            <span className="block text-2xl font-serif font-bold text-luxury-navy-900 dark:text-slate-100">bis 10:00 Uhr</span>
+                                            <span className="block text-sm uppercase tracking-wider text-luxury-navy-500 mb-1">
+                                                {t("checkInOut.checkOut")}
+                                            </span>
+                                            <span className="block text-2xl font-serif font-bold text-luxury-navy-900 dark:text-slate-100">
+                                                {t("checkInOut.checkOutTime")}
+                                            </span>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -161,14 +221,16 @@ export default function AGBPage() {
                                 <CardHeader>
                                     <div className="flex items-center gap-3 mb-2">
                                         <Home className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                        <CardTitle className="font-serif text-xl">§ 6 Nutzung & Hausregeln</CardTitle>
+                                        <CardTitle className="font-serif text-xl">
+                                            {t("houseRules.title")}
+                                        </CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="text-luxury-navy-600 dark:text-slate-400 leading-relaxed space-y-2">
-                                    <p>• Maximale Belegung: 6 Personen</p>
-                                    <p>• Hunde sind herzlich willkommen</p>
-                                    <p>• Nichtraucher-Wohnung (Rauchen nur auf der Terrasse)</p>
-                                    <p>• Bitte nehmen Sie Rücksicht auf die Nachbarschaft (Ruhezeiten)</p>
+                                    <p>• {t("houseRules.maxOccupancy")}</p>
+                                    <p>• {t("houseRules.dogsWelcome")}</p>
+                                    <p>• {t("houseRules.noSmoking")}</p>
+                                    <p>• {t("houseRules.quietHours")}</p>
                                 </CardContent>
                             </Card>
                         </AnimatedSection>
@@ -178,14 +240,13 @@ export default function AGBPage() {
                                 <CardHeader>
                                     <div className="flex items-center gap-3 mb-2">
                                         <Scale className="h-6 w-6 text-luxury-navy-900 dark:text-luxury-sand-400" />
-                                        <CardTitle className="font-serif text-xl">§ 7 Schlussbestimmungen</CardTitle>
+                                        <CardTitle className="font-serif text-xl">
+                                            {t("final.title")}
+                                        </CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="text-luxury-navy-600 dark:text-slate-400 leading-relaxed">
-                                    <p>
-                                        Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
-                                        Es gilt deutsches Recht. Gerichtsstand ist Cuxhaven.
-                                    </p>
+                                    <p>{t("final.text")}</p>
                                 </CardContent>
                             </Card>
                         </AnimatedSection>
@@ -195,3 +256,4 @@ export default function AGBPage() {
         </div>
     );
 }
+

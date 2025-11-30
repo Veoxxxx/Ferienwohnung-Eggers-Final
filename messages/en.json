@@ -1,0 +1,765 @@
+{
+  "Metadata": {
+    "title": "Holiday Apartment Eggers",
+    "description": "Modern holiday apartment in Cuxhaven Sahlenburg with space for up to 6 guests. Quiet location, about 1000 meters to the Wadden Sea beach. Dog-friendly and largely barrier-free."
+  },
+  "Navigation": {
+    "home": "Home",
+    "amenities": "Amenities",
+    "gallery": "Gallery",
+    "location": "Location",
+    "prices": "Prices",
+    "about": "About Us",
+    "contact": "Contact",
+    "booking": "Book Now",
+    "toggleTheme": "Toggle theme",
+    "openMenu": "Open menu"
+  },
+  "Hero": {
+    "headline": "Peace. Nature. North Sea.",
+    "subheadline": "Your private retreat in Cuxhaven-Sahlenburg. 62 m² of relaxation, just 1000m from the UNESCO World Heritage Wadden Sea.",
+    "primaryCta": "Check Availability",
+    "secondaryCta": "Take a Tour",
+    "altText": "Beach at sunset in Cuxhaven-Sahlenburg"
+  },
+  "Intro": {
+    "quote": "A place to arrive and feel at home.",
+    "headline": "Welcome to the Eggers Family",
+    "text": "Escape everyday life in our lovingly furnished holiday apartment. Located in a quiet residential area, our home offers the perfect starting point for long mudflat hikes, bike tours through the Wernerwald forest, or relaxing days at the beach.",
+    "features": {
+      "size": "Spacious 62 m² for up to 6 people",
+      "accessible": "Barrier-free access & walk-in shower",
+      "dogs": "Dogs are warmly welcome"
+    },
+    "moreAmenities": "More about amenities",
+    "altText": "Bright living room of the Eggers holiday apartment with sofa and large windows"
+  },
+  "Features": {
+    "headline": "What Awaits You",
+    "subheadline": "We've thought of everything so you can feel completely at home.",
+    "items": {
+      "beach": {
+        "title": "Close to Beach",
+        "desc": "Only 1000m to the Sahlenburg beach and Wadden Sea."
+      },
+      "wifi": {
+        "title": "Digital & Connected",
+        "desc": "Free high-speed WiFi and Smart TV for cozy evenings."
+      },
+      "dogs": {
+        "title": "Dog-Friendly",
+        "desc": "Your four-legged friend is a welcome guest with us."
+      },
+      "kitchen": {
+        "title": "Fully Equipped",
+        "desc": "Modern kitchen with everything you need for self-catering."
+      },
+      "parking": {
+        "title": "Private Parking",
+        "desc": "Free parking space right at the house for your convenient arrival."
+      },
+      "accessible": {
+        "title": "Barrier-Free",
+        "desc": "Ground-level access and accessible bathroom."
+      }
+    }
+  },
+  "Teaser": {
+    "location": {
+      "title": "Location & Surroundings",
+      "text": "Discover the Wernerwald forest and the Wadden Sea.",
+      "cta": "Learn more"
+    },
+    "prices": {
+      "title": "Prices & Conditions",
+      "text": "Transparent and fair. No hidden costs.",
+      "cta": "View overview"
+    }
+  },
+  "Testimonials": {
+    "headline": "What Our Guests Say",
+    "subheadline": "Real reviews from Google",
+    "reviews": {
+      "review1": {
+        "name": "Sabine M.",
+        "date": "August 2024",
+        "text": "A beautiful apartment! The tranquility in Sahlenburg is wonderful and the walk to the beach is lovely. We especially loved that our dog was so welcome."
+      },
+      "review2": {
+        "name": "Michael K.",
+        "date": "July 2024",
+        "text": "Top-notch amenities, nothing was missing. The terrace is great for breakfast. The accessibility is also very well done. We'll definitely be back!"
+      },
+      "review3": {
+        "name": "Weber Family",
+        "date": "May 2024",
+        "text": "Very clean and cozily furnished. The contact with the Eggers family was completely uncomplicated and warm. Value for money is absolutely fair for Cuxhaven."
+      }
+    }
+  },
+  "CTA": {
+    "headline": "Ready for Your Getaway?",
+    "text": "Secure your preferred dates at the Eggers Holiday Apartment now.",
+    "button": "Inquire now"
+  },
+  "Footer": {
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "legal": "Legal",
+    "amenities": "Amenities",
+    "gallery": "Gallery",
+    "locationAndSurroundings": "Location & Surroundings",
+    "prices": "Prices",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "copyright": "Holiday Apartment Eggers. All rights reserved.",
+    "designedWith": "Designed with",
+    "forTheNorthSea": "for the North Sea"
+  },
+  "Amenities": {
+    "meta": {
+      "title": "Amenities",
+      "description": "Complete amenities of the Eggers Holiday Apartment: living area, two bedrooms, modern kitchen, bathroom and terrace. Largely barrier-free."
+    },
+    "hero": {
+      "headline": "Amenities",
+      "text": "Feel at home. Our 62 m² holiday apartment offers you all the comfort you need for a relaxing vacation on the North Sea."
+    },
+    "highlights": {
+      "wifi": "High-Speed WiFi",
+      "parking": "Private Parking",
+      "kitchen": "Fully Equipped Kitchen",
+      "tv": "Smart TV"
+    },
+    "living": {
+      "title": "Living Area",
+      "subtitle": "Cozy & Modern",
+      "items": {
+        "windows": "Bright, friendly atmosphere with large windows",
+        "seating": "Comfortable seating area with sofa and armchairs",
+        "tv": "Flat-screen TV with cable connection",
+        "dining": "Large dining table with seating for 6 people"
+      }
+    },
+    "kitchen": {
+      "title": "Kitchen",
+      "subtitle": "For Self-Catering",
+      "items": {
+        "stove": "Modern fitted kitchen with ceramic hob (4 burners)",
+        "appliances": "Oven, dishwasher, refrigerator with freezer",
+        "small": "Coffee maker, kettle, toaster",
+        "dishes": "Complete set of dishes and cookware"
+      }
+    },
+    "bedroom1": {
+      "title": "Master Bedroom",
+      "subtitle": "Barrier-Free & Quiet",
+      "items": {
+        "bed": "Double bed (1.80m x 2.00m)",
+        "storage": "Large wardrobe and bedside tables",
+        "curtains": "Blackout curtains for restful sleep",
+        "accessible": "Barrier-free access"
+      }
+    },
+    "bedroom2": {
+      "title": "Second Bedroom",
+      "subtitle": "Flexibly Usable",
+      "items": {
+        "beds": "2 single beds or bunk bed (ideal for children)",
+        "storage": "Own wardrobe"
+      },
+      "notice": "Note: Not barrier-free accessible"
+    },
+    "bathroom": {
+      "title": "Bathroom",
+      "subtitle": "Hygienic & Functional",
+      "items": {
+        "shower": "Walk-in shower, WC, sink",
+        "towels": "Towels included"
+      },
+      "notice": "No washing machine available"
+    },
+    "outdoor": {
+      "title": "Outdoor Area",
+      "subtitle": "Enjoy Privacy",
+      "items": {
+        "terrace": "Private terrace with garden furniture",
+        "umbrella": "Sun umbrella available",
+        "parking": "Free parking right at the house"
+      }
+    },
+    "accessibility": {
+      "title": "Accessibility Information",
+      "text": "The Eggers Holiday Apartment is largely barrier-free designed. Access to the apartment is at ground level without steps. The doors are wide enough for walkers and wheelchairs. The bathroom has a walk-in shower.",
+      "notice": "Note: The second bedroom is not barrier-free accessible due to the room layout."
+    }
+  },
+  "Gallery": {
+    "meta": {
+      "title": "Photo Gallery",
+      "description": "Discover the Eggers Holiday Apartment in pictures. Living room, bedrooms, kitchen and the surroundings of Cuxhaven-Sahlenburg."
+    },
+    "hero": {
+      "headline": "Insights",
+      "text": "Get inspired. Here you get a preview of your home away from home and the beautiful surroundings of Cuxhaven-Sahlenburg."
+    },
+    "categories": {
+      "living": {
+        "title": "Living & Life",
+        "description": "Light-flooded rooms for relaxation"
+      },
+      "sleeping": {
+        "title": "Sleeping & Resting",
+        "description": "Quiet retreats for restful sleep"
+      },
+      "surroundings": {
+        "title": "Surroundings & Nature",
+        "description": "Sahlenburg, Wernerwald forest and the Wadden Sea"
+      }
+    }
+  },
+  "Location": {
+    "meta": {
+      "title": "Location & Surroundings",
+      "description": "Eggers Holiday Apartment in Cuxhaven Sahlenburg: Quiet location, about 1000 meters to the Wadden Sea beach. Directions and surroundings."
+    },
+    "hero": {
+      "headline": "Location & Surroundings",
+      "text": "Between forest, mudflats and heath. Enjoy the tranquility in Sahlenburg and the proximity to the UNESCO World Heritage Wadden Sea."
+    },
+    "discover": {
+      "headline": "Discover Sahlenburg",
+      "text1": "Sahlenburg is the only Cuxhaven spa district that directly connects forest, heath and the Wadden Sea. Here you'll find pure relaxation in a unique natural landscape.",
+      "text2": "Our holiday apartment is located at Nordheimstraße 150, a quiet residential area. From here you can reach the beach and the Wadden Sea in just a few minutes – perfect for long walks or a relaxing beach day."
+    },
+    "distances": {
+      "beach": "1000m to beach",
+      "forest": "Near Wernerwald",
+      "restaurants": "800m to restaurants",
+      "center": "5km to center"
+    },
+    "map": {
+      "address": "Nordheimstraße 150",
+      "city": "27476 Cuxhaven-Sahlenburg",
+      "directions": "Get directions",
+      "title": "Map: Eggers Holiday Apartment, Nordheimstraße 150, Cuxhaven-Sahlenburg"
+    },
+    "arrival": {
+      "headline": "Getting Here",
+      "byCar": {
+        "title": "By Car",
+        "text": "Via the A27 to Cuxhaven, then follow the signs towards Sahlenburg. Your personal parking space is right at the house.",
+        "nav": "GPS: Nordheimstraße 150, 27476 Cuxhaven"
+      },
+      "byTrain": {
+        "title": "By Train",
+        "text": "To Cuxhaven train station. From there by bus (line 1004) directly to Sahlenburg or comfortably by taxi (approx. 15 min ride).",
+        "tip": "Tip: We're happy to help organize a taxi."
+      }
+    }
+  },
+  "Prices": {
+    "meta": {
+      "title": "Prices & Conditions",
+      "description": "Transparent prices for the Eggers Holiday Apartment. Minimum stay 3 nights, tourist tax €4.10 per day, no deposit."
+    },
+    "hero": {
+      "headline": "Prices & Conditions",
+      "text": "Transparency is important to us. Here you'll find all the information about our prices so you can plan your vacation with ease."
+    },
+    "composition": {
+      "headline": "How the Price is Composed",
+      "nightlyRate": {
+        "title": "Nightly Rate",
+        "text": "The base price applies to the entire apartment per night for up to 6 people.",
+        "price": "from €85.00 / night (seasonal)"
+      },
+      "cleaning": {
+        "title": "Final Cleaning",
+        "text": "For the professional cleaning of the apartment after your departure, we charge a one-time fee.",
+        "price": "one-time €75.00"
+      },
+      "dog": {
+        "title": "Dog Fee (optional)",
+        "text": "Your four-legged friend is warmly welcome. For the extra cleaning effort, we charge a small additional fee.",
+        "price": "flat rate €25.00 per stay"
+      },
+      "cityTax": {
+        "title": "Tourist Tax",
+        "text": "The city of Cuxhaven levies a tourist tax. We collect this and remit it to the city.",
+        "price": "€4.10 per adult / night"
+      }
+    },
+    "example": {
+      "title": "Sample Calculation",
+      "subtitle": "For 2 adults, 5 nights in low season",
+      "nights": "{count} nights × €{price}",
+      "cleaning": "Final cleaning",
+      "cityTax": "Tourist tax ({persons} pers. × {days} days)",
+      "total": "Total",
+      "cta": "Calculate your price"
+    },
+    "conditions": {
+      "headline": "Important Conditions",
+      "minStay": {
+        "title": "Minimum Stay",
+        "text": "To ensure you have a relaxed arrival and departure, the minimum stay with us is {nights} nights."
+      },
+      "payment": {
+        "title": "Payment",
+        "text": "20% deposit upon booking, remaining payment 14 days before arrival. We accept bank transfer."
+      },
+      "checkInOut": {
+        "title": "Check-in & Check-out",
+        "text": "Check-in from 3:00 PM.\nCheck-out by 10:00 AM.\nContactless key handover possible."
+      }
+    }
+  },
+  "Booking": {
+    "meta": {
+      "title": "Booking Request",
+      "description": "Book your stay at the Eggers Holiday Apartment in Cuxhaven-Sahlenburg."
+    },
+    "hero": {
+      "headline": "Booking Request",
+      "text": "Secure your preferred dates. Check availability and send us a non-binding inquiry. We'll respond as quickly as possible."
+    },
+    "calendar": {
+      "title": "Check Availability",
+      "subtitle": "Select your desired travel period"
+    },
+    "minStayError": {
+      "title": "Minimum stay not met",
+      "text": "The minimum stay is {nights} nights. Please select a longer period."
+    },
+    "info": {
+      "title": "Important Information",
+      "conditions": "Conditions",
+      "goodToKnow": "Good to Know",
+      "minStay": "Minimum stay",
+      "cityTax": "Tourist tax",
+      "perPersonPerDay": "p.p. / day",
+      "deposit": "Deposit",
+      "noDeposit": "None",
+      "cleaning": "Final cleaning",
+      "oneTime": "One-time",
+      "dogsWelcome": "Dogs are warmly welcome",
+      "flat": "flat rate",
+      "noSmoking": "Non-smoking indoors",
+      "checkIn": "Check-in from 3:00 PM",
+      "checkOut": "Check-out by 10:00 AM",
+      "freeParking": "Free parking right at the house"
+    },
+    "form": {
+      "title": "Send Inquiry",
+      "readySubtitle": "Please complete your contact details for a non-binding offer.",
+      "startSubtitle": "Start your booking by selecting a date.",
+      "noDateSelected": "No period selected yet",
+      "selectDateHint": "Please select your desired arrival and departure date from the calendar on the left."
+    },
+    "priceSummary": {
+      "title": "Price Overview",
+      "nights": "{count} nights",
+      "cleaning": "Final cleaning",
+      "cityTax": "Tourist tax",
+      "dogFee": "Dog fee",
+      "total": "Total price",
+      "selectDates": "Please select a period"
+    },
+    "questions": {
+      "title": "Any Questions?",
+      "text": "If you're unsure or have special requests, don't hesitate to contact us. We're happy to help you personally.",
+      "cta": "Get in touch"
+    },
+    "wizard": {
+      "step1": "Period & Guests",
+      "step2": "Contact Details",
+      "step3": "Summary",
+      "selectPeriod": "Select your period",
+      "yourContactData": "Your contact details",
+      "summary": "Summary of your request",
+      "cancel": "Cancel",
+      "back": "Back",
+      "next": "Next",
+      "submit": "Send inquiry"
+    }
+  },
+  "Contact": {
+    "meta": {
+      "title": "Contact",
+      "description": "Contact the Eggers Holiday Apartment for booking inquiries or questions."
+    },
+    "hero": {
+      "headline": "Contact",
+      "text": "We're here for you. Whether booking inquiries or individual requests – write to us or simply call."
+    },
+    "personal": {
+      "headline": "Personal Contact",
+      "text": "As private hosts, your well-being is close to our hearts. We personally take care of your concerns and ensure that your stay is relaxed from the start."
+    },
+    "phone": {
+      "title": "Phone",
+      "hours": "Mon-Sun, 9:00 AM - 8:00 PM"
+    },
+    "email": {
+      "title": "Email",
+      "response": "Response within 24 hours"
+    },
+    "address": {
+      "title": "Address"
+    },
+    "form": {
+      "title": "Send Message",
+      "subtitle": "Non-binding inquiry or question",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "gdpr": "I agree that my information may be stored permanently for contact purposes and for any follow-up questions.",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "gdprError": "Please confirm the privacy notice"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "About Us",
+      "description": "Meet the Eggers family – your hosts in Cuxhaven-Sahlenburg. Personal care and attention to detail for many years."
+    },
+    "hero": {
+      "headline": "About Us",
+      "text": "Welcome! We are the Eggers family and we look forward to welcoming you to our holiday apartment in Cuxhaven-Sahlenburg."
+    },
+    "story": {
+      "headline": "Welcome to the Eggers Family",
+      "text1": "The love for the North Sea has been with our family for generations. When we got the opportunity to set up a holiday apartment in Sahlenburg a few years ago, it was immediately clear to us: This is where we want to create a place of relaxation for others.",
+      "text2": "What started as a small project quickly became a matter of the heart. With great attention to detail, we designed every room – always with the thought of what we ourselves would want on vacation: coziness, comfort, and the perfect mix of tranquility and adventure.",
+      "text3": "Today, we're delighted about every guest who arrives and discovers the unique atmosphere of Sahlenburg. Whether mudflat hiking, walks through the Wernerwald forest, or simply relaxing on the terrace – we wish you unforgettable moments."
+    },
+    "portrait": {
+      "title": "The Eggers Family",
+      "subtitle": "Your hosts in Sahlenburg",
+      "quote": "\"We want you to feel at home with us – just with a better view of the North Sea.\"",
+      "imagePlaceholder": "Photo of the hosts"
+    },
+    "values": {
+      "headline": "Our Values",
+      "subheadline": "What makes us special as hosts and what you can expect from us.",
+      "personal": {
+        "title": "Personal Care",
+        "description": "We're here for you – before, during, and after your stay. Your satisfaction is close to our hearts."
+      },
+      "detail": {
+        "title": "Attention to Detail",
+        "description": "Every detail in our holiday apartment has been carefully chosen so that you feel completely comfortable."
+      },
+      "local": {
+        "title": "Local Connection",
+        "description": "As locals, we love to share our insider tips for the most beautiful places in Sahlenburg and the surrounding area."
+      },
+      "sustainable": {
+        "title": "Sustainability",
+        "description": "We pay attention to environmentally conscious actions and rely on regional products and resource conservation."
+      }
+    },
+    "cta": {
+      "headline": "Any Questions?",
+      "text": "We look forward to your message and are happy to advise you personally about your planned stay.",
+      "button": "Get in touch"
+    }
+  },
+  "Imprint": {
+    "meta": {
+      "title": "Imprint",
+      "description": "Imprint and contact details of the Eggers Holiday Apartment in Cuxhaven Sahlenburg."
+    },
+    "hero": {
+      "headline": "Imprint",
+      "text": "Legal information and contact details."
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "text": "This imprint text is a template and must be replaced with legally reviewed and current information before going live."
+    },
+    "provider": {
+      "title": "Information according to § 5 TMG",
+      "operator": "[First and last name of operator]",
+      "country": "Germany"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "tax": {
+      "title": "VAT ID & Responsibility",
+      "vatLabel": "VAT identification number according to § 27 a of the VAT Act:",
+      "vatValue": "[Enter here if available]",
+      "responsibleLabel": "Responsible for content according to § 55 para. 2 RStV:",
+      "responsibleValue": "[First and last name]"
+    },
+    "dispute": {
+      "title": "Dispute Resolution",
+      "text1": "The European Commission provides a platform for online dispute resolution (OS):",
+      "text2": "You can find our email address in the imprint above.",
+      "text3": "We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+    }
+  },
+  "Privacy": {
+    "meta": {
+      "title": "Privacy Policy",
+      "description": "Privacy policy of the Eggers Holiday Apartment - Information about data processing."
+    },
+    "hero": {
+      "headline": "Privacy Policy",
+      "text": "We take the protection of your personal data very seriously. Here you can learn how we process your data."
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "text": "This privacy policy is a template and must be replaced with a legally reviewed version tailored to your specific data processing before going live."
+    },
+    "overview": {
+      "title": "1. Privacy at a Glance",
+      "subtitle": "General Information",
+      "text": "The following information provides a simple overview of what happens to your personal data when you visit this website or use our booking system. Personal data is any data that can be used to personally identify you."
+    },
+    "responsible": {
+      "title": "2. Data Controller",
+      "text": "The party responsible for data processing on this website is:"
+    },
+    "dataCollection": {
+      "title": "3. Data Collection on This Website",
+      "contact": {
+        "title": "Contact Form and Booking Inquiries",
+        "text": "If you send us inquiries via the contact form or booking request, your information from the inquiry form, including the contact data you provide there, will be stored by us for the purpose of processing the inquiry and for any follow-up questions.",
+        "dataTitle": "Processed Data:",
+        "data": {
+          "name": "Name",
+          "email": "Email address",
+          "phone": "Phone number (optional)",
+          "travel": "Travel dates and number of guests",
+          "message": "Message content"
+        },
+        "legal": "Legal basis: Art. 6 para. 1 lit. b GDPR (contract initiation)"
+      },
+      "serverLogs": {
+        "title": "Server Log Files",
+        "text": "The website provider automatically collects and stores information in so-called server log files, which your browser automatically transmits to us (e.g., browser type, time, IP address). This data is not merged with other data sources and is deleted after 7 days at the latest."
+      }
+    },
+    "cookies": {
+      "title": "4. Cookies",
+      "text": "Our website only uses cookies insofar as this is technically necessary (e.g., to save your theme preference [Dark Mode]). These cookies serve exclusively the functionality of the website. We do not use tracking or advertising cookies.",
+      "legal": "Legal basis: Art. 6 para. 1 lit. f GDPR (legitimate interest in technical functionality)"
+    },
+    "external": {
+      "title": "5. External Services",
+      "text": "We may use external channel managers or booking platforms (e.g., Booking.com, Airbnb) for managing bookings. In this case, data processing is also carried out by these service providers in accordance with their privacy policies."
+    },
+    "rights": {
+      "title": "6. Your Rights & Contact",
+      "text": "You have the right at any time to free information about your stored personal data, its origin and recipients, and the purpose of data processing, as well as a right to correction, blocking, or deletion of this data.",
+      "contactLabel": "Contact for privacy inquiries:"
+    }
+  },
+  "Terms": {
+    "meta": {
+      "title": "Terms & Conditions",
+      "description": "General terms and conditions of the Eggers Holiday Apartment."
+    },
+    "hero": {
+      "headline": "Terms & Conditions",
+      "text": "General terms and conditions for renting the Eggers Holiday Apartment."
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "text": "These terms and conditions are a template and must be replaced with legally reviewed and individually adapted terms before going live."
+    },
+    "scope": {
+      "title": "§ 1 Scope of Application",
+      "text": "These general terms and conditions apply to the rental of the Eggers Holiday Apartment, Nordheimstraße 150, 27476 Cuxhaven Sahlenburg. By booking, the guest acknowledges these conditions."
+    },
+    "contract": {
+      "title": "§ 2 Booking and Contract Conclusion",
+      "text": "The guest's booking inquiry constitutes an offer to conclude a rental contract. The contract is only concluded through our written booking confirmation (by email).",
+      "minStay": "Minimum stay: {nights} nights"
+    },
+    "prices": {
+      "title": "§ 3 Prices and Payment",
+      "includedTitle": "Included in price:",
+      "included": {
+        "linen": "Bed linen & towels",
+        "cleaning": "Final cleaning",
+        "utilities": "Utilities (electricity, water)",
+        "extras": "WiFi & parking"
+      },
+      "additionalTitle": "Additional on site:",
+      "cityTax": "Tourist tax: € {amount} per adult per day (cash)"
+    },
+    "cancellation": {
+      "title": "§ 4 Cancellation",
+      "text": "Cancellations must be made in writing (by email).",
+      "policy": {
+        "free": "Up to 60 days before arrival",
+        "freeAmount": "Free of charge",
+        "partial": "59-30 days before arrival",
+        "partialAmount": "50% of price",
+        "full": "From 29 days before arrival",
+        "fullAmount": "100% of price"
+      }
+    },
+    "checkInOut": {
+      "title": "§ 5 Check-in and Check-out",
+      "checkIn": "Check-in",
+      "checkInTime": "from 3:00 PM",
+      "checkOut": "Check-out",
+      "checkOutTime": "by 10:00 AM"
+    },
+    "houseRules": {
+      "title": "§ 6 Usage & House Rules",
+      "maxOccupancy": "Maximum occupancy: 6 people",
+      "dogsWelcome": "Dogs are warmly welcome",
+      "noSmoking": "Non-smoking apartment (smoking only on terrace)",
+      "quietHours": "Please be considerate of neighbors (quiet hours)"
+    },
+    "final": {
+      "title": "§ 7 Final Provisions",
+      "text": "Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected. German law applies. Place of jurisdiction is Cuxhaven."
+    }
+  },
+  "Common": {
+    "brandName": "Holiday Apartment Eggers",
+    "nights": "{count, plural, =1 {1 night} other {# nights}}",
+    "adults": "{count, plural, =1 {1 adult} other {# adults}}",
+    "children": "{count, plural, =1 {1 child} other {# children}}",
+    "required": "*",
+    "night": "night",
+    "nightPlural": "nights",
+    "person": "person",
+    "personPlural": "people",
+    "adult": "adult",
+    "adultPlural": "adults"
+  },
+  "LanguageSwitcher": {
+    "de": "DE",
+    "en": "EN"
+  },
+  "Calendar": {
+    "weekDays": {
+      "sun": "Sun",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat"
+    },
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    },
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month",
+    "legend": {
+      "selected": "Selected",
+      "range": "Range",
+      "unavailable": "Booked / Past"
+    }
+  },
+  "BookingForm": {
+    "yourBookingRequest": "Your Booking Request",
+    "period": "Period",
+    "guests": "Guests",
+    "touristTaxApprox": "Tourist tax (approx.)",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "adults": "Adults",
+    "children": "Children",
+    "travelingWithDogs": "I am traveling with dog(s)",
+    "message": "Message (optional)",
+    "messagePlaceholder": "Special requests or questions...",
+    "gdprText": "I have read the {privacyLink} and agree to the processing of my data.",
+    "privacyNotice": "privacy notice",
+    "submit": "Send booking request",
+    "submitting": "Sending...",
+    "requiredFields": "Required fields",
+    "successTitle": "Request sent successfully!",
+    "successText": "Thank you for your booking request. We will get back to you within 24 hours.",
+    "errorTitle": "Error",
+    "errorSelectPeriod": "Please select a period",
+    "errorGdpr": "Please confirm the privacy notice",
+    "errorGeneric": "An error has occurred",
+    "errorConnection": "Connection error. Please try again later."
+  },
+  "PriceSummary": {
+    "title": "Price Overview",
+    "notice": "Notice",
+    "selectPeriodAndGuests": "Select period and number of guests for price calculation",
+    "season": {
+      "high": "High season",
+      "low": "Low season",
+      "normal": "Regular season"
+    },
+    "accommodation": "Accommodation",
+    "cleaning": "Final cleaning",
+    "dog": "Dog",
+    "subtotal": "Subtotal",
+    "touristTax": "Tourist tax",
+    "total": "Total",
+    "includingAll": "incl. all fees and taxes",
+    "disclaimer": "This price quote is based on current settings and is not yet a binding booking confirmation. The final price will be fixed upon confirmation of your request.",
+    "minimumStay": "Minimum stay is {nights} nights"
+  },
+  "BookingWizard": {
+    "steps": {
+      "periodAndGuests": "Period & Guests",
+      "contactInfo": "Contact Details",
+      "summary": "Summary"
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "back": "Back",
+      "next": "Next",
+      "sendRequest": "Send Request"
+    },
+    "step1": {
+      "title": "Choose Your Period",
+      "description": "Calendar and guest selection"
+    },
+    "step2": {
+      "title": "Your Contact Details",
+      "description": "Contact form"
+    },
+    "step3": {
+      "title": "Summary of Your Request",
+      "description": "Summary"
+    }
+  },
+  "General": {
+    "brandName": "Holiday Apartment Eggers",
+    "description": "Your private retreat on the North Sea. Enjoy tranquility, nature and comfort in Sahlenburg.",
+    "address": {
+      "street": "Nordheimstraße 150",
+      "zipCity": "27476 Cuxhaven Sahlenburg"
+    },
+    "contact": {
+      "phone": "+49 (0) 4721 123 456",
+      "phoneRaw": "+4947211234567",
+      "email": "info@ferienwohnung-eggers.de"
+    }
+  }
+}
+

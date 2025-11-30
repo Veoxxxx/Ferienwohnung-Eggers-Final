@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Button } from "./button";
 import { calculateNights, calculateTouristTax, formatCurrency } from "@/lib/utils";
 import { AlertCircle, Check, Calendar, Users, Info } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 interface BookingFormProps {
     checkIn?: Date;
@@ -12,6 +14,10 @@ interface BookingFormProps {
 }
 
 export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: BookingFormProps) {
+    const t = useTranslations("BookingForm");
+    const tCommon = useTranslations("Common");
+    const locale = useLocale();
+    
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -35,13 +41,13 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
         e.preventDefault();
 
         if (!checkIn || !checkOut) {
-            setErrorMessage("Bitte wählen Sie einen Zeitraum aus");
+            setErrorMessage(t("errorSelectPeriod"));
             setSubmitStatus("error");
             return;
         }
 
         if (!formData.gdprConsent) {
-            setErrorMessage("Bitte bestätigen Sie die Datenschutzhinweise");
+            setErrorMessage(t("errorGdpr"));
             setSubmitStatus("error");
             return;
         }
@@ -87,15 +93,17 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                 });
             } else {
                 setSubmitStatus("error");
-                setErrorMessage(data.error || "Ein Fehler ist aufgetreten");
+                setErrorMessage(data.error || t("errorGeneric"));
             }
         } catch (error) {
             setSubmitStatus("error");
-            setErrorMessage("Verbindungsfehler. Bitte versuchen Sie es später erneut.");
+            setErrorMessage(t("errorConnection"));
         } finally {
             setIsSubmitting(false);
         }
     };
+
+    const dateLocale = locale === "de" ? "de-DE" : "en-US";
 
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -107,7 +115,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                     </div>
                     
                     <h3 className="font-serif text-xl font-bold mb-6 text-luxury-sand-50 flex items-center gap-2">
-                        Ihre Buchungsanfrage
+                        {t("yourBookingRequest")}
                     </h3>
                     
                     <div className="space-y-4 relative z-10">
@@ -116,14 +124,14 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                                 <div className="p-2 bg-luxury-sand-500/10 rounded-md text-luxury-sand-300">
                                     <Calendar className="h-4 w-4" />
                                 </div>
-                                <span className="text-sm text-luxury-sand-100">Zeitraum</span>
+                                <span className="text-sm text-luxury-sand-100">{t("period")}</span>
                             </div>
                             <div className="text-right">
                                 <span className="font-medium text-luxury-sand-50 block">
-                                    {checkIn.toLocaleDateString("de-DE", { day: '2-digit', month: '2-digit', year: 'numeric' })} - {checkOut.toLocaleDateString("de-DE", { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                                    {checkIn.toLocaleDateString(dateLocale, { day: '2-digit', month: '2-digit', year: 'numeric' })} - {checkOut.toLocaleDateString(dateLocale, { day: '2-digit', month: '2-digit', year: 'numeric' })}
                                 </span>
                                 <span className="text-xs text-luxury-sand-300">
-                                    {nights} {nights === 1 ? 'Nacht' : 'Nächte'}
+                                    {nights} {nights === 1 ? tCommon("night") : tCommon("nightPlural")}
                                 </span>
                             </div>
                         </div>
@@ -133,17 +141,17 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                                 <div className="p-2 bg-luxury-sand-500/10 rounded-md text-luxury-sand-300">
                                     <Users className="h-4 w-4" />
                                 </div>
-                                <span className="text-sm text-luxury-sand-100">Gäste</span>
+                                <span className="text-sm text-luxury-sand-100">{t("guests")}</span>
                             </div>
                             <span className="font-medium text-luxury-sand-50">
-                                {guestCount} {guestCount === 1 ? 'Person' : 'Personen'}
+                                {guestCount} {guestCount === 1 ? tCommon("person") : tCommon("personPlural")}
                             </span>
                         </div>
 
                         <div className="flex justify-between items-center pt-2 px-1">
                              <div className="flex items-center gap-2 text-xs text-luxury-sand-300">
                                 <Info className="h-3 w-3" />
-                                <span>Kurtaxe (ca.)</span>
+                                <span>{t("touristTaxApprox")}</span>
                              </div>
                              <span className="font-medium text-luxury-sand-50">
                                 {formatCurrency(touristTax)}
@@ -157,7 +165,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
             <div className="space-y-4">
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        Name *
+                        {t("name")} *
                     </label>
                     <input
                         type="text"
@@ -171,7 +179,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
 
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        E-Mail *
+                        {t("email")} *
                     </label>
                     <input
                         type="email"
@@ -185,7 +193,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
 
                 <div>
                     <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                        Telefon (optional)
+                        {t("phone")}
                     </label>
                     <input
                         type="tel"
@@ -200,7 +208,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                 <div className="grid grid-cols-2 gap-4">
                     <div>
                         <label htmlFor="adults" className="block text-sm font-medium mb-2">
-                            Erwachsene *
+                            {t("adults")} *
                         </label>
                         <input
                             type="number"
@@ -216,7 +224,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
 
                     <div>
                         <label htmlFor="children" className="block text-sm font-medium mb-2">
-                            Kinder
+                            {t("children")}
                         </label>
                         <input
                             type="number"
@@ -240,14 +248,14 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                         className="w-4 h-4 rounded border-luxury-navy-300 dark:border-luxury-navy-700 text-luxury-navy-900 focus:ring-2 focus:ring-luxury-navy-500"
                     />
                     <label htmlFor="dogs" className="text-sm">
-                        Ich reise mit Hund(en)
+                        {t("travelingWithDogs")}
                     </label>
                 </div>
 
                 {/* Message */}
                 <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        Nachricht (optional)
+                        {t("message")}
                     </label>
                     <textarea
                         id="message"
@@ -255,7 +263,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         className="w-full px-4 py-2 rounded-md border border-luxury-navy-300 dark:border-luxury-navy-700 bg-white dark:bg-luxury-navy-900 focus:ring-2 focus:ring-luxury-navy-500 focus:border-transparent resize-none"
-                        placeholder="Besondere Wünsche oder Fragen..."
+                        placeholder={t("messagePlaceholder")}
                     />
                 </div>
 
@@ -270,11 +278,13 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                         className="w-4 h-4 mt-1 rounded border-luxury-navy-300 dark:border-luxury-navy-700 text-luxury-navy-900 focus:ring-2 focus:ring-luxury-navy-500"
                     />
                     <label htmlFor="gdpr" className="text-sm text-luxury-navy-600 dark:text-slate-400">
-                        Ich habe die{" "}
-                        <a href="/datenschutz" className="text-luxury-navy-900 dark:text-slate-100 underline hover:no-underline">
-                            Datenschutzhinweise
-                        </a>{" "}
-                        zur Kenntnis genommen und stimme der Verarbeitung meiner Daten zu. *
+                        {t.rich("gdprText", {
+                            privacyLink: (chunks) => (
+                                <Link href="/datenschutz" className="text-luxury-navy-900 dark:text-slate-100 underline hover:no-underline">
+                                    {t("privacyNotice")}
+                                </Link>
+                            ),
+                        })} *
                     </label>
                 </div>
             </div>
@@ -284,9 +294,9 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                 <div className="flex items-start gap-3 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                     <Check className="h-5 w-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
                     <div>
-                        <p className="font-medium text-green-900 dark:text-green-100">Anfrage erfolgreich gesendet!</p>
+                        <p className="font-medium text-green-900 dark:text-green-100">{t("successTitle")}</p>
                         <p className="text-sm text-green-700 dark:text-green-300 mt-1">
-                            Vielen Dank für Ihre Buchungsanfrage. Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.
+                            {t("successText")}
                         </p>
                     </div>
                 </div>
@@ -296,7 +306,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                 <div className="flex items-start gap-3 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                     <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
                     <div>
-                        <p className="font-medium text-red-900 dark:text-red-100">Fehler</p>
+                        <p className="font-medium text-red-900 dark:text-red-100">{t("errorTitle")}</p>
                         <p className="text-sm text-red-700 dark:text-red-300 mt-1">{errorMessage}</p>
                     </div>
                 </div>
@@ -304,11 +314,11 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
 
             {/* Submit Button */}
             <Button type="submit" variant="primary" size="lg" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Wird gesendet..." : "Buchungsanfrage senden"}
+                {isSubmitting ? t("submitting") : t("submit")}
             </Button>
 
             <p className="text-xs text-center text-luxury-navy-600 dark:text-slate-400">
-                * Pflichtfelder
+                * {t("requiredFields")}
             </p>
         </form>
     );

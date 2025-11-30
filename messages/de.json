@@ -1,0 +1,765 @@
+{
+  "Metadata": {
+    "title": "Ferienwohnung Eggers",
+    "description": "Moderne Ferienwohnung in Cuxhaven Sahlenburg mit Platz für bis zu 6 Gäste. Ruhige Lage, etwa 1000 Meter zum Wattenmeer Strand. Hundefreundlich und weitgehend barrierefrei."
+  },
+  "Navigation": {
+    "home": "Start",
+    "amenities": "Ausstattung",
+    "gallery": "Galerie",
+    "location": "Lage",
+    "prices": "Preise",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "booking": "Buchen",
+    "toggleTheme": "Theme umschalten",
+    "openMenu": "Menü öffnen"
+  },
+  "Hero": {
+    "headline": "Ruhe. Natur. Nordsee.",
+    "subheadline": "Ihr privater Rückzugsort in Cuxhaven-Sahlenburg. 62 m² Erholung, nur 1000m vom Welterbe Wattenmeer.",
+    "primaryCta": "Verfügbarkeit prüfen",
+    "secondaryCta": "Rundgang starten",
+    "altText": "Strand bei Sonnenuntergang in Cuxhaven-Sahlenburg"
+  },
+  "Intro": {
+    "quote": "Ein Ort zum Ankommen und Wohlfühlen.",
+    "headline": "Willkommen bei Familie Eggers",
+    "text": "Entfliehen Sie dem Alltag in unserer liebevoll eingerichteten Ferienwohnung. In ruhiger Wohnlage gelegen, bietet unser Domizil den perfekten Ausgangspunkt für lange Wattwanderungen, Fahrradtouren durch den Wernerwald oder entspannte Tage am Strand.",
+    "features": {
+      "size": "Großzügige 62 m² für bis zu 6 Personen",
+      "accessible": "Barrierefreier Zugang & ebenerdige Dusche",
+      "dogs": "Hunde sind herzlich willkommen"
+    },
+    "moreAmenities": "Mehr zur Ausstattung",
+    "altText": "Helles Wohnzimmer der Ferienwohnung Eggers mit Sofa und großen Fenstern"
+  },
+  "Features": {
+    "headline": "Das erwartet Sie",
+    "subheadline": "Wir haben an alles gedacht, damit Sie sich rundum wohlfühlen.",
+    "items": {
+      "beach": {
+        "title": "Strandnah",
+        "desc": "Nur 1000m bis zum Sahlenburger Strand und Wattenmeer."
+      },
+      "wifi": {
+        "title": "Digital & Vernetzt",
+        "desc": "Kostenloses Highspeed-WLAN und Smart-TV für gemütliche Abende."
+      },
+      "dogs": {
+        "title": "Hundefreundlich",
+        "desc": "Ihr Vierbeiner ist bei uns ein gern gesehener Gast."
+      },
+      "kitchen": {
+        "title": "Vollausstattung",
+        "desc": "Moderne Küche mit allem, was Sie für die Selbstversorgung brauchen."
+      },
+      "parking": {
+        "title": "Privater Parkplatz",
+        "desc": "Kostenfreier Stellplatz direkt am Haus für Ihre bequeme Anreise."
+      },
+      "accessible": {
+        "title": "Barrierefrei",
+        "desc": "Ebenerdiger Zugang und behindertengerechtes Badezimmer."
+      }
+    }
+  },
+  "Teaser": {
+    "location": {
+      "title": "Lage & Umgebung",
+      "text": "Entdecken Sie den Wernerwald und das Wattenmeer.",
+      "cta": "Mehr erfahren"
+    },
+    "prices": {
+      "title": "Preise & Konditionen",
+      "text": "Transparent und fair. Keine versteckten Kosten.",
+      "cta": "Zur Übersicht"
+    }
+  },
+  "Testimonials": {
+    "headline": "Das sagen unsere Gäste",
+    "subheadline": "Echte Bewertungen von Google",
+    "reviews": {
+      "review1": {
+        "name": "Sabine M.",
+        "date": "August 2024",
+        "text": "Eine wunderschöne Wohnung! Die Ruhe in Sahlenburg ist traumhaft und der Weg zum Strand ist ein schöner Spaziergang. Besonders toll fanden wir, dass unser Hund so willkommen war."
+      },
+      "review2": {
+        "name": "Michael K.",
+        "date": "Juli 2024",
+        "text": "Top Ausstattung, es hat an nichts gefehlt. Die Terrasse ist super zum Frühstücken. Auch die Barrierefreiheit ist sehr gut gelöst. Wir kommen definitiv wieder!"
+      },
+      "review3": {
+        "name": "Familie Weber",
+        "date": "Mai 2024",
+        "text": "Sehr sauber und gemütlich eingerichtet. Der Kontakt zur Familie Eggers war total unkompliziert und herzlich. Preis-Leistung für Cuxhaven absolut fair."
+      }
+    }
+  },
+  "CTA": {
+    "headline": "Bereit für Ihre Auszeit?",
+    "text": "Sichern Sie sich jetzt Ihren Wunschtermin in der Ferienwohnung Eggers.",
+    "button": "Jetzt anfragen"
+  },
+  "Footer": {
+    "navigation": "Navigation",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "amenities": "Ausstattung",
+    "gallery": "Galerie",
+    "locationAndSurroundings": "Lage & Umgebung",
+    "prices": "Preise",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "copyright": "Ferienwohnung Eggers. Alle Rechte vorbehalten.",
+    "designedWith": "Designed with",
+    "forTheNorthSea": "for the North Sea"
+  },
+  "Amenities": {
+    "meta": {
+      "title": "Ausstattung",
+      "description": "Komplette Ausstattung der Ferienwohnung Eggers: Wohnbereich, zwei Schlafzimmer, moderne Küche, Bad und Terrasse. Weitgehend barrierefrei."
+    },
+    "hero": {
+      "headline": "Ausstattung",
+      "text": "Fühlen Sie sich wie zu Hause. Unsere 62 m² große Ferienwohnung bietet Ihnen allen Komfort, den Sie für einen entspannten Urlaub an der Nordsee benötigen."
+    },
+    "highlights": {
+      "wifi": "Highspeed WLAN",
+      "parking": "Privater Parkplatz",
+      "kitchen": "Voll ausgestattete Küche",
+      "tv": "Smart TV"
+    },
+    "living": {
+      "title": "Wohnbereich",
+      "subtitle": "Gemütlich & Modern",
+      "items": {
+        "windows": "Helle, freundliche Atmosphäre mit großen Fenstern",
+        "seating": "Komfortable Sitzgruppe mit Sofa und Sesseln",
+        "tv": "Flachbild-TV mit Kabelanschluss",
+        "dining": "Großer Esstisch mit Platz für 6 Personen"
+      }
+    },
+    "kitchen": {
+      "title": "Küche",
+      "subtitle": "Für Selbstversorger",
+      "items": {
+        "stove": "Moderne Einbauküche mit Ceranfeld (4 Platten)",
+        "appliances": "Backofen, Geschirrspüler, Kühlschrank mit Gefrierfach",
+        "small": "Kaffeemaschine, Wasserkocher, Toaster",
+        "dishes": "Vollständiges Geschirr- und Kochset"
+      }
+    },
+    "bedroom1": {
+      "title": "Hauptschlafzimmer",
+      "subtitle": "Barrierefrei & Ruhig",
+      "items": {
+        "bed": "Doppelbett (1,80 m x 2,00 m)",
+        "storage": "Großer Kleiderschrank und Nachttische",
+        "curtains": "Verdunklungsvorhänge für erholsamen Schlaf",
+        "accessible": "Barrierefreier Zugang"
+      }
+    },
+    "bedroom2": {
+      "title": "Zweites Schlafzimmer",
+      "subtitle": "Flexibel nutzbar",
+      "items": {
+        "beds": "2 Einzelbetten oder Etagenbett (ideal für Kinder)",
+        "storage": "Eigener Kleiderschrank"
+      },
+      "notice": "Hinweis: Nicht barrierefrei zugänglich"
+    },
+    "bathroom": {
+      "title": "Badezimmer",
+      "subtitle": "Hygienisch & Funktional",
+      "items": {
+        "shower": "Ebenerdige Dusche, WC, Waschbecken",
+        "towels": "Handtücher inklusive"
+      },
+      "notice": "Keine Waschmaschine vorhanden"
+    },
+    "outdoor": {
+      "title": "Außenbereich",
+      "subtitle": "Privatsphäre genießen",
+      "items": {
+        "terrace": "Private Terrasse mit Gartenmöbeln",
+        "umbrella": "Sonnenschirm vorhanden",
+        "parking": "Kostenloser Parkplatz direkt am Haus"
+      }
+    },
+    "accessibility": {
+      "title": "Informationen zur Barrierefreiheit",
+      "text": "Die Ferienwohnung Eggers ist weitgehend barrierefrei gestaltet. Der Zugang zur Wohnung ist ebenerdig und ohne Stufen möglich. Die Türen sind breit genug für Rollatoren und Rollstühle. Das Badezimmer verfügt über eine ebenerdige Dusche.",
+      "notice": "Hinweis: Das zweite Schlafzimmer ist aufgrund der Raumaufteilung nicht barrierefrei zugänglich."
+    }
+  },
+  "Gallery": {
+    "meta": {
+      "title": "Bildergalerie",
+      "description": "Entdecken Sie die Ferienwohnung Eggers in Bildern. Wohnzimmer, Schlafzimmer, Küche und die Umgebung von Cuxhaven-Sahlenburg."
+    },
+    "hero": {
+      "headline": "Einblicke",
+      "text": "Lassen Sie sich inspirieren. Hier bekommen Sie einen Vorgeschmack auf Ihr Zuhause auf Zeit und die wunderschöne Umgebung von Cuxhaven-Sahlenburg."
+    },
+    "categories": {
+      "living": {
+        "title": "Wohnen & Leben",
+        "description": "Lichtdurchflutete Räume zum Entspannen"
+      },
+      "sleeping": {
+        "title": "Schlafen & Erholen",
+        "description": "Ruhige Rückzugsorte für erholsamen Schlaf"
+      },
+      "surroundings": {
+        "title": "Umgebung & Natur",
+        "description": "Sahlenburg, Wernerwald und das Wattenmeer"
+      }
+    }
+  },
+  "Location": {
+    "meta": {
+      "title": "Lage & Umgebung",
+      "description": "Ferienwohnung Eggers in Cuxhaven Sahlenburg: Ruhige Lage, etwa 1000 Meter zum Wattenmeer Strand. Anreise und Umgebung."
+    },
+    "hero": {
+      "headline": "Lage & Umgebung",
+      "text": "Zwischen Wald, Watt und Heide. Genießen Sie die Ruhe in Sahlenburg und die Nähe zum UNESCO-Weltnaturerbe Wattenmeer."
+    },
+    "discover": {
+      "headline": "Sahlenburg entdecken",
+      "text1": "Sahlenburg ist der einzige Cuxhavener Kurteil, der Wald, Heide und Wattenmeer direkt miteinander verbindet. Hier finden Sie Erholung pur in einer einzigartigen Naturlandschaft.",
+      "text2": "Unsere Ferienwohnung liegt in der Nordheimstraße 150, einer ruhigen Wohngegend. Von hier aus erreichen Sie den Strand und das Wattenmeer in wenigen Minuten – perfekt für lange Spaziergänge oder einen entspannten Strandtag."
+    },
+    "distances": {
+      "beach": "1000m zum Strand",
+      "forest": "Wernerwald nah",
+      "restaurants": "800m zu Restaurants",
+      "center": "5km zum Zentrum"
+    },
+    "map": {
+      "address": "Nordheimstraße 150",
+      "city": "27476 Cuxhaven-Sahlenburg",
+      "directions": "Route planen",
+      "title": "Karte: Ferienwohnung Eggers, Nordheimstraße 150, Cuxhaven-Sahlenburg"
+    },
+    "arrival": {
+      "headline": "Ihre Anreise",
+      "byCar": {
+        "title": "Mit dem Auto",
+        "text": "Über die A27 bis Cuxhaven, dann der Beschilderung Richtung Sahlenburg folgen. Ihr persönlicher Parkplatz befindet sich direkt am Haus.",
+        "nav": "Navi: Nordheimstraße 150, 27476 Cuxhaven"
+      },
+      "byTrain": {
+        "title": "Mit der Bahn",
+        "text": "Bis Bahnhof Cuxhaven. Von dort mit dem Bus (Linie 1004) direkt nach Sahlenburg oder bequem mit dem Taxi (ca. 15 Min. Fahrt).",
+        "tip": "Tipp: Wir helfen gerne bei der Organisation eines Taxis."
+      }
+    }
+  },
+  "Prices": {
+    "meta": {
+      "title": "Preise & Konditionen",
+      "description": "Transparente Preise für die Ferienwohnung Eggers. Mindestaufenthalt 3 Tage, Kurtaxe €4,10 pro Tag, keine Kaution."
+    },
+    "hero": {
+      "headline": "Preise & Konditionen",
+      "text": "Transparenz ist uns wichtig. Hier finden Sie alle Informationen zu unseren Preisen, damit Sie Ihren Urlaub entspannt planen können."
+    },
+    "composition": {
+      "headline": "So setzt sich der Preis zusammen",
+      "nightlyRate": {
+        "title": "Übernachtungspreis",
+        "text": "Der Basispreis gilt für die gesamte Wohnung pro Nacht bei einer Belegung bis zu 6 Personen.",
+        "price": "ab €85,00 / Nacht (saisonabhängig)"
+      },
+      "cleaning": {
+        "title": "Endreinigung",
+        "text": "Für die professionelle Reinigung der Wohnung nach Ihrer Abreise berechnen wir eine einmalige Pauschale.",
+        "price": "einmalig €75,00"
+      },
+      "dog": {
+        "title": "Hundepauschale (optional)",
+        "text": "Ihr Vierbeiner ist herzlich willkommen. Für den erhöhten Reinigungsaufwand berechnen wir einen kleinen Aufpreis.",
+        "price": "pauschal €25,00 pro Aufenthalt"
+      },
+      "cityTax": {
+        "title": "Gästebeitrag (Kurtaxe)",
+        "text": "Die Stadt Cuxhaven erhebt einen Gästebeitrag. Wir ziehen diesen ein und führen ihn an die Stadt ab.",
+        "price": "€4,10 pro Erwachsener / Nacht"
+      }
+    },
+    "example": {
+      "title": "Beispielrechnung",
+      "subtitle": "Für 2 Erwachsene, 5 Nächte in der Nebensaison",
+      "nights": "{count} Nächte × €{price}",
+      "cleaning": "Endreinigung",
+      "cityTax": "Kurtaxe ({persons} Pers. × {days} Tage)",
+      "total": "Gesamt",
+      "cta": "Eigenen Preis berechnen"
+    },
+    "conditions": {
+      "headline": "Wichtige Konditionen",
+      "minStay": {
+        "title": "Mindestaufenthalt",
+        "text": "Um Ihnen eine entspannte An- und Abreise zu ermöglichen, beträgt der Mindestaufenthalt bei uns {nights} Nächte."
+      },
+      "payment": {
+        "title": "Zahlung",
+        "text": "20% Anzahlung bei Buchung, Restzahlung 14 Tage vor Anreise. Wir akzeptieren Überweisung."
+      },
+      "checkInOut": {
+        "title": "An- & Abreise",
+        "text": "Check-in ab 15:00 Uhr.\nCheck-out bis 10:00 Uhr.\nKontaktlose Schlüsselübergabe möglich."
+      }
+    }
+  },
+  "Booking": {
+    "meta": {
+      "title": "Buchungsanfrage",
+      "description": "Buchen Sie Ihren Aufenthalt in der Ferienwohnung Eggers in Cuxhaven-Sahlenburg."
+    },
+    "hero": {
+      "headline": "Buchungsanfrage",
+      "text": "Sichern Sie sich Ihren Wunschtermin. Prüfen Sie die Verfügbarkeit und senden Sie uns eine unverbindliche Anfrage. Wir antworten schnellstmöglich."
+    },
+    "calendar": {
+      "title": "Verfügbarkeit prüfen",
+      "subtitle": "Wählen Sie Ihren gewünschten Reisezeitraum"
+    },
+    "minStayError": {
+      "title": "Mindestaufenthalt nicht erfüllt",
+      "text": "Der Mindestaufenthalt beträgt {nights} Nächte. Bitte wählen Sie einen längeren Zeitraum."
+    },
+    "info": {
+      "title": "Wichtige Informationen",
+      "conditions": "Konditionen",
+      "goodToKnow": "Gut zu wissen",
+      "minStay": "Mindestaufenthalt",
+      "cityTax": "Kurtaxe",
+      "perPersonPerDay": "p.P. / Tag",
+      "deposit": "Kaution",
+      "noDeposit": "Keine",
+      "cleaning": "Endreinigung",
+      "oneTime": "Einmalig",
+      "dogsWelcome": "Hunde sind herzlich willkommen",
+      "flat": "pauschal",
+      "noSmoking": "Nichtraucher im Innenbereich",
+      "checkIn": "Check-in ab 15:00 Uhr",
+      "checkOut": "Check-out bis 10:00 Uhr",
+      "freeParking": "Kostenloser Parkplatz direkt am Haus"
+    },
+    "form": {
+      "title": "Anfrage senden",
+      "readySubtitle": "Bitte ergänzen Sie Ihre Kontaktdaten für ein unverbindliches Angebot.",
+      "startSubtitle": "Starten Sie Ihre Buchung, indem Sie ein Datum wählen.",
+      "noDateSelected": "Noch kein Zeitraum gewählt",
+      "selectDateHint": "Bitte wählen Sie im Kalender auf der linken Seite Ihr gewünschtes An- und Abreisedatum aus."
+    },
+    "priceSummary": {
+      "title": "Preisübersicht",
+      "nights": "{count} Nächte",
+      "cleaning": "Endreinigung",
+      "cityTax": "Kurtaxe",
+      "dogFee": "Hundepauschale",
+      "total": "Gesamtpreis",
+      "selectDates": "Bitte wählen Sie einen Zeitraum"
+    },
+    "questions": {
+      "title": "Noch Fragen?",
+      "text": "Wenn Sie sich unsicher sind oder spezielle Wünsche haben, zögern Sie nicht, uns zu kontaktieren. Wir helfen Ihnen gerne persönlich weiter.",
+      "cta": "Kontakt aufnehmen"
+    },
+    "wizard": {
+      "step1": "Zeitraum & Gäste",
+      "step2": "Kontaktdaten",
+      "step3": "Zusammenfassung",
+      "selectPeriod": "Wählen Sie Ihren Zeitraum",
+      "yourContactData": "Ihre Kontaktdaten",
+      "summary": "Zusammenfassung Ihrer Anfrage",
+      "cancel": "Abbrechen",
+      "back": "Zurück",
+      "next": "Weiter",
+      "submit": "Anfrage senden"
+    }
+  },
+  "Contact": {
+    "meta": {
+      "title": "Kontakt",
+      "description": "Kontaktieren Sie die Ferienwohnung Eggers für Buchungsanfragen oder Fragen."
+    },
+    "hero": {
+      "headline": "Kontakt",
+      "text": "Wir sind für Sie da. Ob Buchungsanfrage oder individuelle Wünsche – schreiben Sie uns oder rufen Sie einfach an."
+    },
+    "personal": {
+      "headline": "Persönlicher Kontakt",
+      "text": "Als private Gastgeber liegt uns Ihr Wohlbefinden am Herzen. Wir kümmern uns persönlich um Ihre Anliegen und sorgen dafür, dass Ihr Aufenthalt von Anfang an entspannt verläuft."
+    },
+    "phone": {
+      "title": "Telefon",
+      "hours": "Mo-So, 9:00 - 20:00 Uhr"
+    },
+    "email": {
+      "title": "E-Mail",
+      "response": "Antwort innerhalb von 24h"
+    },
+    "address": {
+      "title": "Anschrift"
+    },
+    "form": {
+      "title": "Nachricht senden",
+      "subtitle": "Unverbindliche Anfrage oder Frage stellen",
+      "name": "Name",
+      "namePlaceholder": "Ihr Name",
+      "email": "E-Mail",
+      "emailPlaceholder": "ihre@email.de",
+      "message": "Nachricht",
+      "messagePlaceholder": "Wie können wir Ihnen helfen?",
+      "gdpr": "Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und Zuordnung für eventuelle Rückfragen dauerhaft gespeichert werden.",
+      "submit": "Nachricht absenden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet!",
+      "gdprError": "Bitte bestätigen Sie die Datenschutzhinweise"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "Über uns",
+      "description": "Lernen Sie Familie Eggers kennen – Ihre Gastgeber in Cuxhaven-Sahlenburg. Persönliche Betreuung und Liebe zum Detail seit vielen Jahren."
+    },
+    "hero": {
+      "headline": "Über uns",
+      "text": "Herzlich willkommen! Wir sind Familie Eggers und freuen uns, Sie in unserer Ferienwohnung in Cuxhaven-Sahlenburg begrüßen zu dürfen."
+    },
+    "story": {
+      "headline": "Willkommen bei Familie Eggers",
+      "text1": "Die Liebe zur Nordsee begleitet unsere Familie schon seit Generationen. Als wir vor einigen Jahren die Möglichkeit bekamen, eine Ferienwohnung in Sahlenburg einzurichten, war für uns sofort klar: Hier möchten wir anderen Menschen einen Ort der Erholung schaffen.",
+      "text2": "Was als kleines Projekt begann, wurde schnell zu einer Herzensangelegenheit. Mit viel Liebe zum Detail haben wir jeden Raum gestaltet – immer mit dem Gedanken, was wir uns selbst im Urlaub wünschen würden: Gemütlichkeit, Komfort und die perfekte Mischung aus Ruhe und Abenteuer.",
+      "text3": "Heute freuen wir uns über jeden Gast, der bei uns ankommt und die einzigartige Atmosphäre von Sahlenburg entdeckt. Ob beim Wattwandern, bei Spaziergängen durch den Wernerwald oder einfach beim Entspannen auf der Terrasse – wir wünschen Ihnen unvergessliche Momente."
+    },
+    "portrait": {
+      "title": "Familie Eggers",
+      "subtitle": "Ihre Gastgeber in Sahlenburg",
+      "quote": "\"Wir möchten, dass Sie sich bei uns wie zu Hause fühlen – nur mit besserem Blick auf die Nordsee.\"",
+      "imagePlaceholder": "Bild der Gastgeber"
+    },
+    "values": {
+      "headline": "Unsere Werte",
+      "subheadline": "Was uns als Gastgeber ausmacht und was Sie bei uns erwarten können.",
+      "personal": {
+        "title": "Persönliche Betreuung",
+        "description": "Wir sind für Sie da – vor, während und nach Ihrem Aufenthalt. Ihre Zufriedenheit liegt uns am Herzen."
+      },
+      "detail": {
+        "title": "Liebe zum Detail",
+        "description": "Jedes Detail in unserer Ferienwohnung wurde mit Bedacht gewählt, damit Sie sich rundum wohlfühlen."
+      },
+      "local": {
+        "title": "Lokale Verbundenheit",
+        "description": "Als Einheimische teilen wir gerne unsere Geheimtipps für die schönsten Orte in Sahlenburg und Umgebung."
+      },
+      "sustainable": {
+        "title": "Nachhaltigkeit",
+        "description": "Wir achten auf umweltbewusstes Handeln und setzen auf regionale Produkte und Ressourcenschonung."
+      }
+    },
+    "cta": {
+      "headline": "Haben Sie Fragen?",
+      "text": "Wir freuen uns auf Ihre Nachricht und beraten Sie gerne persönlich zu Ihrem geplanten Aufenthalt.",
+      "button": "Kontakt aufnehmen"
+    }
+  },
+  "Imprint": {
+    "meta": {
+      "title": "Impressum",
+      "description": "Impressum und Kontaktdaten der Ferienwohnung Eggers in Cuxhaven Sahlenburg."
+    },
+    "hero": {
+      "headline": "Impressum",
+      "text": "Rechtliche Angaben und Kontaktinformationen."
+    },
+    "legalNotice": {
+      "title": "Rechtlicher Hinweis",
+      "text": "Dieser Impressumstext ist ein Muster und muss vor Produktivbetrieb durch rechtlich geprüfte und aktuelle Angaben ersetzt werden."
+    },
+    "provider": {
+      "title": "Angaben gemäß § 5 TMG",
+      "operator": "[Vor- und Nachname des Betreibers]",
+      "country": "Deutschland"
+    },
+    "contact": {
+      "title": "Kontakt"
+    },
+    "tax": {
+      "title": "Umsatzsteuer-ID & Verantwortlichkeit",
+      "vatLabel": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
+      "vatValue": "[Falls vorhanden, hier eintragen]",
+      "responsibleLabel": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:",
+      "responsibleValue": "[Vor- und Nachname]"
+    },
+    "dispute": {
+      "title": "Streitschlichtung",
+      "text1": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:",
+      "text2": "Unsere E-Mail-Adresse finden Sie oben im Impressum.",
+      "text3": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+    }
+  },
+  "Privacy": {
+    "meta": {
+      "title": "Datenschutzerklärung",
+      "description": "Datenschutzerklärung der Ferienwohnung Eggers - Informationen zur Datenverarbeitung."
+    },
+    "hero": {
+      "headline": "Datenschutz",
+      "text": "Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Hier erfahren Sie, wie wir Ihre Daten verarbeiten."
+    },
+    "legalNotice": {
+      "title": "Rechtlicher Hinweis",
+      "text": "Diese Datenschutzerklärung ist ein Muster und muss vor Produktivbetrieb durch eine rechtlich geprüfte, auf Ihre spezifische Datenverarbeitung zugeschnittene Version ersetzt werden."
+    },
+    "overview": {
+      "title": "1. Datenschutz auf einen Blick",
+      "subtitle": "Allgemeine Hinweise",
+      "text": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen oder unser Buchungssystem nutzen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können."
+    },
+    "responsible": {
+      "title": "2. Verantwortlicher",
+      "text": "Verantwortlich für die Datenverarbeitung auf dieser Website ist:"
+    },
+    "dataCollection": {
+      "title": "3. Datenerfassung auf dieser Website",
+      "contact": {
+        "title": "Kontaktformular und Buchungsanfragen",
+        "text": "Wenn Sie uns per Kontaktformular oder Buchungsanfrage Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.",
+        "dataTitle": "Verarbeitete Daten:",
+        "data": {
+          "name": "Name",
+          "email": "E-Mail-Adresse",
+          "phone": "Telefonnummer (optional)",
+          "travel": "Reisedaten und Gästeanzahl",
+          "message": "Nachrichteninhalt"
+        },
+        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung)"
+      },
+      "serverLogs": {
+        "title": "Server-Log-Dateien",
+        "text": "Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt (z.B. Browsertyp, Uhrzeit, IP-Adresse). Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und nach spätestens 7 Tagen gelöscht."
+      }
+    },
+    "cookies": {
+      "title": "4. Cookies",
+      "text": "Unsere Website verwendet Cookies nur, soweit dies technisch notwendig ist (z.B. für die Speicherung Ihrer Theme-Präferenz [Dark Mode]). Diese Cookies dienen ausschließlich der Funktionalität der Website. Wir setzen keine Tracking- oder Werbe-Cookies ein.",
+      "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Funktion)"
+    },
+    "external": {
+      "title": "5. Externe Dienste",
+      "text": "Wir können für die Verwaltung von Buchungen externe Channel Manager oder Buchungsplattformen (z.B. Booking.com, Airbnb) nutzen. In diesem Fall erfolgt die Datenverarbeitung auch durch diese Dienstleister gemäß deren Datenschutzbestimmungen."
+    },
+    "rights": {
+      "title": "6. Ihre Rechte & Kontakt",
+      "text": "Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.",
+      "contactLabel": "Kontakt für Datenschutzanfragen:"
+    }
+  },
+  "Terms": {
+    "meta": {
+      "title": "AGB",
+      "description": "Allgemeine Geschäftsbedingungen der Ferienwohnung Eggers."
+    },
+    "hero": {
+      "headline": "AGB",
+      "text": "Allgemeine Geschäftsbedingungen für die Anmietung der Ferienwohnung Eggers."
+    },
+    "legalNotice": {
+      "title": "Rechtlicher Hinweis",
+      "text": "Diese AGB sind ein Muster und müssen vor Produktivbetrieb durch rechtlich geprüfte und individuell angepasste Geschäftsbedingungen ersetzt werden."
+    },
+    "scope": {
+      "title": "§ 1 Geltungsbereich",
+      "text": "Diese Allgemeinen Geschäftsbedingungen gelten für die Vermietung der Ferienwohnung Eggers, Nordheimstraße 150, 27476 Cuxhaven Sahlenburg. Mit der Buchung erkennt der Gast diese Bedingungen an."
+    },
+    "contract": {
+      "title": "§ 2 Buchung und Vertragsabschluss",
+      "text": "Die Buchungsanfrage des Gastes stellt ein Angebot zum Abschluss eines Mietvertrags dar. Der Vertrag kommt erst durch unsere schriftliche Buchungsbestätigung (per E-Mail) zustande.",
+      "minStay": "Mindestaufenthalt: {nights} Nächte"
+    },
+    "prices": {
+      "title": "§ 3 Preise und Zahlung",
+      "includedTitle": "Im Preis enthalten:",
+      "included": {
+        "linen": "Bettwäsche & Handtücher",
+        "cleaning": "Endreinigung",
+        "utilities": "Nebenkosten (Strom, Wasser)",
+        "extras": "WLAN & Parkplatz"
+      },
+      "additionalTitle": "Zusätzlich vor Ort:",
+      "cityTax": "Kurtaxe: € {amount} pro Erwachsenen pro Tag (in bar)"
+    },
+    "cancellation": {
+      "title": "§ 4 Stornierung",
+      "text": "Stornierungen müssen schriftlich (per E-Mail) erfolgen.",
+      "policy": {
+        "free": "Bis 60 Tage vor Anreise",
+        "freeAmount": "Kostenfrei",
+        "partial": "59-30 Tage vor Anreise",
+        "partialAmount": "50% des Preises",
+        "full": "Ab 29 Tage vor Anreise",
+        "fullAmount": "100% des Preises"
+      }
+    },
+    "checkInOut": {
+      "title": "§ 5 An- und Abreise",
+      "checkIn": "Check-in",
+      "checkInTime": "ab 15:00 Uhr",
+      "checkOut": "Check-out",
+      "checkOutTime": "bis 10:00 Uhr"
+    },
+    "houseRules": {
+      "title": "§ 6 Nutzung & Hausregeln",
+      "maxOccupancy": "Maximale Belegung: 6 Personen",
+      "dogsWelcome": "Hunde sind herzlich willkommen",
+      "noSmoking": "Nichtraucher-Wohnung (Rauchen nur auf der Terrasse)",
+      "quietHours": "Bitte nehmen Sie Rücksicht auf die Nachbarschaft (Ruhezeiten)"
+    },
+    "final": {
+      "title": "§ 7 Schlussbestimmungen",
+      "text": "Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Es gilt deutsches Recht. Gerichtsstand ist Cuxhaven."
+    }
+  },
+  "Common": {
+    "brandName": "Ferienwohnung Eggers",
+    "nights": "{count, plural, =1 {1 Nacht} other {# Nächte}}",
+    "adults": "{count, plural, =1 {1 Erwachsener} other {# Erwachsene}}",
+    "children": "{count, plural, =1 {1 Kind} other {# Kinder}}",
+    "required": "*",
+    "night": "Nacht",
+    "nightPlural": "Nächte",
+    "person": "Person",
+    "personPlural": "Personen",
+    "adult": "Erwachsener",
+    "adultPlural": "Erwachsene"
+  },
+  "LanguageSwitcher": {
+    "de": "DE",
+    "en": "EN"
+  },
+  "Calendar": {
+    "weekDays": {
+      "sun": "So",
+      "mon": "Mo",
+      "tue": "Di",
+      "wed": "Mi",
+      "thu": "Do",
+      "fri": "Fr",
+      "sat": "Sa"
+    },
+    "months": {
+      "january": "Januar",
+      "february": "Februar",
+      "march": "März",
+      "april": "April",
+      "may": "Mai",
+      "june": "Juni",
+      "july": "Juli",
+      "august": "August",
+      "september": "September",
+      "october": "Oktober",
+      "november": "November",
+      "december": "Dezember"
+    },
+    "previousMonth": "Vorheriger Monat",
+    "nextMonth": "Nächster Monat",
+    "legend": {
+      "selected": "Ausgewählt",
+      "range": "Zeitraum",
+      "unavailable": "Belegt / Vergangen"
+    }
+  },
+  "BookingForm": {
+    "yourBookingRequest": "Ihre Buchungsanfrage",
+    "period": "Zeitraum",
+    "guests": "Gäste",
+    "touristTaxApprox": "Kurtaxe (ca.)",
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon (optional)",
+    "adults": "Erwachsene",
+    "children": "Kinder",
+    "travelingWithDogs": "Ich reise mit Hund(en)",
+    "message": "Nachricht (optional)",
+    "messagePlaceholder": "Besondere Wünsche oder Fragen...",
+    "gdprText": "Ich habe die {privacyLink} zur Kenntnis genommen und stimme der Verarbeitung meiner Daten zu.",
+    "privacyNotice": "Datenschutzhinweise",
+    "submit": "Buchungsanfrage senden",
+    "submitting": "Wird gesendet...",
+    "requiredFields": "Pflichtfelder",
+    "successTitle": "Anfrage erfolgreich gesendet!",
+    "successText": "Vielen Dank für Ihre Buchungsanfrage. Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
+    "errorTitle": "Fehler",
+    "errorSelectPeriod": "Bitte wählen Sie einen Zeitraum aus",
+    "errorGdpr": "Bitte bestätigen Sie die Datenschutzhinweise",
+    "errorGeneric": "Ein Fehler ist aufgetreten",
+    "errorConnection": "Verbindungsfehler. Bitte versuchen Sie es später erneut."
+  },
+  "PriceSummary": {
+    "title": "Preisübersicht",
+    "notice": "Hinweis",
+    "selectPeriodAndGuests": "Wählen Sie Zeitraum und Gästeanzahl für die Preisberechnung",
+    "season": {
+      "high": "Hochsaison",
+      "low": "Nebensaison",
+      "normal": "Hauptsaison"
+    },
+    "accommodation": "Unterkunft",
+    "cleaning": "Endreinigung",
+    "dog": "Hund",
+    "subtotal": "Zwischensumme",
+    "touristTax": "Kurtaxe",
+    "total": "Gesamtsumme",
+    "includingAll": "inkl. aller Gebühren und Steuern",
+    "disclaimer": "Diese Preisangabe basiert auf den aktuellen Einstellungen und ist noch keine verbindliche Buchungsbestätigung. Der endgültige Preis wird bei Bestätigung Ihrer Anfrage fixiert.",
+    "minimumStay": "Mindestaufenthalt beträgt {nights} Nächte"
+  },
+  "BookingWizard": {
+    "steps": {
+      "periodAndGuests": "Zeitraum & Gäste",
+      "contactInfo": "Kontaktdaten",
+      "summary": "Zusammenfassung"
+    },
+    "buttons": {
+      "cancel": "Abbrechen",
+      "back": "Zurück",
+      "next": "Weiter",
+      "sendRequest": "Anfrage senden"
+    },
+    "step1": {
+      "title": "Wählen Sie Ihren Zeitraum",
+      "description": "Kalender und Gästeauswahl"
+    },
+    "step2": {
+      "title": "Ihre Kontaktdaten",
+      "description": "Kontaktformular"
+    },
+    "step3": {
+      "title": "Zusammenfassung Ihrer Anfrage",
+      "description": "Zusammenfassung"
+    }
+  },
+  "General": {
+    "brandName": "Ferienwohnung Eggers",
+    "description": "Ihr privater Rückzugsort an der Nordsee. Genießen Sie Ruhe, Natur und Komfort in Sahlenburg.",
+    "address": {
+      "street": "Nordheimstraße 150",
+      "zipCity": "27476 Cuxhaven Sahlenburg"
+    },
+    "contact": {
+      "phone": "+49 (0) 4721 123 456",
+      "phoneRaw": "+4947211234567",
+      "email": "info@ferienwohnung-eggers.de"
+    }
+  }
+}
+

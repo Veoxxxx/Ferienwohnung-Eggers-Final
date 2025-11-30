@@ -1,16 +1,35 @@
-import { generateMetadata as genMeta } from "@/lib/metadata";
 import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { siteContent } from "@/lib/content";
+import type { Metadata } from "next";
 
-export const metadata = genMeta({
-    title: "Bildergalerie",
-    description:
-        "Entdecken Sie die Ferienwohnung Eggers in Bildern. Wohnzimmer, Schlafzimmer, Küche und die Umgebung von Cuxhaven-Sahlenburg.",
-    path: "/galerie",
-});
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "Gallery.meta" });
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
-export default function GaleriePage() {
+const categoryKeys = ["living", "sleeping", "surroundings"] as const;
+
+export default async function GaleriePage({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
+    setRequestLocale(locale);
+    const t = await getTranslations("Gallery");
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -18,10 +37,11 @@ export default function GaleriePage() {
                 <div className="absolute inset-0 opacity-10 bg-[url('/images/hero-living-room.png')] bg-cover bg-center" />
                 <div className="container-custom relative z-10">
                     <AnimatedSection>
-                        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">Einblicke</h1>
+                        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+                            {t("hero.headline")}
+                        </h1>
                         <p className="text-xl text-luxury-sand-100 max-w-2xl font-light leading-relaxed">
-                            Lassen Sie sich inspirieren. Hier bekommen Sie einen Vorgeschmack auf Ihr Zuhause auf Zeit
-                            und die wunderschöne Umgebung von Cuxhaven-Sahlenburg.
+                            {t("hero.text")}
                         </p>
                     </AnimatedSection>
                 </div>
@@ -34,10 +54,10 @@ export default function GaleriePage() {
                         <div className="container-custom">
                             <AnimatedSection className="mb-12">
                                 <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3 text-luxury-navy-900 dark:text-luxury-sand-100">
-                                    {category.title}
+                                    {t(`categories.${categoryKeys[categoryIndex]}.title`)}
                                 </h2>
                                 <p className="text-luxury-navy-600 dark:text-slate-400 text-lg">
-                                    {category.description}
+                                    {t(`categories.${categoryKeys[categoryIndex]}.description`)}
                                 </p>
                             </AnimatedSection>
 
@@ -69,3 +89,4 @@ export default function GaleriePage() {
         </div>
     );
 }
+

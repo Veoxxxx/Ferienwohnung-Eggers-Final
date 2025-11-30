@@ -5,12 +5,15 @@ import { BookingCalendar } from "@/components/booking-calendar";
 import { BookingForm } from "@/components/booking-form";
 import { PriceSummary } from "@/components/booking/price-summary";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/card";
-import { AlertCircle, Check, Info, Calendar as CalendarIcon, Clock, Dog, CigaretteOff, Car, ShieldCheck, Sparkles } from "lucide-react";
+import { AlertCircle, Info, Calendar as CalendarIcon, Clock, Dog, CigaretteOff, Car, ShieldCheck, Sparkles } from "lucide-react";
 import { validateMinimumStay } from "@/lib/utils";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { siteContent } from "@/lib/content";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export default function BuchenPage() {
+    const t = useTranslations("Booking");
     const [selectedStartDate, setSelectedStartDate] = useState<Date>();
     const [selectedEndDate, setSelectedEndDate] = useState<Date>();
     const [minStayError, setMinStayError] = useState(false);
@@ -33,10 +36,11 @@ export default function BuchenPage() {
                 <div className="absolute inset-0 opacity-10 bg-[url('/images/hero-living-room.png')] bg-cover bg-center" />
                 <div className="container-custom relative z-10">
                     <AnimatedSection>
-                        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">Buchungsanfrage</h1>
+                        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+                            {t("hero.headline")}
+                        </h1>
                         <p className="text-xl text-luxury-sand-100 max-w-2xl font-light leading-relaxed">
-                            Sichern Sie sich Ihren Wunschtermin. Prüfen Sie die Verfügbarkeit und senden Sie uns
-                            eine unverbindliche Anfrage. Wir antworten schnellstmöglich.
+                            {t("hero.text")}
                         </p>
                     </AnimatedSection>
                 </div>
@@ -56,9 +60,11 @@ export default function BuchenPage() {
                                                 <CalendarIcon className="h-6 w-6" />
                                             </div>
                                             <div>
-                                                <CardTitle className="font-serif text-2xl">Verfügbarkeit prüfen</CardTitle>
+                                                <CardTitle className="font-serif text-2xl">
+                                                    {t("calendar.title")}
+                                                </CardTitle>
                                                 <CardDescription className="mt-1 text-base">
-                                                    Wählen Sie Ihren gewünschten Reisezeitraum
+                                                    {t("calendar.subtitle")}
                                                 </CardDescription>
                                             </div>
                                         </div>
@@ -78,9 +84,13 @@ export default function BuchenPage() {
                                     <div className="flex items-start gap-3 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                                         <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
                                         <div>
-                                            <p className="font-medium text-red-900 dark:text-red-100">Mindestaufenthalt nicht erfüllt</p>
+                                            <p className="font-medium text-red-900 dark:text-red-100">
+                                                {t("minStayError.title")}
+                                            </p>
                                             <p className="text-sm text-red-700 dark:text-red-300 mt-1">
-                                                Der Mindestaufenthalt beträgt 3 Nächte. Bitte wählen Sie einen längeren Zeitraum.
+                                                {t("minStayError.text", {
+                                                    nights: siteContent.booking.prices.minimumStay,
+                                                })}
                                             </p>
                                         </div>
                                     </div>
@@ -95,7 +105,7 @@ export default function BuchenPage() {
                                             <Info className="h-5 w-5" />
                                         </div>
                                         <h3 className="font-serif text-2xl font-bold text-luxury-navy-900 dark:text-luxury-sand-100">
-                                            Wichtige Informationen
+                                            {t("info.title")}
                                         </h3>
                                     </div>
 
@@ -103,49 +113,53 @@ export default function BuchenPage() {
                                         {/* Konditionen */}
                                         <div className="space-y-6">
                                             <h4 className="font-medium text-luxury-navy-900 dark:text-luxury-sand-200 uppercase tracking-wider text-xs border-b border-luxury-sand-200 dark:border-luxury-navy-700 pb-2">
-                                                Konditionen
+                                                {t("info.conditions")}
                                             </h4>
                                             <ul className="space-y-4">
                                                 <li className="flex justify-between items-center group">
                                                     <span className="text-luxury-navy-600 dark:text-slate-400 text-sm flex items-center gap-2">
                                                         <CalendarIcon className="h-4 w-4 text-luxury-sand-400" />
-                                                        Mindestaufenthalt
+                                                        {t("info.minStay")}
                                                     </span>
                                                     <span className="font-medium text-luxury-navy-900 dark:text-slate-200">
-                                                        {siteContent.booking.prices.minimumStay} Nächte
+                                                        {siteContent.booking.prices.minimumStay} {t("info.minStay").includes("Nächte") ? "" : "nights"}
                                                     </span>
                                                 </li>
                                                 <li className="flex justify-between items-center group">
                                                     <span className="text-luxury-navy-600 dark:text-slate-400 text-sm flex items-center gap-2">
                                                         <Info className="h-4 w-4 text-luxury-sand-400" />
-                                                        Kurtaxe
+                                                        {t("info.cityTax")}
                                                     </span>
                                                     <div className="text-right">
                                                         <span className="font-medium text-luxury-navy-900 dark:text-slate-200 block">
-                                                            €{siteContent.booking.prices.cityTaxPerAdultPerNight.toFixed(2).replace('.', ',')}
+                                                            €{siteContent.booking.prices.cityTaxPerAdultPerNight.toFixed(2).replace(".", ",")}
                                                         </span>
-                                                        <span className="text-[10px] text-luxury-navy-400 uppercase tracking-wide">p.P. / Tag</span>
+                                                        <span className="text-[10px] text-luxury-navy-400 uppercase tracking-wide">
+                                                            {t("info.perPersonPerDay")}
+                                                        </span>
                                                     </div>
                                                 </li>
                                                 <li className="flex justify-between items-center group">
                                                     <span className="text-luxury-navy-600 dark:text-slate-400 text-sm flex items-center gap-2">
                                                         <ShieldCheck className="h-4 w-4 text-luxury-sand-400" />
-                                                        Kaution
+                                                        {t("info.deposit")}
                                                     </span>
                                                     <span className="font-medium text-luxury-navy-900 dark:text-slate-200">
-                                                        Keine
+                                                        {t("info.noDeposit")}
                                                     </span>
                                                 </li>
                                                 <li className="flex justify-between items-center group pt-2 border-t border-luxury-sand-200/50 dark:border-luxury-navy-700/50">
                                                     <span className="text-luxury-navy-600 dark:text-slate-400 text-sm flex items-center gap-2">
                                                         <Sparkles className="h-4 w-4 text-luxury-sand-400" />
-                                                        Endreinigung
+                                                        {t("info.cleaning")}
                                                     </span>
                                                     <div className="text-right">
                                                         <span className="font-medium text-luxury-navy-900 dark:text-slate-200 block">
-                                                            €{siteContent.booking.prices.cleaningFee.toFixed(2).replace('.', ',')}
+                                                            €{siteContent.booking.prices.cleaningFee.toFixed(2).replace(".", ",")}
                                                         </span>
-                                                        <span className="text-[10px] text-luxury-navy-400 font-medium uppercase tracking-wide">Einmalig</span>
+                                                        <span className="text-[10px] text-luxury-navy-400 font-medium uppercase tracking-wide">
+                                                            {t("info.oneTime")}
+                                                        </span>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -154,7 +168,7 @@ export default function BuchenPage() {
                                         {/* Gut zu wissen */}
                                         <div className="space-y-6">
                                             <h4 className="font-medium text-luxury-navy-900 dark:text-luxury-sand-200 uppercase tracking-wider text-xs border-b border-luxury-sand-200 dark:border-luxury-navy-700 pb-2">
-                                                Gut zu wissen
+                                                {t("info.goodToKnow")}
                                             </h4>
                                             <ul className="space-y-4">
                                                 <li className="flex items-start gap-3">
@@ -162,9 +176,9 @@ export default function BuchenPage() {
                                                         <Dog className="h-3.5 w-3.5" />
                                                     </div>
                                                     <span className="text-luxury-navy-700 dark:text-slate-300 text-sm leading-relaxed">
-                                                        Hunde sind herzlich willkommen
+                                                        {t("info.dogsWelcome")}
                                                         <span className="block text-xs text-luxury-navy-400 mt-0.5">
-                                                            (€{siteContent.booking.prices.dogFee.toFixed(2).replace('.', ',')} pauschal)
+                                                            (€{siteContent.booking.prices.dogFee.toFixed(2).replace(".", ",")} {t("info.flat")})
                                                         </span>
                                                     </span>
                                                 </li>
@@ -173,7 +187,7 @@ export default function BuchenPage() {
                                                         <CigaretteOff className="h-3.5 w-3.5" />
                                                     </div>
                                                     <span className="text-luxury-navy-700 dark:text-slate-300 text-sm leading-relaxed">
-                                                        Nichtraucher im Innenbereich
+                                                        {t("info.noSmoking")}
                                                     </span>
                                                 </li>
                                                 <li className="flex items-start gap-3">
@@ -181,9 +195,9 @@ export default function BuchenPage() {
                                                         <Clock className="h-3.5 w-3.5" />
                                                     </div>
                                                     <span className="text-luxury-navy-700 dark:text-slate-300 text-sm leading-relaxed">
-                                                        Check-in ab 15:00 Uhr
+                                                        {t("info.checkIn")}
                                                         <br />
-                                                        Check-out bis 10:00 Uhr
+                                                        {t("info.checkOut")}
                                                     </span>
                                                 </li>
                                                 <li className="flex items-start gap-3">
@@ -191,7 +205,7 @@ export default function BuchenPage() {
                                                         <Car className="h-3.5 w-3.5" />
                                                     </div>
                                                     <span className="text-luxury-navy-700 dark:text-slate-300 text-sm leading-relaxed">
-                                                        Kostenloser Parkplatz direkt am Haus
+                                                        {t("info.freeParking")}
                                                     </span>
                                                 </li>
                                             </ul>
@@ -217,12 +231,20 @@ export default function BuchenPage() {
                             {/* Booking Form */}
                             <AnimatedSection delay={0.4}>
                                 <Card className="border border-luxury-sand-100 dark:border-luxury-navy-800 shadow-lg bg-white dark:bg-luxury-navy-900 overflow-hidden">
-                                    <CardHeader className={selectedStartDate && selectedEndDate && !minStayError ? "bg-luxury-sand-50/50 dark:bg-luxury-navy-800/50 border-b border-luxury-sand-100 dark:border-luxury-navy-800" : ""}>
-                                        <CardTitle className="font-serif text-2xl">Anfrage senden</CardTitle>
+                                    <CardHeader
+                                        className={
+                                            selectedStartDate && selectedEndDate && !minStayError
+                                                ? "bg-luxury-sand-50/50 dark:bg-luxury-navy-800/50 border-b border-luxury-sand-100 dark:border-luxury-navy-800"
+                                                : ""
+                                        }
+                                    >
+                                        <CardTitle className="font-serif text-2xl">
+                                            {t("form.title")}
+                                        </CardTitle>
                                         <CardDescription>
                                             {selectedStartDate && selectedEndDate && !minStayError
-                                                ? "Bitte ergänzen Sie Ihre Kontaktdaten für ein unverbindliches Angebot."
-                                                : "Starten Sie Ihre Buchung, indem Sie ein Datum wählen."}
+                                                ? t("form.readySubtitle")
+                                                : t("form.startSubtitle")}
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent className="pt-6">
@@ -238,10 +260,10 @@ export default function BuchenPage() {
                                                     <CalendarIcon className="h-8 w-8" />
                                                 </div>
                                                 <h3 className="text-lg font-medium text-luxury-navy-900 dark:text-slate-200 mb-2">
-                                                    Noch kein Zeitraum gewählt
+                                                    {t("form.noDateSelected")}
                                                 </h3>
                                                 <p className="text-luxury-navy-500 dark:text-slate-400 max-w-xs mx-auto text-sm leading-relaxed">
-                                                    Bitte wählen Sie im Kalender auf der linken Seite Ihr gewünschtes An- und Abreisedatum aus.
+                                                    {t("form.selectDateHint")}
                                                 </p>
                                             </div>
                                         )}
@@ -254,19 +276,23 @@ export default function BuchenPage() {
                     {/* Additional Info */}
                     <AnimatedSection delay={0.5} className="mt-20">
                         <div className="relative overflow-hidden rounded-2xl bg-luxury-navy-900 dark:bg-luxury-navy-950 p-8 md:p-12 text-center text-white shadow-xl">
-                             <div className="absolute top-0 right-0 -mt-10 -mr-10 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
-                             <div className="absolute bottom-0 left-0 -mb-10 -ml-10 h-64 w-64 rounded-full bg-luxury-sand-500/10 blur-3xl" />
-                             
-                             <div className="relative z-10 max-w-2xl mx-auto">
-                                <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-luxury-sand-100">Noch Fragen?</h3>
+                            <div className="absolute top-0 right-0 -mt-10 -mr-10 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
+                            <div className="absolute bottom-0 left-0 -mb-10 -ml-10 h-64 w-64 rounded-full bg-luxury-sand-500/10 blur-3xl" />
+
+                            <div className="relative z-10 max-w-2xl mx-auto">
+                                <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-luxury-sand-100">
+                                    {t("questions.title")}
+                                </h3>
                                 <p className="text-luxury-sand-200/80 mb-8 text-lg leading-relaxed">
-                                    Wenn Sie sich unsicher sind oder spezielle Wünsche haben, zögern Sie nicht, uns zu kontaktieren.
-                                    Wir helfen Ihnen gerne persönlich weiter.
+                                    {t("questions.text")}
                                 </p>
-                                <a href="/kontakt" className="inline-flex items-center justify-center px-8 py-3.5 border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-base font-medium rounded-lg text-white transition-all duration-300 shadow-sm hover:shadow-lg">
-                                    Kontakt aufnehmen
-                                </a>
-                             </div>
+                                <Link
+                                    href="/kontakt"
+                                    className="inline-flex items-center justify-center px-8 py-3.5 border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-base font-medium rounded-lg text-white transition-all duration-300 shadow-sm hover:shadow-lg"
+                                >
+                                    {t("questions.cta")}
+                                </Link>
+                            </div>
                         </div>
                     </AnimatedSection>
                 </div>
@@ -274,3 +300,4 @@ export default function BuchenPage() {
         </div>
     );
 }
+
