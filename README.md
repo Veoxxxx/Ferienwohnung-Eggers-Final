@@ -1,254 +1,223 @@
-# Ferienwohnung Eggers - High-End Webauftritt
+<p align="center">
+  <img src="public/icon.svg" width="80" alt="Ferienwohnung Eggers Logo">
+</p>
 
-Moderner, produktionsreifer Multi-Page Webauftritt für die Ferienwohnung Eggers in Cuxhaven Sahlenburg mit eigenem Buchungssystem, Channel Manager Vorbereitung und "Quiet Luxury" Design.
+<h1 align="center">Ferienwohnung Eggers</h1>
 
-## Features
+<p align="center">
+  <strong>Premium-Webauftritt für eine Ferienwohnung an der Nordsee</strong><br>
+  Modern • Mehrsprachig • Buchungssystem • Admin-Dashboard
+</p>
 
-### Core
-- ✅ **Next.js 14** mit App Router und TypeScript
-- ✅ **Vollständige Mehrsprachigkeit** (DE/EN) mit next-intl
-- ✅ **10+ Seiten** mit SEO-Optimierung und lokalisierten URLs
-- ✅ **JSON-LD Schema** für VacationRental
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js" alt="Next.js 14">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react" alt="React 18">
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss" alt="Tailwind CSS">
+</p>
 
-### Buchungssystem
-- ✅ **Interaktiver Kalender** mit Verfügbarkeitsanzeige
-- ✅ **4-Schritte Buchungsassistent** mit visuellen Icons und Gold-Akzenten
-- ✅ **LocalStorage Persistenz** für Formulardaten (überlebt Page Reload)
-- ✅ **Saisonale Preisberechnung** mit Kurtaxe
-- ✅ **Channel Manager Integration** (vorbereitet für Booking.com, Airbnb)
+---
 
-### Design & UX
-- ✅ **"Quiet Luxury" Design** mit Tailwind CSS
-- ✅ **Glass-Panel Effekte** mit Backdrop-Blur
-- ✅ **Subtile Noise-Texturen** für Papier/Stoff-Feeling
-- ✅ **Parallax Hero-Sektion** mit Framer Motion
-- ✅ **Gold-Akzente** für Hover-Effekte und aktive Elemente
-- ✅ **Dark Mode** mit Systempräferenz-Erkennung
-- ✅ **Responsive Design** für alle Geräte
-- ✅ **Framer Motion** Animationen
+## ✨ Features
 
-### Technisch
-- ✅ **Barrierefreiheit** (WCAG 2.1 AA konform)
-- ✅ **DSGVO-bewusste Architektur**
-- ✅ **TypeScript-strict** im gesamten Projekt
+| Kategorie | Highlights |
+|-----------|------------|
+| **Frontend** | "Quiet Luxury" Design, Glass-Effekte, Parallax-Hero, Dark Mode |
+| **Buchung** | 4-Schritte Wizard, Kalender, Saisonpreise, LocalStorage-Persistenz |
+| **Admin** | Dashboard, Buchungsverwaltung, Preise, Bewertungen, Galerie, Design |
+| **i18n** | Vollständig DE/EN, lokalisierte URLs, SEO-optimiert |
+| **Tech** | App Router, Server Components, TypeScript-strict, WCAG 2.1 AA |
 
-## Installation
+---
+
+## 🚀 Schnellstart
 
 ```bash
-# Dependencies installieren
+# Repository klonen & installieren
+git clone <repo-url>
+cd ferienwohnung-eggers
 npm install
 
-# Development Server starten
+# Development-Server starten
 npm run dev
-
-# Production Build erstellen
-npm run build
-
-# Production Server starten
-npm start
 ```
 
-Die Anwendung läuft standardmäßig auf **<http://localhost:3000>**
+Öffne **http://localhost:3000** im Browser.
 
-## Seitenstruktur
+---
 
-| Deutsch | Englisch | Beschreibung |
-|---------|----------|--------------|
-| `/` | `/en` | Startseite mit Parallax-Hero |
-| `/ausstattung` | `/en/amenities` | Detaillierte Ausstattung |
-| `/galerie` | `/en/gallery` | Bildergalerie |
-| `/lage` | `/en/location` | Lage & Anreise |
-| `/preise` | `/en/prices` | Preisübersicht |
-| `/ueber-uns` | `/en/about` | Über die Gastgeber |
-| `/kontakt` | `/en/contact` | Kontaktformular |
-| `/buchen` | `/en/booking` | Buchungsassistent |
-| `/impressum` | `/en/imprint` | Impressum (Mustertext) |
-| `/datenschutz` | `/en/privacy` | Datenschutz (Mustertext) |
-| `/agb` | `/en/terms` | AGB (Mustertext) |
+## 🔐 Admin-Dashboard
 
-## Umgebungsvariablen
+Das integrierte Admin-Dashboard ermöglicht die Verwaltung aller Inhalte ohne Code-Änderungen.
 
-Kopieren Sie `.env.example` nach `.env` und passen Sie die Werte an:
+**URL:** `http://localhost:3000/admin`  
+**Standard-Passwort:** `admin2024`
 
-```bash
-# Channel Manager API Konfiguration
-CHANNEL_MANAGER_API_URL=https://api.your-channel-manager.com/v1
-CHANNEL_MANAGER_API_KEY=your-api-key-here
-OTA_BOOKING_ID=your-booking-com-property-id
+### Dashboard-Funktionen
 
-# Kontakt E-Mail
-CONTACT_EMAIL=info@ferienwohnung-eggers.de
+| Bereich | Beschreibung |
+|---------|--------------|
+| **📊 Übersicht** | Live-Statistiken, offene Anfragen, nächste Anreise |
+| **📅 Buchungen** | Anfragen bestätigen/ablehnen, Status verwalten |
+| **💰 Preise** | Basispreis, Reinigung, Hund, Kurtaxe, Saisonzeiten |
+| **⭐ Bewertungen** | Testimonials hinzufügen/bearbeiten |
+| **🖼️ Galerie** | Kategorien und Bilder verwalten |
+| **⚙️ Einstellungen** | Kontaktdaten, Seiteninhalte, Design & Farben |
 
-# Site URL
+### Passwort ändern
+
+Erstellen Sie eine `.env.local` Datei:
+
+```env
+ADMIN_PASSWORD=IhrSicheresPasswort
+ADMIN_SECRET=EinLangerZufälligerString
+```
+
+---
+
+## 📁 Projektstruktur
+
+```
+├── app/
+│   ├── [locale]/          # Seiten (DE/EN)
+│   │   ├── page.tsx       # Startseite
+│   │   ├── buchen/        # Buchungssystem
+│   │   └── ...            # Weitere Seiten
+│   ├── admin/             # Admin-Dashboard
+│   │   ├── page.tsx       # Dashboard-Übersicht
+│   │   ├── buchungen/     # Buchungsverwaltung
+│   │   ├── preise/        # Preise-Editor
+│   │   ├── bewertungen/   # Testimonials
+│   │   ├── galerie/       # Galerie-Verwaltung
+│   │   └── einstellungen/ # Kontakt, Inhalte, Design
+│   └── api/               # Backend-Endpoints
+│       ├── bookings/      # Buchungs-API
+│       └── admin/         # Admin-APIs
+│
+├── components/            # React-Komponenten
+├── data/
+│   └── content.json       # Bearbeitbare Inhalte (via Dashboard)
+│
+├── lib/                   # Business-Logik
+│   ├── content.ts         # Zentrale Konfiguration
+│   ├── content-store.ts   # JSON-Datenverwaltung
+│   ├── auth.ts            # Admin-Authentifizierung
+│   ├── pricing.ts         # Preisberechnung
+│   └── booking-store.ts   # Datenspeicher
+│
+├── messages/              # Übersetzungen
+│   ├── de.json
+│   └── en.json
+│
+└── public/images/         # Bilder
+```
+
+---
+
+## 🌐 Seitenübersicht
+
+| Seite | DE | EN |
+|-------|----|----|
+| Startseite | `/` | `/en` |
+| Ausstattung | `/ausstattung` | `/en/amenities` |
+| Galerie | `/galerie` | `/en/gallery` |
+| Lage | `/lage` | `/en/location` |
+| Preise | `/preise` | `/en/prices` |
+| Über uns | `/ueber-uns` | `/en/about` |
+| Kontakt | `/kontakt` | `/en/contact` |
+| Buchung | `/buchen` | `/en/booking` |
+| **Admin** | `/admin` | — |
+
+---
+
+## ⚙️ Konfiguration
+
+### Umgebungsvariablen
+
+Erstelle eine `.env.local`-Datei im Projektroot:
+
+```env
+# Website
 NEXT_PUBLIC_SITE_URL=https://www.ferienwohnung-eggers.de
+
+# Admin-Dashboard
+ADMIN_PASSWORD=admin2024
+ADMIN_SECRET=your-secret-key
+
+# Channel Manager (optional)
+CHANNEL_MANAGER_API_URL=https://api.channel-manager.com/v1
+CHANNEL_MANAGER_API_KEY=your-api-key
 ```
 
-## Bilder ersetzen
+### Preise anpassen
 
-Aktuell sind 2 generierte Platzhalterbilder vorhanden:
+Preise können über das Admin-Dashboard unter **Preise** oder direkt in `data/content.json` angepasst werden:
 
-- `/public/images/hero-living-room.jpg`
-- `/public/images/kitchen-dining.jpg`
+```json
+{
+  "booking": {
+    "prices": {
+      "basePricePerNight": 85,
+      "cleaningFee": 85,
+      "dogFee": 25,
+      "cityTaxPerAdultPerNight": 4.10,
+      "minimumStay": 3
+    }
+  }
+}
+```
 
-**Ersetzen Sie diese durch echte Fotos der Ferienwohnung:**
+---
 
-Empfohlene zusätzliche Bilder:
+## 📦 Verfügbare Scripts
 
-- `bedroom-main.jpg` - Hauptschlafzimmer
-- `bedroom-second.jpg` - Zweites Schlafzimmer
-- `bathroom-modern.jpg` - Badezimmer
-- `terrace-outdoor.jpg` - Terrasse
-- `building-exterior.jpg` - Gebäudeaußenansicht
-- `wadden-sea-beach.jpg` - Wattenmeer/Strand
-- `sahlenburg-nature.jpg` - Umgebung
+| Script | Beschreibung |
+|--------|--------------|
+| `npm run dev` | Development-Server starten |
+| `npm run build` | Production-Build erstellen |
+| `npm start` | Production-Server starten |
+| `npm run lint` | ESLint ausführen |
 
-Aktualisieren Sie nach dem Hinzufügen neuer Bilder die Bildergalerie in `/app/galerie/page.tsx`.
+---
 
-## Channel Manager Integration
+## 🎨 Design-System
 
-Die Channel Manager Integration ist vorbereitet mit:
+### Farbpalette
 
-- Abstraktionsschicht in `/lib/channel-manager.ts`
-- Mock-Daten für Verfügbarkeiten
-- API Route `/api/channel-manager/route.ts`
+Farben können über das Admin-Dashboard unter **Einstellungen → Design & Farben** angepasst werden.
 
-**Für Produktion:**
-
-1. Fügen Sie echte API-Credentials in `.env` hinzu
-2. Ersetzen Sie die Mock-Implementierung in `lib/channel-manager.ts`
-3. Testen Sie die Integration gründlich
-
-## Buchungssystem
-
-Das Buchungssystem nutzt:
-
-- In-Memory Store (`lib/booking-store.ts`) - **Muss ersetzt werden!**
-- API Route `/api/bookings/route.ts`
-- Interaktiver Kalender mit Verfügbarkeitsanzeige
-- 3-Tage Mindestaufenthalt Validierung
-- Kurtaxe-Berechnung
-
-**Für Produktion:**
-
-- Ersetzen Sie den In-Memory Store durch eine echte Datenbank (PostgreSQL, MongoDB, etc.)
-- Implementieren Sie E-Mail-Benachrichtigungen
-- Fügen Sie Zahlungsintegration hinzu (optional)
-
-## Rechtliche Texte
-
-**WICHTIG:** Die Seiten Impressum, Datenschutz und AGB enthalten nur Mustertexte!
-
-Vor dem Produktivbetrieb MÜSSEN diese durch einen Rechtsanwalt oder Datenschutzexperten geprüft und angepasst werden.
-
-## Design-System
-
-### Farben
-
-- **Navy** (`luxury-navy-*`): Hauptfarbe für Text und Hintergründe
-- **Sand** (`luxury-sand-*`): Warme Akzente und Light-Mode Hintergrund
-- **Gold** (`luxury-gold-*`): Highlights, CTAs und Hover-Effekte
+| Farbe | Verwendung |
+|-------|------------|
+| **Navy** `#102a43` | Primärfarbe, Dark Mode Hintergrund |
+| **Sand** `#fdfcfb` | Light Mode Hintergrund |
+| **Gold** `#f59e0b` | Akzente, CTAs, Hover-Effekte |
 
 ### Schriften
 
-- **Playfair Display**: Überschriften (serif, `tracking-wide`)
-- **Inter**: Fließtext (sans-serif)
-
-### Utility-Klassen
-
-```css
-.glass-panel    /* Frosted-Glass-Effekt mit Blur */
-.texture-noise  /* Subtile Papier/Stoff-Textur */
-.bg-textured-sand  /* Sand-Hintergrund mit Textur */
-.bg-textured-navy  /* Navy-Hintergrund mit Textur */
-```
-
-### Dark Mode
-
-Der Dark Mode wird automatisch basierend auf der Systempräferenz aktiviert und kann vom Nutzer umgeschaltet werden. Die Einstellung wird im localStorage gespeichert.
-
-## Performance-Optimierung
-
-Empfohlene Schritte vor Produktivstart:
-
-1. Bilder optimieren (WebP-Format, responsive Größen)
-2. Lighthouse-Audit durchführen
-3. Lazy Loading für Bilder prüfen
-4. Bundle-Größe analysieren mit `npm run build`
-
-## SEO
-
-Jede Seite hat:
-
-- Individuelle Title und Meta Description
-- OpenGraph Metadaten
-- Strukturierte Daten (JSON-LD)
-- Semantisches HTML
-
-## Barrierefreiheit
-
-- Tastaturnavigation vollständig unterstützt
-- Ausreichende Farbkontraste (WCAG AA)
-- Semantisches HTML mit ARIA-Labels
-- Screen Reader getestet
-- Fokus-Indikatoren sichtbar
-
-## Projektstruktur
-
-```
-├── app/                        # Next.js App Router
-│   ├── [locale]/              # Dynamisches Locale-Segment (DE/EN)
-│   │   ├── layout.tsx         # Root Layout mit Providers
-│   │   ├── page.tsx           # Homepage mit HeroParallax
-│   │   ├── ausstattung/       # Ausstattungsseite
-│   │   ├── buchen/            # Buchungsseite
-│   │   └── ...                # Weitere Seiten
-│   ├── api/                   # API Routes
-│   │   ├── bookings/          # Buchungs-API
-│   │   └── channel-manager/   # Channel Manager API
-│   └── globals.css            # Globale Styles + Utility-Klassen
-├── components/
-│   ├── booking/               # Buchungs-Komponenten
-│   │   ├── booking-wizard.tsx # 4-Schritte Assistent
-│   │   └── price-summary.tsx  # Preisübersicht
-│   ├── sections/              # Seitenabschnitte
-│   │   ├── HeroParallax.tsx   # Hero mit Parallax-Effekt
-│   │   └── Testimonials.tsx   # Gästebewertungen
-│   ├── ui/                    # UI-Komponenten
-│   ├── navigation.tsx         # Header mit Gold-Hover
-│   ├── language-switcher.tsx  # DE|EN Umschalter
-│   └── ...                    # Weitere Komponenten
-├── i18n/                      # Internationalisierung
-│   ├── routing.ts             # Lokalisierte Pfade
-│   └── request.ts             # Locale Detection
-├── lib/
-│   ├── booking-store.ts       # Server-Store (In-Memory)
-│   ├── booking-client-store.ts # Client-Store (LocalStorage)
-│   ├── pricing.ts             # Preisberechnung
-│   └── ...                    # Weitere Utilities
-├── messages/                  # Übersetzungen
-│   ├── de.json                # Deutsche Texte
-│   └── en.json                # Englische Texte
-├── public/images/             # Statische Bilder
-├── tailwind.config.ts         # Design System
-└── middleware.ts              # i18n Routing
-
-```
-
-## Kontakt & Support
-
-Bei Fragen zur technischen Umsetzung:
-
-- E-Mail: [Ihre Entwickler-E-Mail]
-- Repository: [Falls vorhanden]
-
-## Lizenz
-
-Privates Projekt - Alle Rechte vorbehalten.
+- **Playfair Display** — Überschriften (Serif)
+- **Inter** — Fließtext (Sans-Serif)
 
 ---
 
-**Erstellt mit Next.js 14, React 18, TypeScript, Tailwind CSS, next-intl und Framer Motion**
+## ⚠️ Vor Produktivbetrieb
+
+> **Wichtig:** Diese Punkte müssen vor dem Go-Live erledigt werden!
+
+- [ ] **Admin-Passwort** — Sicheres Passwort in `.env.local` setzen
+- [ ] **Datenbank** — In-Memory Store durch echte DB ersetzen
+- [ ] **Rechtstexte** — Impressum, Datenschutz, AGB prüfen lassen
+- [ ] **Bilder** — Platzhalter durch echte Fotos ersetzen
+- [ ] **E-Mail** — Benachrichtigungen implementieren
+- [ ] **Kontakt** — Echte Telefonnummer/E-Mail eintragen
 
 ---
 
-*Letzte Aktualisierung: 30.11.2025 - v2.1*
+## 📄 Lizenz
+
+Privates Projekt — Alle Rechte vorbehalten.
+
+---
+
+<p align="center">
+  <sub>Entwickelt mit Next.js 14, React 18, TypeScript, Tailwind CSS & Framer Motion</sub>
+</p>

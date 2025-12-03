@@ -170,6 +170,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                     <input
                         type="text"
                         id="name"
+                        autoComplete="name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -184,6 +185,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                     <input
                         type="email"
                         id="email"
+                        autoComplete="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -198,6 +200,7 @@ export function BookingForm({ checkIn, checkOut, initialGuestCount = 2 }: Bookin
                     <input
                         type="tel"
                         id="phone"
+                        autoComplete="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-2 rounded-md border border-luxury-navy-300 dark:border-luxury-navy-700 bg-white dark:bg-luxury-navy-900 focus:ring-2 focus:ring-luxury-navy-500 focus:border-transparent"
